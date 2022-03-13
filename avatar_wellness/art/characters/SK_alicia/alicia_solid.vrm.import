@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://de1oui2oxnacn"
+uid="uid://dj3gke5tw7yd8"
 path="res://.godot/imported/alicia_solid.vrm-49b7e0f034afd6ec3157a545c194b3ab.scn"
 
 [deps]
@@ -19,7 +19,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true

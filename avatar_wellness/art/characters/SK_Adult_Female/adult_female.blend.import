@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci41eedmrt4ye"
+uid="uid://dtnkdsk7lqr7w"
 path="res://.godot/imported/adult_female.blend-aa5a8aab64be9059ed2a7d3a82a8b3c7.scn"
 
 [deps]
@@ -19,12 +19,12 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-import_script/path=""
+import_script/path="res://addons/catboost/catboost_post_scene_import.gd"
 _subresources={}
 blender/nodes/visible=2
 blender/nodes/punctual_lights=true

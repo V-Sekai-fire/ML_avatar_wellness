@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d2tvu4ry3ue3c"
+uid="uid://df6pubk7o1t0s"
 path="res://.godot/imported/v_sekai_adult-male.vrm-f7950006832f60e3b2feb0d3745e6c41.scn"
 
 [deps]
@@ -19,7 +19,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true

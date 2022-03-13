@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://oyl7q2vylwcd"
+uid="uid://cayxjugw5ddu4"
 path="res://.godot/imported/7930515568056011687.vrm-ea8c7309fc6b5e0abe5c7d0310e6dbb2.scn"
 
 [deps]
@@ -19,7 +19,7 @@ nodes/root_scale=1.0
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.1
 skins/use_named_skins=true
 animation/import=true
