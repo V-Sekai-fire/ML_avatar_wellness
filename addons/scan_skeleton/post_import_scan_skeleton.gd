@@ -134,8 +134,9 @@ static func _write_import(file, scene):
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
-				bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
-				var bone_rest_octahedron = (bone_rest.basis * Vector3.UP).octahedron_encode()
+				bone["Bone rest Z global origin in meters"] = bone_rest.origin.x				
+				var bone_rest_rot : Quaternion = bone_rest.basis.get_rotation_quaternion()
+				var bone_rest_octahedron = Vector3.UP.rotated(bone_rest_rot.get_axis(), bone_rest_rot.get_angle()).octahedron_encode()
 				bone["Bone rest octahedron X"] = bone_rest_octahedron.x
 				bone["Bone rest octahedron Y"] = bone_rest_octahedron.y
 				var bone_rest_scale = bone_rest.basis.get_scale()	
@@ -146,7 +147,9 @@ static func _write_import(file, scene):
 				bone["Bone X global origin in meters"] = bone_pose.origin.x
 				bone["Bone Y global origin in meters"] = bone_pose.origin.y
 				bone["Bone Z global origin in meters"] = bone_pose.origin.z
-				var octahedron = (bone_pose.basis * Vector3.UP).octahedron_encode()
+				var bone_pose_rot = bone_pose.basis.get_rotation_quaternion()
+				var octahedron_vec3 = Vector3.UP.rotated(bone_pose_rot.get_axis(), bone_pose_rot.get_angle())
+				var octahedron = octahedron_vec3.normalized().octahedron_encode()
 				bone["Bone octahedron X"] = octahedron.x
 				bone["Bone octahedron Y"] = octahedron.y
 				var scale = bone_pose.basis.get_scale()
@@ -156,7 +159,10 @@ static func _write_import(file, scene):
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				if bone_parent != -1:
 					var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-					var parent_octahedron = (bone_parent_pose.basis * Vector3.UP).octahedron_encode()					
+					var bone_parent_rot = bone_parent_pose.basis.get_rotation_quaternion()
+					var bone_parent_vec3 = Vector3.UP.rotated(bone_parent_rot.get_axis(), bone_parent_rot.get_angle())
+					var parent_octahedron = bone_parent_vec3.normalized().octahedron_encode()
+					print(parent_octahedron)
 					bone["Bone parent X global origin in meters"] = bone_parent_pose.origin.x
 					bone["Bone parent Y global origin in meters"] = bone_parent_pose.origin.y
 					bone["Bone parent Z global origin in meters"] = bone_parent_pose.origin.z
