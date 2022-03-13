@@ -44,8 +44,7 @@ static func bone_create():
 	var category_description : PackedStringArray
 	var CATBOOST_KEYS = [
 		["Label", "Label", "VRM_BONE_NONE"],
-		["BONE", "Categ\tBONE", "BONE_NONE"], 
-		["BONE_CAPITALIZED", "Text\tBONE_CAPITALIZED", "BONE_NONE"],
+		["BONE", "Categ\tBONE", "BONE_NONE"],
 		["SPECIFICATION_VERSION", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
 	]
 	for key_i in MAX_HIERARCHY:
@@ -198,7 +197,6 @@ static func _write_import(file, scene):
 						var bone : Dictionary = bone_create().bone
 						bone["Label"] = bone_map[bone_name]
 						bone["BONE"] = bone_name
-						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 						var bone_i = skeleton.find_bone(bone_name)
 						var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
 						for elem_i in neighbours.size():
@@ -270,7 +268,6 @@ static func _write_import(file, scene):
 					# Watch for cheating
 					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
-				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
