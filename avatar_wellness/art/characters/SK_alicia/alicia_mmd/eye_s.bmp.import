@@ -1,10 +1,10 @@
 [remap]
 
 importer="texture"
-type="StreamTexture2D"
+type="CompressedTexture2D"
 uid="uid://caucxdf7dypcu"
-path.s3tc="res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.s3tc.stex"
-path.etc2="res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.etc2.stex"
+path.s3tc="res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.s3tc.ctex"
+path.etc2="res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.etc2.ctex"
 metadata={
 "imported_formats": ["bptc", "s3tc", "etc2"],
 "vram_texture": true
@@ -13,7 +13,7 @@ metadata={
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_alicia/alicia_mmd/eye_s.bmp"
-dest_files=["res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.s3tc.stex", "res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.etc2.stex"]
+dest_files=["res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.s3tc.ctex", "res://.godot/imported/eye_s.bmp-29338367d674f5cec0527c59238c35f4.etc2.ctex"]
 
 [params]
 

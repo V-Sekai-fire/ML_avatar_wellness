@@ -34,9 +34,8 @@ func _post_import(scene : Node):
 		var front = queue.front()
 		var node = front
 		if node is Skeleton3D:
-			avatar_editor_const.correct_bone_directions(scene, node, null, null)
 			avatar_editor_const._refresh_skeleton(node)
-			catboost._write_import(scene, false, "")
+			catboost._write_import(get_source_file(), scene)
 			break
 		var child_count : int = node.get_child_count()
 		for i in child_count:

@@ -127,11 +127,9 @@ static func bone_create():
 		"description": category_description,
 	}
 
-static func _write_description(description, is_test):
+static func _write_description(description):
 	var file = File.new()	
 	var description_path = "user://train_description.txt"
-	if is_test:
-		description_path = "user://test_description.txt"
 	file.open(description_path, File.WRITE)
 	var file_string : String
 	for string in description:
@@ -139,16 +137,12 @@ static func _write_description(description, is_test):
 	file.store_string(file_string)
 	
 	
-static func _write_train(text, is_test, test_path):
-	var do_path = "user://train.tsv"
+static func _write_train(write_path, text):
+	var do_path = write_path
 	var last_text = ""
-	if not is_test:
-		var old_file = File.new()
-		old_file.open(do_path, File.READ_WRITE)
-		last_text = old_file.get_as_text()
-		old_file.close()
-	else:
-		do_path = test_path
+	var old_file = File.new()
+	old_file.open(do_path, File.WRITE)
+	last_text = old_file
 	var file = File.new()
 	file.open(do_path, File.WRITE)
 	file.store_string(last_text)
@@ -156,12 +150,13 @@ static func _write_train(text, is_test, test_path):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(scene, is_test, test_path):
+static func _write_import(file, scene):
 	var init_dict = bone_create()
-	_write_description(init_dict.description, is_test)
-	
-	var file_path : String = scene.scene_file_path
-	file_path = file_path.get_basename()
+	_write_description(init_dict.description)	
+	var file_path : String = file
+	print(file_path)
+	if file_path.is_empty():
+		return scene
 	var vrm_extension = scene
 	var bone_map : Dictionary
 	var human_map : Dictionary
@@ -345,7 +340,7 @@ static func _write_import(scene, is_test, test_path):
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-	_write_train(string_builder, is_test, test_path)
+	_write_train(file + ".tsv", string_builder)
 	return scene
 
 
