@@ -55,7 +55,7 @@ texture={
 "compress/mode": 2
 }
 scene={
-"import_script/path": "res://addons/catboost/catboost_post_scene_import.gd"
+"import_script/path": "res://addons/scan_skeleton/post_import_scan_skeleton.gd"
 }
 
 [network]

@@ -44,11 +44,11 @@ static func bone_create():
 	var category_description : PackedStringArray
 	var CATBOOST_KEYS = [
 		["Label", "Label", "VRM_BONE_NONE"],
-		["BONE", "Categ\tBONE", "BONE_NONE"],
-		["SPECIFICATION_VERSION", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
+		["Bone", "Categ\tBONE", "BONE_NONE"],
+		["Specification version", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
 	]
 	for key_i in MAX_HIERARCHY:
-		var label = "BONE_HIERARCHY_" + str(key_i).pad_zeros(3)
+		var label = "Bone hierarchy " + str(key_i).pad_zeros(3)
 		CATBOOST_KEYS.push_back([label, "Categ\t" + label, "BONE_NONE"])
 	for key_i in CATBOOST_KEYS.size():
 		category_description.push_back(str(category_description.size()) + "\t" + CATBOOST_KEYS[key_i][1])
@@ -59,9 +59,9 @@ static func bone_create():
 	bone["Bone rest Y global origin in meters"] = 0.0
 	bone["Bone rest Z global origin in meters"] = 0.0
 	var basis : Basis
-	var octahedron = basis.get_euler().octahedron_encode()
-	bone["Bone rest octahedron x"] = octahedron.x
-	bone["Bone rest octahedron y"] = octahedron.y
+	var octahedron = (basis * Vector3.UP).octahedron_encode()
+	bone["Bone rest octahedron X"] = octahedron.x
+	bone["Bone rest octahedron Y"] = octahedron.y
 	bone["Bone rest X global scale in meters"] = 1.0
 	bone["Bone rest Y global scale in meters"] = 1.0
 	bone["Bone rest Z global scale in meters"] = 1.0
@@ -71,8 +71,8 @@ static func bone_create():
 	bone["Bone X global origin in meters"] = 0.0
 	bone["Bone Y global origin in meters"] = 0.0
 	bone["Bone Z global origin in meters"] = 0.0
-	bone["Bone octahedron x"] = octahedron.x
-	bone["Bone octahedron y"] = octahedron.y
+	bone["Bone octahedron X"] = octahedron.x
+	bone["Bone octahedron Y"] = octahedron.y
 	var scale : Vector3 = Vector3(1.0, 1.0, 1.0)
 	bone["Bone X global scale in meters"] = scale.x
 	bone["Bone Y global scale in meters"] = scale.y
@@ -80,8 +80,8 @@ static func bone_create():
 	bone["Bone parent X global origin in meters"] = 0.0
 	bone["Bone parent Y global origin in meters"] = 0.0
 	bone["Bone parent Z global origin in meters"] = 0.0
-	bone["Bone parent octahedron x"] = octahedron.x
-	bone["Bone parent octahedron y"] = octahedron.y
+	bone["Bone parent octahedron X"] = octahedron.x
+	bone["Bone parent octahedron Y"] = octahedron.y
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
@@ -123,18 +123,21 @@ static func _write_import(file, scene):
 		if node is Skeleton3D:
 			var skeleton : Skeleton3D = node
 			var print_skeleton_neighbours_text_cache : Dictionary
+			var bone : Dictionary = bone_create().bone
+			string_builder.push_back(bone.keys())
 			for bone_i in skeleton.get_bone_count():
-				var bone : Dictionary = bone_create().bone
-				bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
-				bone["BONE"] = skeleton.get_bone_name(bone_i)
+				if bone_map.has(skeleton.get_bone_name(bone_i)):
+					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+				else:
+					bone["Label"] = "VRM_BONE_NONE"
+				bone["Bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
-				var bone_rest_basis = bone_rest.basis
-				var bone_rest_octahedron = bone_rest_basis.get_euler().octahedron_encode()
-				bone["Bone rest octahedron x"] = bone_rest_octahedron.x.x
-				bone["Bone rest octahedron y"] = bone_rest_octahedron.x.y
+				var bone_rest_octahedron = (bone_rest.basis * Vector3.UP).octahedron_encode()
+				bone["Bone rest octahedron X"] = bone_rest_octahedron.x
+				bone["Bone rest octahedron Y"] = bone_rest_octahedron.y
 				var bone_rest_scale = bone_rest.basis.get_scale()	
 				bone["Bone rest X global scale in meters"] = bone_rest_scale.x
 				bone["Bone rest Y global scale in meters"] = bone_rest_scale.y
@@ -143,10 +146,9 @@ static func _write_import(file, scene):
 				bone["Bone X global origin in meters"] = bone_pose.origin.x
 				bone["Bone Y global origin in meters"] = bone_pose.origin.y
 				bone["Bone Z global origin in meters"] = bone_pose.origin.z
-				var basis = bone_pose.basis.orthonormalized()
-				var octahedron = basis.get_euler().octahedron_encode()
-				bone["Bone octahedron x"] = octahedron.x
-				bone["Bone octahedron y"] = octahedron.y
+				var octahedron = (bone_pose.basis * Vector3.UP).octahedron_encode()
+				bone["Bone octahedron X"] = octahedron.x
+				bone["Bone octahedron Y"] = octahedron.y
 				var scale = bone_pose.basis.get_scale()
 				bone["Bone X global scale in meters"] = scale.x
 				bone["Bone Y global scale in meters"] = scale.y
@@ -154,13 +156,12 @@ static func _write_import(file, scene):
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				if bone_parent != -1:
 					var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-					bone["Bone parent X global origin in meters"] = bone_pose.origin.x
-					bone["Bone parent Y global origin in meters"] = bone_pose.origin.y
-					bone["Bone parent Z global origin in meters"] = bone_pose.origin.z
-					var parent_basis = bone_parent_pose.basis
-					var parent_octahedron = basis.get_euler().octahedron_encode()
-					bone["Bone parent octahedron"] = parent_octahedron.x
-					bone["Bone parent octahedron"] = parent_octahedron.y
+					var parent_octahedron = (bone_parent_pose.basis * Vector3.UP).octahedron_encode()					
+					bone["Bone parent X global origin in meters"] = bone_parent_pose.origin.x
+					bone["Bone parent Y global origin in meters"] = bone_parent_pose.origin.y
+					bone["Bone parent Z global origin in meters"] = bone_parent_pose.origin.z
+					bone["Bone parent octahedron X"] = parent_octahedron.x
+					bone["Bone parent octahedron Y"] = parent_octahedron.y
 					var parent_scale = bone_parent_pose.basis.get_scale()
 					bone["Bone parent X global scale in meters"] = parent_scale.x
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
@@ -169,18 +170,18 @@ static func _write_import(file, scene):
 				for elem_i in neighbours[bone_i].size():
 					if elem_i >= MAX_HIERARCHY:
 						break
-					bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
+					bone["Bone hierarchy " + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
 						version = "VERSION_NONE"
-					bone["SPECIFICATION_VERSION"] = version
+					bone["Specification version"] = version
 				string_builder.push_back(bone.values())
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-	_write_train(file + ".tsv", string_builder)
+	_write_train(file.get_file() + ".tsv", string_builder)
 	return scene
 
 
