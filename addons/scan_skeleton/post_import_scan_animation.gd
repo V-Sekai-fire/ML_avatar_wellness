@@ -128,7 +128,16 @@ static func bone_create():
 		"description": category_description,
 	}
 
-
+static func _write_description(description):
+	var file = File.new()	
+	var description_path = "user://train_description.txt"
+	file.open(description_path, File.WRITE)
+	var file_string : String
+	for string in description:
+		file_string += string + "\n"
+	file.store_string(file_string)
+	
+	
 static func _write_train(write_path, text):
 	var file = File.new()
 	file.open(write_path, File.WRITE)
@@ -138,6 +147,7 @@ static func _write_train(write_path, text):
 
 static func _write_import(file, scene):
 	var init_dict = bone_create()
+	_write_description(init_dict.description)	
 	var file_path : String = file
 	print(file_path)
 	if file_path.is_empty():
