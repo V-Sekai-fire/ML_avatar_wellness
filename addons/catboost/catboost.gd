@@ -138,14 +138,8 @@ static func _write_description(description):
 	
 	
 static func _write_train(write_path, text):
-	var do_path = write_path
-	var last_text = ""
-	var old_file = File.new()
-	old_file.open(do_path, File.WRITE)
-	last_text = old_file
 	var file = File.new()
-	file.open(do_path, File.WRITE)
-	file.store_string(last_text)
+	file.open(write_path, File.WRITE)
 	for t in text:
 		file.store_csv_line(t, "\t")
 	file.close()

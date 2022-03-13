@@ -27,6 +27,8 @@ var catboost : RefCounted = preload("res://addons/catboost/catboost.gd")
 const avatar_editor_const = preload("res://addons/vsk_avatar/vsk_avatar_definition_editor.gd")
 
 func _post_import(scene : Node):
+	if not get_source_file().get_extension() == "vrm":
+		return scene
 	var queue : Array
 	queue.push_back(scene)
 	var string_builder : Array
