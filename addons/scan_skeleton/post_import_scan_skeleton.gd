@@ -19,7 +19,9 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-extends RefCounted
+
+@tool
+extends EditorScenePostImport
 
 const vrm_humanoid_bones = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
  "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
@@ -386,3 +388,22 @@ static func find_neighbor_joint(parents, threshold):
 				neighbor.append(j)
 		neighbor_list.append(neighbor)
 	return neighbor_list
+	
+func _post_import(scene : Node):
+	if not get_source_file().get_extension() == "vrm":
+		return scene
+	var queue : Array
+	queue.push_back(scene)
+	var string_builder : Array
+	while not queue.is_empty():
+		var front = queue.front()
+		var node = front
+		if node is Skeleton3D:
+			_write_import(get_source_file(), scene)
+			break
+		var child_count : int = node.get_child_count()
+		for i in child_count:
+			queue.push_back(node.get_child(i))
+		queue.pop_front()	
+	return scene
+
