@@ -47,9 +47,6 @@ static func bone_create():
 		["Bone", "Categ\tBONE", "BONE_NONE"],
 		["Specification version", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
 	]
-	for key_i in MAX_HIERARCHY:
-		var label = "Bone hierarchy " + str(key_i).pad_zeros(3)
-		CATBOOST_KEYS.push_back([label, "Categ\t" + label, "BONE_NONE"])
 	for key_i in CATBOOST_KEYS.size():
 		category_description.push_back(str(category_description.size()) + "\t" + CATBOOST_KEYS[key_i][1])
 		bone_category[CATBOOST_KEYS[key_i][0]] = CATBOOST_KEYS[key_i][2]
@@ -213,10 +210,6 @@ static func _write_import(file, scene):
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
 					bone["Bone parent Z global scale in meters"] = parent_scale.z
 				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
-				for elem_i in neighbours[bone_i].size():
-					if elem_i >= MAX_HIERARCHY:
-						break
-					bone["Bone hierarchy " + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
