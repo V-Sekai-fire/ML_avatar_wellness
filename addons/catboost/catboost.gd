@@ -183,7 +183,7 @@ static func _write_import(file, scene):
 					if str(path).find(":") == -1:
 						continue
 					var bone_name = path.split(":")[1]
-					if not is_test and not bone_map.has(bone_name):
+					if not bone_map.has(bone_name):
 						continue
 					var new_path = path.split(":")[0]
 					var skeleton_node = scene.get_node(new_path)
@@ -200,9 +200,7 @@ static func _write_import(file, scene):
 						var columns_description : PackedStringArray
 						var first : bool = true
 						var bone : Dictionary = bone_create().bone
-						if not is_test:
-							# WATCH FOR CHEATING
-							bone["Label"] = bone_map[bone_name]
+						bone["Label"] = bone_map[bone_name]
 						bone["BONE"] = bone_name
 						bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 						var bone_i = skeleton.find_bone(bone_name)
@@ -272,10 +270,9 @@ static func _write_import(file, scene):
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = bone_create().bone
-				if is_test == false:
-					if bone_map.has(skeleton.get_bone_name(bone_i)):
-						# Watch for cheating
-						bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+				if bone_map.has(skeleton.get_bone_name(bone_i)):
+					# Watch for cheating
+					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				bone["BONE_CAPITALIZED"] = bone["BONE"].capitalize()
 				var bone_rest = skeleton.get_bone_rest(bone_i)
