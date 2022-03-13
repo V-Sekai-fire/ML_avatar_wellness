@@ -43,81 +43,78 @@ static func bone_create():
 	var bone_category : Dictionary
 	var category_description : PackedStringArray
 	var CATBOOST_KEYS = [
-		["Label", "Label", "VRM_BONE_NONE"],
-		["Bone", "Categ\tBONE", "BONE_NONE"],
-		["Specification version", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
+		["label", "", "VRM_BONE_NONE"],
+		["bone", "", "BONE_NONE"],
+		["specification_version", "", "VERSION_NONE"],
 	]
-	for key_i in MAX_HIERARCHY:
-		var label = "Bone hierarchy " + str(key_i).pad_zeros(3)
-		CATBOOST_KEYS.push_back([label, "Categ\t" + label, "BONE_NONE"])
 	for key_i in CATBOOST_KEYS.size():
 		category_description.push_back(str(category_description.size()) + "\t" + CATBOOST_KEYS[key_i][1])
 		bone_category[CATBOOST_KEYS[key_i][0]] = CATBOOST_KEYS[key_i][2]
 	var bone : Dictionary
-	bone["Animation time"] = 0.0
-	bone["Bone rest X global origin in meters"] = 0.0
-	bone["Bone rest Y global origin in meters"] = 0.0
-	bone["Bone rest Z global origin in meters"] = 0.0
-	bone["Bone rest truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone rest truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone rest truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone rest truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone rest truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone rest truncated normalized basis axis y 2"] = Basis().y.z	
-	bone["Bone rest X global scale in meters"] = 1.0
-	bone["Bone rest Y global scale in meters"] = 1.0
-	bone["Bone rest Z global scale in meters"] = 1.0
-	bone["Bone X global origin in meters"] = 0.0
-	bone["Bone Y global origin in meters"] = 0.0
-	bone["Bone Z global origin in meters"] = 0.0
-	bone["Bone truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone truncated normalized basis axis y 2"] = Basis().y.z	
-	bone["Bone X global scale in meters"] = 1.0
-	bone["Bone Y global scale in meters"] = 1.0
-	bone["Bone Z global scale in meters"] = 1.0
-	bone["Bone parent X global origin in meters"] = 0.0
-	bone["Bone parent Y global origin in meters"] = 0.0
-	bone["Bone parent Z global origin in meters"] = 0.0
-	bone["Bone parent truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone parent truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone parent truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone parent truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone parent truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone parent truncated normalized basis axis y 2"] = Basis().y.z
-	bone["Bone parent X global scale in meters"] = 1.0
-	bone["Bone parent Y global scale in meters"] = 1.0
-	bone["Bone parent Z global scale in meters"] = 1.0
-	bone["Bone X global origin in meters"] = 0.0
-	bone["Bone Y global origin in meters"] = 0.0
-	bone["Bone Z global origin in meters"] = 0.0
+	bone["animation_time"] = 0.0
+	bone["bone_rest_x_global_origin_in_meters"] = 0.0
+	bone["bone_rest_y_global_origin_in_meters"] = 0.0
+	bone["bone_rest_z_global_origin_in_meters"] = 0.0
+	bone["bone_rest_truncated_normalized_basis_axis_x_0"] = Basis().x.x
+	bone["bone_rest_truncated_normalized_basis_axis_x_1"] = Basis().x.y
+	bone["bone_rest_truncated_normalized_basis_axis_x_2"] = Basis().x.z
+	bone["bone_rest_truncated_normalized_basis_axis_y_0"] = Basis().y.x
+	bone["bone_rest_truncated_normalized_basis_axis_y_1"] = Basis().y.y
+	bone["bone_rest_truncated_normalized_basis_axis_y_2"] = Basis().y.z	
+	bone["bone_rest_x_global_scale_in_meters"] = 1.0
+	bone["bone_rest_y_global_scale_in_meters"] = 1.0
+	bone["bone_rest_z_global_scale_in_meters"] = 1.0
+	bone["bone_x_global_origin_in_meters"] = 0.0
+	bone["bone_y_global_origin_in_meters"] = 0.0
+	bone["bone_z_global_origin_in_meters"] = 0.0
+	bone["bone_truncated_normalized_basis_axis_x_0"] = Basis().x.x
+	bone["bone_truncated_normalized_basis_axis_x_1"] = Basis().x.y
+	bone["bone_truncated_normalized_basis_axis_x_2"] = Basis().x.z
+	bone["bone_truncated_normalized_basis_axis_y_0"] = Basis().y.x
+	bone["bone_truncated_normalized_basis_axis_y_1"] = Basis().y.y
+	bone["bone_truncated_normalized_basis_axis_y_2"] = Basis().y.z	
+	bone["bone_x_global_scale_in_meters"] = 1.0
+	bone["bone_y_global_scale_in_meters"] = 1.0
+	bone["bone_z_global_scale_in_meters"] = 1.0
+	bone["bone_parent_x_global_origin_in_meters"] = 0.0
+	bone["bone_parent_y_global_origin_in_meters"] = 0.0
+	bone["bone_parent_z_global_origin_in_meters"] = 0.0
+	bone["bone_parent_truncated_normalized_basis_axis_x_0"] = Basis().x.x
+	bone["bone_parent_truncated_normalized_basis_axis_x 1"] = Basis().x.y
+	bone["bone_parent_truncated_normalized_basis_axis_x 2"] = Basis().x.z
+	bone["bone_parent_truncated_normalized_basis_axis_y_0"] = Basis().y.x
+	bone["bone_parent_truncated_normalized_basis_axis_y 1"] = Basis().y.y
+	bone["bone_parent_truncated_normalized_basis_axis_y 2"] = Basis().y.z
+	bone["bone_parent_x_global_scale_in_meters"] = 1.0
+	bone["bone_parent_y_global_scale_in_meters"] = 1.0
+	bone["bone_parent_z_global_scale_in_meters"] = 1.0
+	bone["bone_x_global_origin_in_meters"] = 0.0
+	bone["bone_y_global_origin_in_meters"] = 0.0
+	bone["bone_z_global_origin_in_meters"] = 0.0
 	var basis : Basis
-	bone["Bone truncated normalized basis axis x 0"] = basis.x.x
-	bone["Bone truncated normalized basis axis x 1"] = basis.x.y
-	bone["Bone truncated normalized basis axis x 2"] = basis.x.z
-	bone["Bone truncated normalized basis axis y 0"] = basis.y.x
-	bone["Bone truncated normalized basis axis y 1"] = basis.y.y
-	bone["Bone truncated normalized basis axis y 2"] = basis.y.z
+	bone["bone_truncated_normalized_basis_axis_x_0"] = basis.x.x
+	bone["bone_truncated_normalized_basis_axis_x_1"] = basis.x.y
+	bone["bone_truncated_normalized_basis_axis_x_2"] = basis.x.z
+	bone["bone_truncated_normalized_basis_axis_y_0"] = basis.y.x
+	bone["bone_truncated_normalized_basis_axis_y_1"] = basis.y.y
+	bone["bone_truncated_normalized_basis_axis_y_2"] = basis.y.z
 	var scale : Vector3 = Vector3(1.0, 1.0, 1.0)
-	bone["Bone X global scale in meters"] = scale.x
-	bone["Bone Y global scale in meters"] = scale.y
-	bone["Bone Z global scale in meters"] = scale.z
-	bone["Bone parent X global origin in meters"] = 0.0
-	bone["Bone parent Y global origin in meters"] = 0.0
-	bone["Bone parent Z global origin in meters"] = 0.0
+	bone["bone_x_global_scale_in_meters"] = scale.x
+	bone["bone_y_global_scale_in_meters"] = scale.y
+	bone["bone_z_global_scale_in_meters"] = scale.z
+	bone["bone_parent_x_global_origin_in_meters"] = 0.0
+	bone["bone_parent_y_global_origin_in_meters"] = 0.0
+	bone["bone_parent_z_global_origin_in_meters"] = 0.0
 	var parent_basis : Basis
-	bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
-	bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
-	bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
-	bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
-	bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
-	bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
-	bone["Bone parent X global scale in meters"] = 1.0
-	bone["Bone parent Y global scale in meters"] = 1.0
-	bone["Bone parent Z global scale in meters"] = 1.0
+	bone["bone_parent_truncated_normalized_basis_axis_x_0"] = parent_basis.x.x
+	bone["bone_parent_truncated_normalized_basis_axis_x 1"] = parent_basis.x.y
+	bone["bone_parent_truncated_normalized_basis_axis_x 2"] = parent_basis.x.z
+	bone["bone_parent_truncated_normalized_basis_axis_y_0"] = parent_basis.y.x
+	bone["bone_parent_truncated_normalized_basis_axis_y 1"] = parent_basis.y.y
+	bone["bone_parent_truncated_normalized_basis_axis_y 2"] = parent_basis.y.z
+	bone["bone_parent_x_global_scale_in_meters"] = 1.0
+	bone["bone_parent_y_global_scale_in_meters"] = 1.0
+	bone["bone_parent_z_global_scale_in_meters"] = 1.0
 	for bone_key_i in bone.keys().size():
 		var bone_key = bone.keys()[bone_key_i]
 		var bone_value = bone.values()[bone_key_i]
@@ -161,62 +158,58 @@ static func _write_import(file, scene):
 			string_builder.push_back(bone.keys())
 			for bone_i in skeleton.get_bone_count():
 				if bone_map.has(skeleton.get_bone_name(bone_i)):
-					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+					bone["label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				else:
-					bone["Label"] = "VRM_BONE_NONE"
-				bone["Bone"] = skeleton.get_bone_name(bone_i)
+					bone["label"] = "VRM_BONE_NONE"
+				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
-				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
-				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
-				bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
+				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
+				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
+				bone["bone_rest_z_global_origin_in_meters"] = bone_rest.origin.x
 				var bone_rest_basis = bone_rest.basis.orthonormalized()
-				bone["Bone rest truncated normalized basis axis x 0"] = bone_rest_basis.x.x
-				bone["Bone rest truncated normalized basis axis x 1"] = bone_rest_basis.x.y
-				bone["Bone rest truncated normalized basis axis x 2"] = bone_rest_basis.x.z
-				bone["Bone rest truncated normalized basis axis y 0"] = bone_rest_basis.y.x
-				bone["Bone rest truncated normalized basis axis y 1"] = bone_rest_basis.y.y
-				bone["Bone rest truncated normalized basis axis y 2"] = bone_rest_basis.y.z
+				bone["bone_rest_truncated_normalized_basis_axis_x_0"] = bone_rest_basis.x.x
+				bone["bone_rest_truncated_normalized_basis_axis_x 1"] = bone_rest_basis.x.y
+				bone["bone_rest_truncated_normalized_basis_axis_x 2"] = bone_rest_basis.x.z
+				bone["bone_rest_truncated_normalized_basis_axis_y_0"] = bone_rest_basis.y.x
+				bone["bone_rest_truncated_normalized_basis_axis_y 1"] = bone_rest_basis.y.y
+				bone["bone_rest_truncated_normalized_basis_axis_y 2"] = bone_rest_basis.y.z
 				var bone_rest_scale = bone_rest.basis.get_scale()	
-				bone["Bone rest X global scale in meters"] = bone_rest_scale.x
-				bone["Bone rest Y global scale in meters"] = bone_rest_scale.y
-				bone["Bone rest Z global scale in meters"] = bone_rest_scale.z
+				bone["bone_rest_x_global_scale_in_meters"] = bone_rest_scale.x
+				bone["bone_rest_y_global_scale_in_meters"] = bone_rest_scale.y
+				bone["bone_rest_z_global_scale_in_meters"] = bone_rest_scale.z
 				var bone_pose = skeleton.get_bone_global_pose(bone_i)
-				bone["Bone X global origin in meters"] = bone_pose.origin.x
-				bone["Bone Y global origin in meters"] = bone_pose.origin.y
-				bone["Bone Z global origin in meters"] = bone_pose.origin.z
+				bone["bone_x_global_origin_in_meters"] = bone_pose.origin.x
+				bone["bone_y_global_origin_in_meters"] = bone_pose.origin.y
+				bone["bone_z_global_origin_in_meters"] = bone_pose.origin.z
 				var basis = bone_pose.basis.orthonormalized()
-				bone["Bone truncated normalized basis axis x 0"] = basis.x.x
-				bone["Bone truncated normalized basis axis x 1"] = basis.x.y
-				bone["Bone truncated normalized basis axis x 2"] = basis.x.z
-				bone["Bone truncated normalized basis axis y 0"] = basis.y.x
-				bone["Bone truncated normalized basis axis y 1"] = basis.y.y
-				bone["Bone truncated normalized basis axis y 2"] = basis.y.z
+				bone["bone_truncated_normalized_basis_axis_x_0"] = basis.x.x
+				bone["bone_truncated_normalized_basis_axis_x_1"] = basis.x.y
+				bone["bone_truncated_normalized_basis_axis_x_2"] = basis.x.z
+				bone["bone_truncated_normalized_basis_axis_y_0"] = basis.y.x
+				bone["bone_truncated_normalized_basis_axis_y_1"] = basis.y.y
+				bone["bone_truncated_normalized_basis_axis_y_2"] = basis.y.z
 				var scale = bone_pose.basis.get_scale()
-				bone["Bone X global scale in meters"] = scale.x
-				bone["Bone Y global scale in meters"] = scale.y
-				bone["Bone Z global scale in meters"] = scale.z
+				bone["bone_x_global_scale_in_meters"] = scale.x
+				bone["bone_y_global_scale_in_meters"] = scale.y
+				bone["bone_z_global_scale_in_meters"] = scale.z
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				if bone_parent != -1:
 					var bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-					bone["Bone parent X global origin in meters"] = bone_pose.origin.x
-					bone["Bone parent Y global origin in meters"] = bone_pose.origin.y
-					bone["Bone parent Z global origin in meters"] = bone_pose.origin.z
+					bone["bone_parent_y_global_origin_in_meters"] = bone_pose.origin.x
+					bone["bone_parent_y_global_origin_in_meters"] = bone_pose.origin.y
+					bone["bone_parent_z_global_origin_in_meters"] = bone_pose.origin.z
 					var parent_basis = bone_parent_pose.basis.orthonormalized()
-					bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
-					bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
-					bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
-					bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
-					bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
-					bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
+					bone["bone_parent_truncated_normalized_basis_axis_x_0"] = parent_basis.x.x
+					bone["bone_parent_truncated_normalized_basis_axis_x 1"] = parent_basis.x.y
+					bone["bone_parent_truncated_normalized_basis_axis_x 2"] = parent_basis.x.z
+					bone["bone_parent_truncated_normalized_basis_axis_y_0"] = parent_basis.y.x
+					bone["bone_parent_truncated_normalized_basis_axis_y 1"] = parent_basis.y.y
+					bone["bone_parent_truncated_normalized_basis_axis_y 2"] = parent_basis.y.z
 					var parent_scale = bone_parent_pose.basis.get_scale()
-					bone["Bone parent X global scale in meters"] = parent_scale.x
-					bone["Bone parent Y global scale in meters"] = parent_scale.y
-					bone["Bone parent Z global scale in meters"] = parent_scale.z
+					bone["bone_parent_y_global_scale_in_meters"] = parent_scale.x
+					bone["bone_parent_y_global_scale_in_meters"] = parent_scale.y
+					bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
 				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)
-				for elem_i in neighbours[bone_i].size():
-					if elem_i >= MAX_HIERARCHY:
-						break
-					bone["Bone hierarchy " + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(neighbours[bone_i][elem_i])
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
