@@ -58,49 +58,21 @@ static func bone_create():
 	bone["Bone rest X global origin in meters"] = 0.0
 	bone["Bone rest Y global origin in meters"] = 0.0
 	bone["Bone rest Z global origin in meters"] = 0.0
-	bone["Bone rest truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone rest truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone rest truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone rest truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone rest truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone rest truncated normalized basis axis y 2"] = Basis().y.z	
+	var basis : Basis
+	var octahedron = basis.get_euler().octahedron_encode()
+	bone["Bone rest octahedron x"] = octahedron.x
+	bone["Bone rest octahedron y"] = octahedron.y
 	bone["Bone rest X global scale in meters"] = 1.0
 	bone["Bone rest Y global scale in meters"] = 1.0
 	bone["Bone rest Z global scale in meters"] = 1.0
-	bone["Bone X global origin in meters"] = 0.0
-	bone["Bone Y global origin in meters"] = 0.0
-	bone["Bone Z global origin in meters"] = 0.0
-	bone["Bone truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone truncated normalized basis axis y 2"] = Basis().y.z	
-	bone["Bone X global scale in meters"] = 1.0
-	bone["Bone Y global scale in meters"] = 1.0
-	bone["Bone Z global scale in meters"] = 1.0
-	bone["Bone parent X global origin in meters"] = 0.0
-	bone["Bone parent Y global origin in meters"] = 0.0
-	bone["Bone parent Z global origin in meters"] = 0.0
-	bone["Bone parent truncated normalized basis axis x 0"] = Basis().x.x
-	bone["Bone parent truncated normalized basis axis x 1"] = Basis().x.y
-	bone["Bone parent truncated normalized basis axis x 2"] = Basis().x.z
-	bone["Bone parent truncated normalized basis axis y 0"] = Basis().y.x
-	bone["Bone parent truncated normalized basis axis y 1"] = Basis().y.y
-	bone["Bone parent truncated normalized basis axis y 2"] = Basis().y.z
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
 	bone["Bone X global origin in meters"] = 0.0
 	bone["Bone Y global origin in meters"] = 0.0
 	bone["Bone Z global origin in meters"] = 0.0
-	var basis : Basis
-	bone["Bone truncated normalized basis axis x 0"] = basis.x.x
-	bone["Bone truncated normalized basis axis x 1"] = basis.x.y
-	bone["Bone truncated normalized basis axis x 2"] = basis.x.z
-	bone["Bone truncated normalized basis axis y 0"] = basis.y.x
-	bone["Bone truncated normalized basis axis y 1"] = basis.y.y
-	bone["Bone truncated normalized basis axis y 2"] = basis.y.z
+	bone["Bone octahedron x"] = octahedron.x
+	bone["Bone octahedron y"] = octahedron.y
 	var scale : Vector3 = Vector3(1.0, 1.0, 1.0)
 	bone["Bone X global scale in meters"] = scale.x
 	bone["Bone Y global scale in meters"] = scale.y
@@ -108,13 +80,8 @@ static func bone_create():
 	bone["Bone parent X global origin in meters"] = 0.0
 	bone["Bone parent Y global origin in meters"] = 0.0
 	bone["Bone parent Z global origin in meters"] = 0.0
-	var parent_basis : Basis
-	bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
-	bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
-	bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
-	bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
-	bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
-	bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
+	bone["Bone parent octahedron x"] = octahedron.x
+	bone["Bone parent octahedron y"] = octahedron.y
 	bone["Bone parent X global scale in meters"] = 1.0
 	bone["Bone parent Y global scale in meters"] = 1.0
 	bone["Bone parent Z global scale in meters"] = 1.0
@@ -138,7 +105,6 @@ static func _write_train(write_path, text):
 static func _write_import(file, scene):
 	var init_dict = bone_create()
 	var file_path : String = file
-	print(file_path)
 	if file_path.is_empty():
 		return scene
 	var vrm_extension = scene
@@ -159,21 +125,16 @@ static func _write_import(file, scene):
 			var print_skeleton_neighbours_text_cache : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone : Dictionary = bone_create().bone
-				if bone_map.has(skeleton.get_bone_name(bone_i)):
-					# Watch for cheating
-					bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
+				bone["Label"] = bone_map[skeleton.get_bone_name(bone_i)]
 				bone["BONE"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Y global origin in meters"] = bone_rest.origin.x
 				bone["Bone rest Z global origin in meters"] = bone_rest.origin.x
-				var bone_rest_basis = bone_rest.basis.orthonormalized()
-				bone["Bone rest truncated normalized basis axis x 0"] = bone_rest_basis.x.x
-				bone["Bone rest truncated normalized basis axis x 1"] = bone_rest_basis.x.y
-				bone["Bone rest truncated normalized basis axis x 2"] = bone_rest_basis.x.z
-				bone["Bone rest truncated normalized basis axis y 0"] = bone_rest_basis.y.x
-				bone["Bone rest truncated normalized basis axis y 1"] = bone_rest_basis.y.y
-				bone["Bone rest truncated normalized basis axis y 2"] = bone_rest_basis.y.z
+				var bone_rest_basis = bone_rest.basis
+				var bone_rest_octahedron = bone_rest_basis.get_euler().octahedron_encode()
+				bone["Bone rest octahedron x"] = bone_rest_octahedron.x.x
+				bone["Bone rest octahedron y"] = bone_rest_octahedron.x.y
 				var bone_rest_scale = bone_rest.basis.get_scale()	
 				bone["Bone rest X global scale in meters"] = bone_rest_scale.x
 				bone["Bone rest Y global scale in meters"] = bone_rest_scale.y
@@ -183,12 +144,9 @@ static func _write_import(file, scene):
 				bone["Bone Y global origin in meters"] = bone_pose.origin.y
 				bone["Bone Z global origin in meters"] = bone_pose.origin.z
 				var basis = bone_pose.basis.orthonormalized()
-				bone["Bone truncated normalized basis axis x 0"] = basis.x.x
-				bone["Bone truncated normalized basis axis x 1"] = basis.x.y
-				bone["Bone truncated normalized basis axis x 2"] = basis.x.z
-				bone["Bone truncated normalized basis axis y 0"] = basis.y.x
-				bone["Bone truncated normalized basis axis y 1"] = basis.y.y
-				bone["Bone truncated normalized basis axis y 2"] = basis.y.z
+				var octahedron = basis.get_euler().octahedron_encode()
+				bone["Bone octahedron x"] = octahedron.x
+				bone["Bone octahedron y"] = octahedron.y
 				var scale = bone_pose.basis.get_scale()
 				bone["Bone X global scale in meters"] = scale.x
 				bone["Bone Y global scale in meters"] = scale.y
@@ -199,13 +157,10 @@ static func _write_import(file, scene):
 					bone["Bone parent X global origin in meters"] = bone_pose.origin.x
 					bone["Bone parent Y global origin in meters"] = bone_pose.origin.y
 					bone["Bone parent Z global origin in meters"] = bone_pose.origin.z
-					var parent_basis = bone_parent_pose.basis.orthonormalized()
-					bone["Bone parent truncated normalized basis axis x 0"] = parent_basis.x.x
-					bone["Bone parent truncated normalized basis axis x 1"] = parent_basis.x.y
-					bone["Bone parent truncated normalized basis axis x 2"] = parent_basis.x.z
-					bone["Bone parent truncated normalized basis axis y 0"] = parent_basis.y.x
-					bone["Bone parent truncated normalized basis axis y 1"] = parent_basis.y.y
-					bone["Bone parent truncated normalized basis axis y 2"] = parent_basis.y.z
+					var parent_basis = bone_parent_pose.basis
+					var parent_octahedron = basis.get_euler().octahedron_encode()
+					bone["Bone parent octahedron"] = parent_octahedron.x
+					bone["Bone parent octahedron"] = parent_octahedron.y
 					var parent_scale = bone_parent_pose.basis.get_scale()
 					bone["Bone parent X global scale in meters"] = parent_scale.x
 					bone["Bone parent Y global scale in meters"] = parent_scale.y
