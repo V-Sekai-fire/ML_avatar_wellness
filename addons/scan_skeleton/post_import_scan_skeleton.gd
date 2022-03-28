@@ -89,7 +89,7 @@ static func _write_import(file, scene):
 				var bone_parent_pose : Transform3D
 				if bone_parent != -1:
 					bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
-				bone["bone_parent_y_global_origin_in_meters"] = bone_pose.origin.x
+				bone["bone_parent_x_global_origin_in_meters"] = bone_pose.origin.x
 				bone["bone_parent_y_global_origin_in_meters"] = bone_pose.origin.y
 				bone["bone_parent_z_global_origin_in_meters"] = bone_pose.origin.z
 				var parent_basis : Basis
@@ -111,9 +111,9 @@ static func _write_import(file, scene):
 				for elem_i in neighbours.size():
 					var bone_id = neighbours[elem_i]
 					if bone_hierarchy.is_empty():
-						bone_hierarchy = skeleton.get_bone_name(bone_id) + ","
+						bone_hierarchy = skeleton.get_bone_name(bone_id) + " "
 						continue
-					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + ","
+					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + " "
 				bone["bone_hierarchy"] = bone_hierarchy
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
