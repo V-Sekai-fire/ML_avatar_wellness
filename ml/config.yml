@@ -1,8 +1,8 @@
 input_features:
     - name: label
       type: category
-    # - name: specification_version
-    #   type: category
+    - name: specification_version
+      type: category
     - name: bone
       type: category
     - name: bone_hierarchy
