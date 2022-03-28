@@ -2,7 +2,7 @@ input_features:
     - name: specification_version
       type: category
     - name: bone
-      type: text
+      type: category
     - name: bone_hierarchy
       type: bag
     - name: bone_rest_x_global_origin_in_meters
@@ -47,4 +47,4 @@ input_features:
 
 output_features:
     - name: label
-      type: set
+      type: text
