@@ -40,19 +40,6 @@ const vrm_humanoid_bones = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg"
 const MAX_HIERARCHY = 256
 
 static func bone_create():
-	var bone_category : Dictionary
-	var category_description : PackedStringArray
-	var CATBOOST_KEYS = [
-		["Label", "Label", "VRM_BONE_NONE"],
-		["BONE", "Categ\tBONE", "BONE_NONE"],
-		["SPECIFICATION_VERSION", "Auxiliary\tSPECIFICATION_VERSION", "VERSION_NONE"],
-	]
-	for key_i in MAX_HIERARCHY:
-		var label = "BONE_HIERARCHY_" + str(key_i).pad_zeros(3)
-		CATBOOST_KEYS.push_back([label, "Categ\t" + label, "BONE_NONE"])
-	for key_i in CATBOOST_KEYS.size():
-		category_description.push_back(str(category_description.size()) + "\t" + CATBOOST_KEYS[key_i][1])
-		bone_category[CATBOOST_KEYS[key_i][0]] = CATBOOST_KEYS[key_i][2]
 	var bone : Dictionary
 	bone["Animation time"] = 0.0
 	bone["Bone rest X global origin in meters"] = 0.0
@@ -121,11 +108,7 @@ static func bone_create():
 	for bone_key_i in bone.keys().size():
 		var bone_key = bone.keys()[bone_key_i]
 		var bone_value = bone.values()[bone_key_i]
-		category_description.push_back(str(category_description.size()) + "\tNum\t%s" % bone_key)
-		bone_category[bone_key] = bone_value
 	return {
-		"bone": bone_category,
-		"description": category_description,
 	}
 
 
@@ -193,7 +176,7 @@ static func _write_import(file, scene):
 							if elem_i >= MAX_HIERARCHY:
 								break
 							var bone_id = neighbours[elem_i]
-							bone["BONE_HIERARCHY_" + str(elem_i).pad_zeros(3)] = skeleton.get_bone_name(bone_id)
+							bone["BONE_HIERARCHY"] += skeleton.get_bone_name(bone_id) + " "
 						var bone_rest = skeleton.get_bone_rest(bone_i)
 						bone["Bone rest X global origin in meters"] = bone_rest.origin.x
 						bone["Bone rest Y global origin in meters"] = bone_rest.origin.x

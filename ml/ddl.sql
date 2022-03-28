@@ -1,0 +1,50 @@
+-- public.vrm_skeleton_2022_03_28 definition
+
+-- Drop table
+
+-- DROP TABLE public.vrm_skeleton_2022_03_28;
+
+CREATE TABLE public.vrm_skeleton_2022_03_28 (
+	label STRING NOT NULL DEFAULT 'hips BONE_NONE leftUpperLeg BONE_NONE rightUpperLeg BONE_NONE leftLowerLeg BONE_NONE rightLowerLeg BONE_NONE leftFoot BONE_NONE rightFoot BONE_NONE spine BONE_NONE chest BONE_NONE neck BONE_NONE head BONE_NONE leftShoulder BONE_NONE rightShoulder BONE_NONE leftUpperArm BONE_NONE rightUpperArm BONE_NONE leftLowerArm BONE_NONE rightLowerArm BONE_NONE leftHand BONE_NONE rightHand BONE_NONE leftToes BONE_NONE rightToes BONE_NONE leftEye BONE_NONE rightEye BONE_NONE jaw BONE_NONE leftThumbProximal BONE_NONE leftThumbIntermediate BONE_NONE leftThumbDistal BONE_NONE leftIndexProximal BONE_NONE leftIndexIntermediate BONE_NONE leftIndexDistal BONE_NONE leftMiddleProximal BONE_NONE leftMiddleIntermediate BONE_NONE leftMiddleDistal BONE_NONE leftRingProximal BONE_NONE leftRingIntermediate BONE_NONE leftRingDistal BONE_NONE leftLittleProximal BONE_NONE leftLittleIntermediate BONE_NONE leftLittleDistal BONE_NONE rightThumbProximal BONE_NONE rightThumbIntermediate BONE_NONE rightThumbDistal BONE_NONE rightIndexProximal BONE_NONE rightIndexIntermediate BONE_NONE rightIndexDistal BONE_NONE rightMiddleProximal BONE_NONE rightMiddleIntermediate BONE_NONE rightMiddleDistal BONE_NONE rightRingProximal BONE_NONE rightRingIntermediate BONE_NONE rightRingDistal BONE_NONE rightLittleProximal BONE_NONE rightLittleIntermediate BONE_NONE rightLittleDistal BONE_NONE upperChest BONE_NONE ':::STRING,
+	bone STRING NOT NULL DEFAULT 'BONE_NONE':::STRING,
+	bone_rest_x_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_y_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_z_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_x_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_x_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_x_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_y_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_y_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_truncated_normalized_basis_axis_y_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_x_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_y_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_rest_z_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_x_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_y_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_z_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_x_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_x_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_x_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_y_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_y_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_truncated_normalized_basis_axis_y_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_x_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_y_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_z_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_y_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_z_global_origin_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_x_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_x_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_x_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_y_0 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_y_1 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_truncated_normalized_basis_axis_y_2 FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_x_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_y_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_parent_z_global_scale_in_meters FLOAT4 NOT NULL DEFAULT 0.0:::FLOAT8,
+	bone_hierarchy STRING NOT NULL DEFAULT '':::STRING,
+	specification_version STRING NOT NULL DEFAULT 'VRM_UNVERSIONED':::STRING,
+	id UUID NOT NULL DEFAULT gen_random_uuid(),
+	CONSTRAINT vrm_skeleton_2022_03_27_pk_1 PRIMARY KEY (id ASC),
+	FAMILY "primary" (label, bone, bone_rest_x_global_origin_in_meters, bone_rest_y_global_origin_in_meters, bone_rest_z_global_origin_in_meters, bone_rest_truncated_normalized_basis_axis_x_0, bone_rest_truncated_normalized_basis_axis_x_1, bone_rest_truncated_normalized_basis_axis_x_2, bone_rest_truncated_normalized_basis_axis_y_0, bone_rest_truncated_normalized_basis_axis_y_1, bone_rest_truncated_normalized_basis_axis_y_2, bone_rest_x_global_scale_in_meters, bone_rest_y_global_scale_in_meters, bone_rest_z_global_scale_in_meters, bone_x_global_origin_in_meters, bone_y_global_origin_in_meters, bone_z_global_origin_in_meters, bone_truncated_normalized_basis_axis_x_0, bone_truncated_normalized_basis_axis_x_1, bone_truncated_normalized_basis_axis_x_2, bone_truncated_normalized_basis_axis_y_0, bone_truncated_normalized_basis_axis_y_1, bone_truncated_normalized_basis_axis_y_2, bone_x_global_scale_in_meters, bone_y_global_scale_in_meters, bone_z_global_scale_in_meters, bone_parent_y_global_origin_in_meters, bone_parent_z_global_origin_in_meters, bone_parent_truncated_normalized_basis_axis_x_0, bone_parent_truncated_normalized_basis_axis_x_1, bone_parent_truncated_normalized_basis_axis_x_2, bone_parent_truncated_normalized_basis_axis_y_0, bone_parent_truncated_normalized_basis_axis_y_1, bone_parent_truncated_normalized_basis_axis_y_2, bone_parent_x_global_scale_in_meters, bone_parent_y_global_scale_in_meters, bone_parent_z_global_scale_in_meters, bone_hierarchy, specification_version, id)
+);
