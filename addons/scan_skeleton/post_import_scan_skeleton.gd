@@ -118,10 +118,10 @@ static func _write_import(file, scene):
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
-						version = "VRM_VERSION_NONE"
+						version = ""
 					bone["specification_version"] = version
 				var bone_name : String = skeleton.get_bone_name(bone_i)
-				var vrm_mapping : String = "VRM_BONE_NONE"
+				var vrm_mapping : String
 				if bone_map.has(bone_name):
 					vrm_mapping = bone_map[bone_name]
 				bone["label"] = vrm_mapping
