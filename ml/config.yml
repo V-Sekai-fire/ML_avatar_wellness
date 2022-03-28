@@ -4,11 +4,9 @@ input_features:
     # - name: specification_version
     #   type: category
     - name: bone
-      type: text
-      level: char
+      type: category
     - name: bone_hierarchy
       type: bag
-      tokenizer: comma
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -57,6 +55,8 @@ input_features:
       type: numerical
     - name: bone_z_global_scale_in_meters
       type: numerical
+    # - name: bone_parent_x_global_origin_in_meters
+    #   type: numerical
     - name: bone_parent_y_global_origin_in_meters
       type: numerical
     - name: bone_parent_z_global_origin_in_meters
