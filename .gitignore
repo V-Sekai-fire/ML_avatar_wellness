@@ -16,3 +16,5 @@ data_*/
 .DS_Store
 
 *.blend1
+
+ml/results/
