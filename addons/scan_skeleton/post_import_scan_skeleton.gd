@@ -30,7 +30,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene, test = true):
+static func _write_import(file, scene, test = false):
 	var init_dict : Dictionary
 	var file_path : String = file
 	print(file_path)
