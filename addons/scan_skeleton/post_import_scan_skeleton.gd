@@ -25,8 +25,13 @@ extends EditorScenePostImport
 
 static func _write_train(write_path, text):
 	var file = File.new()
-	file.open(write_path, File.WRITE)
+	file.open(write_path, File.READ_WRITE)
+	file.seek_end()
+	var first = true 
 	for t in text:
+		if first == true and file.get_position() :
+			first = false
+			continue
 		file.store_csv_line(t, "\t")
 	file.close()
 
@@ -140,7 +145,7 @@ static func _write_import(file, scene, test = false):
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-	_write_train(file.get_file() + ".tsv", string_builder)
+	_write_train("res://train.tsv", string_builder)
 	return scene
 
 
