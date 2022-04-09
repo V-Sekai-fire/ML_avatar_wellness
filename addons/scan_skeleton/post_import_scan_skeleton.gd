@@ -44,7 +44,8 @@ static func _write_import(file, scene, test = true):
 	elif not test:
 		return
 	for key in human_map.keys():
-		bone_map[human_map[key]] = key
+		var new_key = human_map[key]
+		bone_map[new_key] = key
 	var queue : Array # Node
 	queue.push_back(scene)
 	var string_builder : Array
@@ -56,6 +57,11 @@ static func _write_import(file, scene, test = true):
 			var print_skeleton_neighbours_text_cache : Dictionary
 			var bone : Dictionary
 			for bone_i in skeleton.get_bone_count():
+				var bone_name : String = skeleton.get_bone_name(bone_i)
+				var vrm_mapping : String = "VRM_UNKNOWN_BONE"
+				if bone_map.has(bone_name):
+					vrm_mapping = bone_map[bone_name]
+				bone["label"] = vrm_mapping
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
@@ -122,13 +128,6 @@ static func _write_import(file, scene, test = true):
 					if version == null or version.is_empty():
 						version = "VRM_UNVERSIONED"
 					bone["specification_version"] = version
-				var bone_name : String = skeleton.get_bone_name(bone_i)
-				var vrm_mapping : String
-				if bone_map.has(bone_name):
-					vrm_mapping = bone_map[bone_name]
-				else:
-					vrm_mapping = "VRM_UNKNOWN_BONE"
-				bone["label"] = vrm_mapping
 				if string_builder.is_empty():
 					string_builder.push_back(bone.keys())
 				string_builder.push_back(bone.values())
