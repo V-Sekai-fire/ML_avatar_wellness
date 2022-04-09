@@ -25,12 +25,16 @@ extends EditorScenePostImport
 
 static func _write_train(write_path, text):
 	var file = File.new()
-	file.open(write_path, File.READ_WRITE)
+	var header = false
+	if not file.file_exists(write_path):
+		file.open(write_path, File.WRITE)
+		header = true
+	else:
+		file.open(write_path, File.READ_WRITE)
 	file.seek_end()
-	var first = true 
 	for t in text:
-		if first == true and file.get_position() :
-			first = false
+		if header:
+			header = false
 			continue
 		file.store_csv_line(t, "\t")
 	file.close()
