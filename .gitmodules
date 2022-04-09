@@ -7,9 +7,6 @@
 [submodule "addons/entity_manager"]
 	path = addons/entity_manager
 	url = https://github.com/V-Sekai/entity_manager.git
-[submodule "addons/network_manager"]
-	path = addons/network_manager
-	url = https://github.com/V-Sekai/network_manager.git
 [submodule "blue_tin_fox"]
 	path = blue_tin_fox
 	url = https://github.com/V-Sekai/blender-art-blue-tin-fox-models.git
