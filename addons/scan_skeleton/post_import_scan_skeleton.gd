@@ -125,7 +125,7 @@ static func _write_import(file, scene, test = false):
 				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
 					
 				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
-				var bone_hierarchy = ""
+				var bone_hierarchy = "HIERARCHY_NONE"
 				for elem_i in neighbours.size():
 					var bone_id = neighbours[elem_i]
 					if bone_hierarchy.is_empty():
