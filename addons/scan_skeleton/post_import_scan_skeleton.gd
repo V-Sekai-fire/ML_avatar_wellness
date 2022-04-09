@@ -73,10 +73,10 @@ static func _write_import(file, scene, test = false):
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				for key in human_map.keys():
-					if key == vrm_mapping:
-						bone[key] = "VRM_UNKNOWN_BONE"
-						continue						
-					bone[key] = human_map[key]
+					bone[key] = "VRM_UNKNOWN_BONE"					
+				for key in human_map.keys():
+					if human_map.has(key):
+						bone[key] = human_map[key]
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_z_global_origin_in_meters"] = bone_rest.origin.x
