@@ -65,7 +65,7 @@ func _vrm_get_texture_info(gltf_images: Array, vrm_mat_props: Dictionary, unity_
 	texture_info["scale"] = Vector3(1.0, 1.0, 1.0)
 	if vrm_mat_props["textureProperties"].has(unity_tex_name):
 		var mainTexId: int = vrm_mat_props["textureProperties"][unity_tex_name]
-		var mainTexImage: ImageTexture = gltf_images[mainTexId]
+		var mainTexImage: Texture2D = gltf_images[mainTexId]
 		texture_info["tex"] = mainTexImage
 	if vrm_mat_props["vectorProperties"].has(unity_tex_name):
 		var offsetScale: Array = vrm_mat_props["vectorProperties"][unity_tex_name]
@@ -397,9 +397,7 @@ func _create_animation_player(animplayer: AnimationPlayer, vrm_extension: Dictio
 			var node: ImporterMeshInstance3D = mesh_idx_to_meshinstance[mesh_and_surface_idx[0]]
 			var surface_idx = mesh_and_surface_idx[1]
 
-			var mat: Material = node.get_mesh().get_surface_material(surface_idx)
-			if not matbind.has("parameterName"):
-				continue
+			var mat: Material = node.get_surface_material(surface_idx)
 			var paramprop = "shader_param/" + matbind["parameterName"]
 			var origvalue = null
 			var tv = matbind["targetValue"]
@@ -469,32 +467,12 @@ func _create_animation_player(animplayer: AnimationPlayer, vrm_extension: Dictio
 		var skeletonPath:NodePath = animplayer.get_parent().get_path_to(_get_skel_godot_node(gstate, nodes, skeletons, headNode.skeleton))
 		var headBone: String = headNode.resource_name
 		var headPath = str(skeletonPath) + ":" + headBone
-			
-		var rotate_skeleton : Skeleton3D = _get_skel_godot_node(gstate, nodes, gstate.get_skeletons(), nodes[vrm_extension["firstPerson"].get("firstPersonBone", -1)].skeleton)
-		var bone_rest : Transform3D = rotate_skeleton.get_bone_rest(0)
-		var rot : Basis = Basis().from_euler(Vector3(0, deg2rad(180), 0))
-		var flip : Transform3D = Transform3D(rot, Vector3())
-		bone_rest = bone_rest * flip
-		rotate_skeleton.set_bone_rest(0, bone_rest)
-		rotate_skeleton.rotate(Vector3(0, 1, 0), deg2rad(180))
-
 		var firstperstrack = firstpersanim.add_track(Animation.TYPE_SCALE_3D)
 		firstpersanim.track_set_path(firstperstrack, headPath)
 		firstpersanim.scale_track_insert_key(firstperstrack, 0.0, Vector3(0.00001, 0.00001, 0.00001))
 		var thirdperstrack = thirdpersanim.add_track(Animation.TYPE_SCALE_3D)
 		thirdpersanim.track_set_path(thirdperstrack, headPath)
 		thirdpersanim.scale_track_insert_key(thirdperstrack, 0.0, Vector3.ONE)
-		animplayer.retarget_profile = load("res://animation_retargeting_demo/profiles/gd_humanoid_with_root.tres")
-		animplayer.retarget_skeleton = animplayer.get_path_to(_get_skel_godot_node(gstate, nodes, gstate.get_skeletons(), headNode.skeleton))
-		var bone_map : RetargetBoneMap = RetargetBoneMap.new()
-		var human_bones = vrm_extension["humanoid"]["humanBones"]
-		for bone in human_bones:
-			var human_bone_name : StringName = bone.bone
-			var skeleton_bone_name : StringName = nodes[bone.node].resource_name
-			var profile_bone_name : StringName = String(human_bone_name).left(1).to_upper() + String(human_bone_name).right(-1) 
-			bone_map.add_key(profile_bone_name)
-			bone_map.set_bone_name(profile_bone_name, skeleton_bone_name)
-		animplayer.retarget_map = bone_map
 
 	for meshannotation in firstperson["meshAnnotations"]:
 
