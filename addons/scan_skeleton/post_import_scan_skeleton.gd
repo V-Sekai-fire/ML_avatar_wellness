@@ -41,6 +41,8 @@ static func _write_import(file, scene):
 	var human_map : Dictionary
 	if vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
+	else:
+		return
 	for key in human_map.keys():
 		bone_map[human_map[key]] = key
 	var queue : Array # Node
