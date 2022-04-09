@@ -30,7 +30,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene):
+static func _write_import(file, scene, test = true):
 	var init_dict : Dictionary
 	var file_path : String = file
 	print(file_path)
@@ -41,7 +41,7 @@ static func _write_import(file, scene):
 	var human_map : Dictionary
 	if vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
-	else:
+	elif not test:
 		return
 	for key in human_map.keys():
 		bone_map[human_map[key]] = key
