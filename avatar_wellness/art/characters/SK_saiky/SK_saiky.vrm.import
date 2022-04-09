@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d30gcis1oudy1"
-path="res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"
+uid="uid://8oyw8uiao68g"
+path="res://.godot/imported/SK_saiky.vrm-df2c001094db1e346a2b687b1033a43c.scn"
 
 [deps]
 
-source_file="res://avatar_wellness/art/characters/SK_AvatarSample_C/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"]
+source_file="res://avatar_wellness/art/characters/SK_saiky/SK_saiky.vrm"
+dest_files=["res://.godot/imported/SK_saiky.vrm-df2c001094db1e346a2b687b1033a43c.scn"]
 
 [params]
 

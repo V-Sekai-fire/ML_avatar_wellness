@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dohixnmxy8fmd"
-valid=false
+path="res://.godot/imported/mannequiny.blend-0e011a14d346a5844587735c6f16b97b.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_mannequiny/mannequiny.blend"
+dest_files=["res://.godot/imported/mannequiny.blend-0e011a14d346a5844587735c6f16b97b.scn"]
+
 [params]
 
 nodes/root_type="Node3D"
@@ -60,6 +62,7 @@ blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false
 blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true

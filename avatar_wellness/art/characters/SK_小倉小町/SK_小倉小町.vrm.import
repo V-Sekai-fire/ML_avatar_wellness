@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d30gcis1oudy1"
-path="res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"
+uid="uid://cd3bc6cvieota"
+path="res://.godot/imported/SK_小倉小町.vrm-4e3e96aa988a738b26db6b555c361eed.scn"
 
 [deps]
 
-source_file="res://avatar_wellness/art/characters/SK_AvatarSample_C/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"]
+source_file="res://avatar_wellness/art/characters/SK_小倉小町/SK_小倉小町.vrm"
+dest_files=["res://.godot/imported/SK_小倉小町.vrm-4e3e96aa988a738b26db6b555c361eed.scn"]
 
 [params]
 

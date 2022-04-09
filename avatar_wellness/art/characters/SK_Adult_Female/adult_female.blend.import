@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://by35p7mtb8aii"
-valid=false
+path="res://.godot/imported/adult_female.blend-aa5a8aab64be9059ed2a7d3a82a8b3c7.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_Adult_Female/adult_female.blend"
+dest_files=["res://.godot/imported/adult_female.blend-aa5a8aab64be9059ed2a7d3a82a8b3c7.scn"]
+
 [params]
 
 nodes/root_type="Node3D"
@@ -60,6 +62,7 @@ blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false
 blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true

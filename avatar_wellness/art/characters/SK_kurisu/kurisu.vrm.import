@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d30gcis1oudy1"
-path="res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"
+uid="uid://dbliqmh0px21m"
+path="res://.godot/imported/kurisu.vrm-5585adedb29aaad1b6f4c2932b1e42f2.scn"
 
 [deps]
 
-source_file="res://avatar_wellness/art/characters/SK_AvatarSample_C/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"]
+source_file="res://avatar_wellness/art/characters/SK_kurisu/kurisu.vrm"
+dest_files=["res://.godot/imported/kurisu.vrm-5585adedb29aaad1b6f4c2932b1e42f2.scn"]
 
 [params]
 

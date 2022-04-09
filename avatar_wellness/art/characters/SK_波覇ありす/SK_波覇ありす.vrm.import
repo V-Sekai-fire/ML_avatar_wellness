@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d30gcis1oudy1"
-path="res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"
+uid="uid://djsjq1w1vs8c1"
+path="res://.godot/imported/SK_波覇ありす.vrm-3523cfe36c493ecb5f11a2e111bf8e02.scn"
 
 [deps]
 
-source_file="res://avatar_wellness/art/characters/SK_AvatarSample_C/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"]
+source_file="res://avatar_wellness/art/characters/SK_波覇ありす/SK_波覇ありす.vrm"
+dest_files=["res://.godot/imported/SK_波覇ありす.vrm-3523cfe36c493ecb5f11a2e111bf8e02.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvrjcip8pbmb2"
-path="res://.godot/imported/Vita.vrm-0cd7f84602b01a74eb5d065d4833965d.scn"
+path="res://.godot/imported/Vita.vrm-9b6027a4d10f6eaddbe34579e2c5c91c.scn"
 
 [deps]
 
-source_file="res://avatar_wellness/art/characters_validate/Vita.vrm"
-dest_files=["res://.godot/imported/Vita.vrm-0cd7f84602b01a74eb5d065d4833965d.scn"]
+source_file="res://avatar_wellness/art/characters/SK_Vita/Vita.vrm"
+dest_files=["res://.godot/imported/Vita.vrm-9b6027a4d10f6eaddbe34579e2c5c91c.scn"]
 
 [params]
 
@@ -62,6 +62,7 @@ blender/meshes/tangents=true
 blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false
 blender/materials/unpack_enabled=true
+blender/materials/export_materials=1
 blender/animation/limit_playback=true
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
