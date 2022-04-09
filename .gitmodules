@@ -1,6 +1,3 @@
-[submodule "addons/vsk_vrm_avatar_tool"]
-	path = addons/vsk_vrm_avatar_tool
-	url = https://github.com/V-Sekai/vsk_vrm_avatar_tool.git
 [submodule "addons/vsk_avatar"]
 	path = addons/vsk_avatar
 	url = https://github.com/V-Sekai/vsk_avatar.git
