@@ -86,11 +86,6 @@ static func _write_import(file, scene, test = false):
 				bone["label"] = vrm_mapping
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
-				for key in vrm_bones:
-					bone[key] = "VRM_UNKNOWN_BONE"					
-				for key in human_map.keys():
-					if human_map.has(key):
-						bone[key] = human_map[key]
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_z_global_origin_in_meters"] = bone_rest.origin.x
@@ -162,7 +157,11 @@ static func _write_import(file, scene, test = false):
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-	_write_train("res://train.tsv", string_builder)
+		
+	var filename = "res://train.tsv"
+	if test:
+		filename = "res://test.tsv"		
+	_write_train(filename, string_builder)
 	return scene
 
 
