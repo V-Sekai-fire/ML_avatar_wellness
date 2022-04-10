@@ -23,6 +23,7 @@
 @tool
 extends EditorScenePostImport
 
+
 static func _write_train(write_path, text):
 	var file = File.new()
 	if not file.file_exists(write_path):
@@ -39,6 +40,19 @@ static func _write_train(write_path, text):
 	file.close()
 
 static func _write_import(file, scene, test = false):
+	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
+ "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
+ "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
+ "leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+ "leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+ "leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+ "leftRingProximal","leftRingIntermediate","leftRingDistal",
+ "leftLittleProximal","leftLittleIntermediate","leftLittleDistal",
+ "rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+ "rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+ "rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+ "rightRingProximal","rightRingIntermediate","rightRingDistal",
+ "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
 	var init_dict : Dictionary
 	var file_path : String = file
 	print(file_path)
@@ -72,7 +86,7 @@ static func _write_import(file, scene, test = false):
 				bone["label"] = vrm_mapping
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
-				for key in human_map.keys():
+				for key in vrm_bones:
 					bone[key] = "VRM_UNKNOWN_BONE"					
 				for key in human_map.keys():
 					if human_map.has(key):
@@ -128,7 +142,7 @@ static func _write_import(file, scene, test = false):
 				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
 					
 				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
-				var bone_hierarchy = "HIERARCHY_NONE"
+				var bone_hierarchy : String = ""
 				for elem_i in neighbours.size():
 					var bone_id = neighbours[elem_i]
 					if bone_hierarchy.is_empty():
