@@ -48,163 +48,109 @@ output_features:
       type: text
     - name: hips
       type: text
-      level: char
     - name: leftUpperLeg
       type: text
-      level: char
     - name: rightUpperLeg
       type: text
-      level: char
     - name: leftLowerLeg
       type: text
-      level: char
     - name: rightLowerLeg
       type: text
-      level: char
     - name: leftFoot
       type: text
-      level: char
     - name: rightFoot
       type: text
-      level: char
     - name: spine
       type: text
-      level: char
     - name: chest
       type: text
-      level: char
     - name: neck
       type: text
-      level: char
     - name: head
       type: text
-      level: char
     - name: leftShoulder
       type: text
-      level: char
     - name: rightShoulder
       type: text
-      level: char
     - name: leftUpperArm
       type: text
-      level: char
     - name: rightUpperArm
       type: text
-      level: char
     - name: leftLowerArm
       type: text
-      level: char
     - name: rightLowerArm
       type: text
-      level: char
     - name: leftHand
       type: text
-      level: char
     - name: rightHand
       type: text
-      level: char
     - name: leftToes
       type: text
-      level: char
     - name: rightToes
       type: text
-      level: char
     - name: leftEye
       type: text
-      level: char
     - name: rightEye
       type: text
-      level: char
     - name: leftThumbProximal
       type: text
-      level: char
     - name: leftThumbIntermediate
       type: text
-      level: char
     - name: leftThumbDistal
       type: text
-      level: char
     - name: leftIndexProximal
       type: text
-      level: char
     - name: leftIndexIntermediate
       type: text
-      level: char
     - name: leftIndexDistal
       type: text
-      level: char
     - name: leftMiddleProximal
       type: text
-      level: char
     - name: leftMiddleIntermediate
       type: text
-      level: char
     - name: leftMiddleDistal
       type: text
-      level: char
     - name: leftRingProximal
       type: text
-      level: char
     - name: leftRingIntermediate
       type: text
-      level: char
     - name: leftRingDistal
       type: text
-      level: char
     - name: leftLittleProximal
       type: text
-      level: char
     - name: leftLittleIntermediate
       type: text
-      level: char
     - name: leftLittleDistal
       type: text
-      level: char
     - name: rightThumbProximal
       type: text
-      level: char
     - name: rightThumbIntermediate
       type: text
-      level: char
     - name: rightThumbDistal
       type: text
-      level: char
     - name: rightIndexProximal
       type: text
-      level: char
     - name: rightIndexIntermediate
       type: text
-      level: char
     - name: rightIndexDistal
       type: text
-      level: char
     - name: rightMiddleProximal
       type: text
-      level: char
     - name: rightMiddleIntermediate
       type: text
-      level: char
     - name: rightMiddleDistal
       type: text
-      level: char
     - name: rightRingProximal
       type: text
-      level: char
     - name: rightRingIntermediate
       type: text
-      level: char
     - name: rightRingDistal
       type: text
-      level: char
     - name: rightLittleProximal
       type: text
-      level: char
     - name: rightLittleIntermediate
       type: text
-      level: char
     - name: rightLittleDistal
       type: text
-      level: char
     - name: upperChest
       type: text
-      level: char
