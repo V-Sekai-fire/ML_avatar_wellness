@@ -3,6 +3,7 @@ input_features:
       type: text
     - name: bone_hierarchy
       type: text
+      level: char
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
