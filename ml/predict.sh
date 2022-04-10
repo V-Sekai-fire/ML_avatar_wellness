@@ -1,2 +1,1 @@
-ludwig predict --dataset test.tsv --model_path results/experiment_run_10/model/ -ssuo
-
+ludwig predict --dataset test.tsv --model_path ./results/experiment_run_52/model -ssuo 

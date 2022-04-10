@@ -1,6 +1,10 @@
 input_features:
     - name: bone
       type: text
+    - name: specification_version
+      type: category
+      top_k: 1
+      fill_value: VRM_UNVERSIONED      
     - name: bone_hierarchy
       type: text
       level: char
