@@ -22,8 +22,6 @@ input_features:
       preprocessing:
         fill_value: VRM_FINE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
-      num_fc_layers: 2
-      fc_size: 64
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -71,9 +69,5 @@ output_features:
       preprocessing:
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
-      dependencies:
-          - vrm_fine_category
-      num_fc_layers: 1
-      fc_size: 64
 preprocessing:
   stratify: vrm_fine_category
