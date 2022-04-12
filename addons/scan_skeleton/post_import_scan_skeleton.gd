@@ -39,7 +39,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene, test = true, skip_vrm = false):
+static func _write_import(file, scene, test = false, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
  "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
  "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -137,7 +137,6 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 				bone["bone_parent_x_global_scale_in_meters"] = parent_scale.x
 				bone["bone_parent_y_global_scale_in_meters"] = parent_scale.y
 				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
-					
 				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
 				var bone_hierarchy : String = ""
 				for elem_i in neighbours.size():
