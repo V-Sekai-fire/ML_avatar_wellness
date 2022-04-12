@@ -116,7 +116,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				elif vrm_left_leg_category.has(vrm_mapping):
 					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_LEFT_LEG"
 				elif vrm_right_leg_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_LEFT"
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_LEG"
 				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
