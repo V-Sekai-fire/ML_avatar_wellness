@@ -1,13 +1,15 @@
 input_features:
     - name: bone
       type: text
+      fill_value: VRM_UNKNOWN_BONE
     - name: specification_version
       type: category
-      fill_value: VRM_UNVERSIONED      
+      fill_value: VRM_UNVERSIONED
     - name: bone_hierarchy
       type: text
       level: char
-      trainable: true
+      preprocessing:
+        max_sequence_length: 2048
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -30,3 +32,6 @@ output_features:
 
 preprocessing:
   stratify: label
+  text:
+      most_common_word: 10000
+      tokenizer: characters
