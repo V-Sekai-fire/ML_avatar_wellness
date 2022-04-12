@@ -8,12 +8,6 @@ input_features:
         max_sequence_length: 2048
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
-    - name: vrm_fine_category
-      type: category
-      fill_value: VRM_FINE_CATEGORY_NONE
-      preprocessing:
-        fill_value: VRM_FINE_CATEGORY_NONE
-        missing_value_strategy: fill_with_const
     - name: bone_hierarchy
       type: text
       level: char
@@ -64,12 +58,24 @@ input_features:
       type: numerical
 
 output_features:
+    - name: vrm_fine_category
+      type: category
+      fill_value: VRM_FINE_CATEGORY_NONE
+      preprocessing:
+        fill_value: VRM_FINE_CATEGORY_NONE
+        missing_value_strategy: fill_with_const
+      num_fc_layers: 2
+      fc_size: 64
     - name: label
       type: category
       top_k: 1
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
         fill_value: VRM_UNKNOWN_BONE
-        missing_value_strategy: fill_with_const  
+        missing_value_strategy: fill_with_const
+      dependencies:
+          - vrm_fine_category
+      num_fc_layers: 1
+      fc_size: 64
 preprocessing:
   stratify: label
