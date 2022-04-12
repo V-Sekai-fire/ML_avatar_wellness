@@ -170,5 +170,3 @@ output_features:
       type: binary
     - name: upperChest
       type: binary
-preprocessing:
-  stratify: vrm_bone_category
