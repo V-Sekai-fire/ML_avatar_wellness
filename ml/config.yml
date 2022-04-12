@@ -6,12 +6,16 @@ input_features:
       preprocessing:
         max_sequence_length: 2048
         tokenizer: characters
+        fill_value: VRM_UNKNOWN_BONE
+        missing_value_strategy: fill_with_const
     - name: bone_hierarchy
       type: text
       level: char
       preprocessing:
         max_sequence_length: 2048
         tokenizer: characters
+        fill_value: ''
+        missing_value_strategy: fill_with_const
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -57,6 +61,9 @@ output_features:
       type: category
       top_k: 1
       fill_value: VRM_UNKNOWN_BONE
+      preprocessing:
+        fill_value: VRM_UNKNOWN_BONE
+        missing_value_strategy: fill_with_const
 
 preprocessing:
   stratify: label
