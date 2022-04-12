@@ -3,7 +3,7 @@ input_features:
       type: text
       level: char
       preprocessing:
-        tokenizer: characters
+        tokenizer: english_tokenize
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
@@ -12,14 +12,13 @@ input_features:
       type: text
       level: char
       preprocessing:
-        tokenizer: characters
+        tokenizer: english_tokenize
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
     - name: vrm_fine_category
       type: category
-      flatten_inputs: true
       preprocessing:
         fill_value: VRM_FINE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
