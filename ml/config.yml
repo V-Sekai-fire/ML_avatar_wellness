@@ -5,8 +5,6 @@ input_features:
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
         max_sequence_length: 2048
-        tokenizer: hf_tokenizer
-        pretrained_model_name_or_path: dbmdz/bert-large-cased-finetuned-conll03-english
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
     - name: bone_hierarchy
@@ -15,8 +13,6 @@ input_features:
       fill_value: ''
       preprocessing:
         max_sequence_length: 2048
-        tokenizer: hf_tokenizer
-        pretrained_model_name_or_path: dbmdz/bert-large-cased-finetuned-conll03-english
         fill_value: ''
         missing_value_strategy: fill_with_const
     - name: bone_rest_x_global_origin_in_meters
@@ -67,6 +63,5 @@ output_features:
       preprocessing:
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
-
 preprocessing:
   stratify: label
