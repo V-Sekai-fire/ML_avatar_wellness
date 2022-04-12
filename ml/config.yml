@@ -1,6 +1,7 @@
 input_features:
     - name: bone
       type: text
+      level: char
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
         max_sequence_length: 2048
