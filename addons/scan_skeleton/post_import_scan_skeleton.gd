@@ -180,9 +180,9 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				for elem_i in neighbours.size():
 					var bone_id = neighbours[elem_i]
 					if bone_hierarchy.is_empty():
-						bone_hierarchy = skeleton.get_bone_name(bone_id) + " "
+						bone_hierarchy = skeleton.get_bone_name(bone_id) + ","
 						continue
-					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + " "
+					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + ","
 				bone["bone_hierarchy"] = bone_hierarchy
 				if vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
