@@ -56,7 +56,8 @@ input_features:
       type: numerical
     - name: bone_parent_z_global_scale_in_meters
       type: numerical
-
+combiner:
+  type: transformer
 output_features:
     - name: vrm_fine_category
       type: category
