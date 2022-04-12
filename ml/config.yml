@@ -1,18 +1,16 @@
 input_features:
     - name: bone
       type: text
-      level: char
       preprocessing:
-        tokenizer: characters
+        tokenizer: untokenized
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_mode
     - name: bone_hierarchy
       type: text
-      level: char
       preprocessing:
-        tokenizer: characters
+        tokenizer: comma
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
