@@ -39,7 +39,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene, test = false):
+static func _write_import(file, scene, test = false, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
  "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
  "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -63,6 +63,8 @@ static func _write_import(file, scene, test = false):
 	var human_map : Dictionary
 	if vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
+		if skip_vrm:
+			return
 	elif not test:
 		return
 	for key in human_map.keys():
