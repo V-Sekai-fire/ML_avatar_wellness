@@ -54,17 +54,17 @@ input_features:
       type: numerical
     - name: bone_parent_z_global_scale_in_meters
       type: numerical
-combiner:
-  type: transformer
+
 output_features:
     - name: vrm_fine_category
       type: category
+      flatten_inputs: true
       fill_value: VRM_FINE_CATEGORY_NONE
       preprocessing:
         fill_value: VRM_FINE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
       num_fc_layers: 2
-      fc_size: 128
+      fc_size: 64
     - name: label
       type: category
       top_k: 1
@@ -75,6 +75,6 @@ output_features:
       dependencies:
           - vrm_fine_category
       num_fc_layers: 1
-      fc_size: 128
+      fc_size: 64
 preprocessing:
   stratify: vrm_fine_category
