@@ -1,7 +1,6 @@
 input_features:
     - name: bone
       type: text
-      level: char
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
         tokenizer: characters
@@ -10,7 +9,6 @@ input_features:
         missing_value_strategy: fill_with_const
     - name: bone_hierarchy
       type: text
-      level: char
       fill_value: ''
       preprocessing:
         tokenizer: characters
