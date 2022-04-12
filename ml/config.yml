@@ -66,324 +66,432 @@ output_features:
         missing_value_strategy: fill_with_const
     - name: hips
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftUpperLeg
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightUpperLeg
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLowerLeg
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLowerLeg
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftFoot
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightFoot
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: spine
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: chest
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: neck
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: head
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftShoulder
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightShoulder
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftUpperArm
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightUpperArm
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLowerArm
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLowerArm
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftHand
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightHand
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftToes
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightToes
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftEye
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightEye
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleProximal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleIntermediate
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleDistal
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: upperChest
       type: binary
+      loss:
+        weight: 55
       num_fc_layers: 1
       fc_size: 64
       dependencies:
