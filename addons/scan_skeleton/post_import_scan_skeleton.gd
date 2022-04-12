@@ -40,7 +40,7 @@ static func _write_train(write_path, text):
 	file.close()
 
 static func _write_import(file, scene, test = false, skip_vrm = false):
-	var vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
+	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
  "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
  "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
  "leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
@@ -53,7 +53,6 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
  "rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
  "rightRingProximal","rightRingIntermediate","rightRingDistal",
  "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
-	vrm_bones.sort()
 	var init_dict : Dictionary
 	var file_path : String = file
 	print(file_path)
@@ -89,18 +88,11 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				bone["label"] = vrm_mapping
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
-				var vrm_bone_hierarchy : Dictionary
 				for key in vrm_bones:
-					vrm_bone_hierarchy[key] = "VRM_UNKNOWN_BONE"					
+					bone[key] = "VRM_UNKNOWN_BONE"					
 				for key in human_map.keys():
 					if human_map.has(key) and key != vrm_mapping:
-						vrm_bone_hierarchy[key] = human_map[key]
-				for name in vrm_bones:
-					if vrm_bone_hierarchy.has(name):
-						if not bone.has("vrm_bone_hierarchy"):
-							bone["vrm_bone_hierarchy"] = vrm_bone_hierarchy[name] +  " "
-							continue
-						bone["vrm_bone_hierarchy"] = bone["vrm_bone_hierarchy"] + vrm_bone_hierarchy[name] + " "
+						bone[key] = human_map[key]
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_z_global_origin_in_meters"] = bone_rest.origin.x
