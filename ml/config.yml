@@ -64,7 +64,7 @@ output_features:
         fill_value: VRM_FINE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
       num_fc_layers: 2
-      fc_size: 64
+      fc_size: 128
     - name: label
       type: category
       top_k: 1
@@ -75,6 +75,6 @@ output_features:
       dependencies:
           - vrm_fine_category
       num_fc_layers: 1
-      fc_size: 64
+      fc_size: 128
 preprocessing:
   stratify: vrm_fine_category
