@@ -1,1 +1,1 @@
-ludwig predict --dataset test.tsv --model_path ./results/experiment_run_54/model -ssuo 
+ ludwig predict --dataset test.tsv --model_path ./results/experiment_run_70/model --skip_save_unprocessed_output  --output_directory output
