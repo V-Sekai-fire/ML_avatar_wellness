@@ -3,11 +3,11 @@ input_features:
       type: text
     - name: specification_version
       type: category
-      top_k: 1
       fill_value: VRM_UNVERSIONED      
     - name: bone_hierarchy
       type: text
       level: char
+      trainable: true
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -27,3 +27,6 @@ output_features:
       type: category
       top_k: 1
       fill_value: VRM_UNKNOWN_BONE
+
+preprocessing:
+  stratify: label

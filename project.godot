@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Avatar Wellness"
-config/features=PackedStringArray("4.0")
+config/features=PackedStringArray("4.0", "Double Precision")
 
 [autoload]
 
