@@ -35,24 +35,41 @@ static func _write_train(write_path, text):
 	for t in text:
 		if first and file.get_position():
 			first = false
-			continue	
+			continue
 		file.store_csv_line(t, "\t")
 	file.close()
 
 static func _write_import(file, scene, test = false, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
- "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
- "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
- "leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
- "leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
- "leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
- "leftRingProximal","leftRingIntermediate","leftRingDistal",
- "leftLittleProximal","leftLittleIntermediate","leftLittleDistal",
- "rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
- "rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
- "rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
- "rightRingProximal","rightRingIntermediate","rightRingDistal",
- "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
+	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
+	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
+	"leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+	"leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+	"leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+	"leftRingProximal","leftRingIntermediate","leftRingDistal",
+	"leftLittleProximal","leftLittleIntermediate","leftLittleDistal",
+	"rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+	"rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+	"rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+	"rightRingProximal","rightRingIntermediate","rightRingDistal",
+	"rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
+	const vrm_head_category: Array = ["neck","head", "leftEye","rightEye","jaw"]
+	const vrm_left_arm_category : Array = ["leftShoulder","leftUpperArm",
+	"leftLowerArm","leftHand",
+	"leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+	"leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+	"leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+	"leftRingProximal","leftRingIntermediate","leftRingDistal",
+	"leftLittleProximal","leftLittleIntermediate","leftLittleDistal"]
+	const vrm_right_arm_category : Array = ["rightShoulder","rightUpperArm","rightLowerArm","rightHand",
+		"rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+		"rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+		"rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+		"rightRingProximal","rightRingIntermediate","rightRingDistal",
+		"rightLittleProximal","rightLittleIntermediate","rightLittleDistal"]
+	const vrm_torso_category : Array = ["hips",	"spine","chest", "upperChest"]
+	const vrm_left_leg_category : Array = ["leftUpperLeg","leftLowerLeg","leftFoot","leftToes"]
+	const vrm_right_leg_category : Array = ["rightUpperLeg","rightLowerLeg","rightFoot","rightToes"]
 	var init_dict : Dictionary
 	var file_path : String = file
 	print(file_path)
@@ -86,6 +103,21 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				if bone_map.has(bone_name):
 					vrm_mapping = bone_map[bone_name]
 				bone["label"] = vrm_mapping
+				bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_NONE"
+				
+				if vrm_head_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_HEAD"
+				elif vrm_left_arm_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_LEFT_ARM"
+				elif vrm_right_arm_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_ARM"
+				elif vrm_torso_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_TORSO"
+				elif vrm_left_leg_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_LEFT_LEG"
+				elif vrm_right_leg_category.has(vrm_mapping):
+					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_LEFT"
+				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
@@ -98,7 +130,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				bone["bone_rest_truncated_normalized_basis_axis_y_0"] = bone_rest_basis.y.x
 				bone["bone_rest_truncated_normalized_basis_axis_y_1"] = bone_rest_basis.y.y
 				bone["bone_rest_truncated_normalized_basis_axis_y_2"] = bone_rest_basis.y.z
-				var bone_rest_scale = bone_rest.basis.get_scale()	
+				var bone_rest_scale = bone_rest.basis.get_scale()
 				bone["bone_rest_x_global_scale_in_meters"] = bone_rest_scale.x
 				bone["bone_rest_y_global_scale_in_meters"] = bone_rest_scale.y
 				bone["bone_rest_z_global_scale_in_meters"] = bone_rest_scale.z
@@ -161,7 +193,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 		
 	var filename = "res://train.tsv"
 	if test:
-		filename = "res://test.tsv"		
+		filename = "res://test.tsv"
 	_write_train(filename, string_builder)
 	return scene
 
@@ -175,7 +207,7 @@ static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton
 		if skeleton.get_bone_parent(bone_i) == -1:
 			roots.push_back(bone_i)
 	var queue : Array
-	var parents : Array	
+	var parents : Array
 	for bone_i in roots:
 		queue.push_back(bone_i)
 	var seen : Array
@@ -231,6 +263,6 @@ func _post_import(scene : Node):
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
-		queue.pop_front()	
+		queue.pop_front()
 	return scene
 

@@ -4,14 +4,22 @@ input_features:
       level: char
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
+        tokenizer: characters
         max_sequence_length: 2048
         fill_value: VRM_UNKNOWN_BONE
+        missing_value_strategy: fill_with_const
+    - name: vrm_fine_category
+      type: category
+      fill_value: VRM_FINE_CATEGORY_NONE
+      preprocessing:
+        fill_value: VRM_FINE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
     - name: bone_hierarchy
       type: text
       level: char
       fill_value: ''
       preprocessing:
+        tokenizer: characters
         max_sequence_length: 2048
         fill_value: ''
         missing_value_strategy: fill_with_const
@@ -62,6 +70,6 @@ output_features:
       fill_value: VRM_UNKNOWN_BONE
       preprocessing:
         fill_value: VRM_UNKNOWN_BONE
-        missing_value_strategy: fill_with_const
+        missing_value_strategy: fill_with_const  
 preprocessing:
   stratify: label
