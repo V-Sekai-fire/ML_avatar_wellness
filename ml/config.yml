@@ -59,222 +59,332 @@ input_features:
 output_features:
     - name: vrm_bone_category
       type: category
+      num_fc_layers: 2
+      fc_size: 64
       preprocessing:
         fill_value: VRM_BONE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
     - name: hips
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftUpperLeg
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightUpperLeg
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLowerLeg
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLowerLeg
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftFoot
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightFoot
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: spine
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: chest
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: neck
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: head
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftShoulder
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightShoulder
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftUpperArm
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightUpperArm
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLowerArm
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLowerArm
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftHand
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightHand
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftToes
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightToes
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftEye
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightEye
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftThumbDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftIndexDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftMiddleDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftRingDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: leftLittleDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightThumbDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightIndexDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightMiddleDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightRingDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleProximal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleIntermediate
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: rightLittleDistal
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
     - name: upperChest
       type: binary
+      num_fc_layers: 1
+      fc_size: 64
       dependencies:
           - vrm_bone_category
