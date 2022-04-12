@@ -63,220 +63,112 @@ input_features:
       type: numerical
 output_features:
     - name: hips
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftUpperLeg
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightUpperLeg
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftLowerLeg
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightLowerLeg
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftFoot
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightFoot
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: spine
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: chest
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: neck
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: head
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftShoulder
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightShoulder
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftUpperArm
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightUpperArm
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftLowerArm
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightLowerArm
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftHand
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightHand
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftToes
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightToes
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftEye
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightEye
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftThumbProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftThumbIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftThumbDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftIndexProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftIndexIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftIndexDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftMiddleProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftMiddleIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftMiddleDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftRingProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftRingIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftRingDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftLittleProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftLittleIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: leftLittleDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightThumbProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightThumbIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightThumbDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightIndexProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightIndexIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightIndexDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightMiddleProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightMiddleIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightMiddleDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightRingProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightRingIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightRingDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightLittleProximal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightLittleIntermediate
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: rightLittleDistal
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
     - name: upperChest
-      type: text
-      preprocessing:
-          unknown_symbol: VRM_UNKNOWN_BONE
+      type: binary
 preprocessing:
-  stratify: vrm_fine_category
+  stratify: vrm_bone_category
