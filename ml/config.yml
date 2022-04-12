@@ -17,11 +17,6 @@ input_features:
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_const
-    - name: vrm_bone_category
-      type: category
-      preprocessing:
-        fill_value: VRM_BONE_CATEGORY_NONE
-        missing_value_strategy: fill_with_const
     - name: bone_rest_x_global_origin_in_meters
       type: numerical
     - name: bone_rest_y_global_origin_in_meters
@@ -62,6 +57,11 @@ input_features:
     - name: bone_parent_z_global_scale_in_meters
       type: numerical
 output_features:
+    - name: vrm_bone_category
+      type: category
+      preprocessing:
+        fill_value: VRM_BONE_CATEGORY_NONE
+        missing_value_strategy: fill_with_const
     - name: hips
       type: binary
     - name: leftUpperLeg
