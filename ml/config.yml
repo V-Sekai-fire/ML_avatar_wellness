@@ -11,6 +11,7 @@ input_features:
     - name: bone_hierarchy
       type: text
       level: char
+      fill_value: ''
       preprocessing:
         max_sequence_length: 2048
         tokenizer: characters
