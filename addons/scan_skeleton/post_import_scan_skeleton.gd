@@ -102,24 +102,28 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				var vrm_mapping : String = "VRM_UNKNOWN_BONE"
 				if bone_map.has(bone_name):
 					vrm_mapping = bone_map[bone_name]
-				bone["label"] = vrm_mapping
-				bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_NONE"
+				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
 				
 				if vrm_head_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_HEAD"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_HEAD"
 				elif vrm_left_arm_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_LEFT_ARM"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_LEFT_ARM"
 				elif vrm_right_arm_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_ARM"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_ARM"
 				elif vrm_torso_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_TORSO"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_TORSO"
 				elif vrm_left_leg_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_LEFT_LEG"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_LEFT_LEG"
 				elif vrm_right_leg_category.has(vrm_mapping):
-					bone["vrm_fine_category"] = "VRM_FINE_CATEGORY_RIGHT_LEG"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
 				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
-				var bone_rest = skeleton.get_bone_rest(bone_i)
+				var bone_rest = skeleton.get_bone_rest(bone_i)				
+				for key in human_map.keys():
+					bone[key] = "VRM_UNKNOWN_BONE"					
+				for key in human_map.keys():
+					if human_map.has(key) and key == vrm_mapping:
+						bone[key] = human_map[key]
 				bone_rest = skeleton.local_pose_to_global_pose(bone_i, bone_rest)
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
