@@ -119,7 +119,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)				
-				for key in human_map.keys():
+				for key in vrm_bones:
 					bone[key] = 0
 				for key in human_map.keys():
 					if human_map.has(key) and key == vrm_mapping:
