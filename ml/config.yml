@@ -61,6 +61,8 @@ output_features:
       type: category
       num_fc_layers: 2
       fc_size: 64
+      loss:
+        weight: 7
       preprocessing:
         fill_value: VRM_BONE_CATEGORY_NONE
         missing_value_strategy: fill_with_const
