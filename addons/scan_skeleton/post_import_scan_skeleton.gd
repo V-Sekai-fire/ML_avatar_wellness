@@ -120,7 +120,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
 				var bone_rest = skeleton.get_bone_rest(bone_i)
-				bone_rest = skeleton.global_pose_to_world_transform(bone_rest)
+				bone_rest = skeleton.local_pose_to_global_pose(bone_i, bone_rest)
 				bone["bone_rest_x_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_y_global_origin_in_meters"] = bone_rest.origin.x
 				bone["bone_rest_z_global_origin_in_meters"] = bone_rest.origin.x
