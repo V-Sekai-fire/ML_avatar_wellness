@@ -3,6 +3,7 @@ input_features:
       type: text
       level: char
       preprocessing:
+        tokenizer: space
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
@@ -11,6 +12,7 @@ input_features:
       type: text
       level: char
       preprocessing:
+        tokenizer: space
         max_sequence_length: 2048
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
