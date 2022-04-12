@@ -64,109 +64,217 @@ output_features:
         missing_value_strategy: fill_with_const
     - name: hips
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftUpperLeg
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightUpperLeg
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftLowerLeg
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightLowerLeg
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftFoot
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightFoot
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: spine
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: chest
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: neck
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: head
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftShoulder
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightShoulder
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftUpperArm
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightUpperArm
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftLowerArm
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightLowerArm
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftHand
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightHand
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftToes
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightToes
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftEye
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightEye
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftThumbProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftThumbIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftThumbDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftIndexProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftIndexIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftIndexDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftMiddleProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftMiddleIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftMiddleDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftRingProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftRingIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftRingDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftLittleProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftLittleIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: leftLittleDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightThumbProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightThumbIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightThumbDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightIndexProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightIndexIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightIndexDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightMiddleProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightMiddleIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightMiddleDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightRingProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightRingIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightRingDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightLittleProximal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightLittleIntermediate
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: rightLittleDistal
       type: binary
+      dependencies:
+          - vrm_bone_category
     - name: upperChest
       type: binary
+      dependencies:
+          - vrm_bone_category
