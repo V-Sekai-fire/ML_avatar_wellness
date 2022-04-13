@@ -81,429 +81,483 @@ output_features:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftUpperLeg
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightUpperLeg
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftLowerLeg
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightLowerLeg
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftFoot
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightFoot
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: spine
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: chest
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: neck
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: head
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftShoulder
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightShoulder
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftUpperArm
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightUpperArm
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftLowerArm
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightLowerArm
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftHand
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightHand
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftToes
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightToes
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftEye
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightEye
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftThumbProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftThumbIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftThumbDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftIndexProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftIndexIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftIndexDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftMiddleProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftMiddleIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftMiddleDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftRingProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftRingIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftRingDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftLittleProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftLittleIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: leftLittleDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightThumbProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightThumbIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightThumbDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightIndexProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightIndexIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightIndexDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightMiddleProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightMiddleIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightMiddleDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightRingProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightRingIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightRingDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightLittleProximal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightLittleIntermediate
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: rightLittleDistal
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
     - name: upperChest
       type: binary
       loss:
         weight: 55
       num_fc_layers: 1
       fc_size: 64
-      dependencies:
-          - vrm_bone_category
+      preprocessing:
+        missing_value_strategy: fill_with_const
+        fill_value: 0
