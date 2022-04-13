@@ -8,6 +8,15 @@ input_features:
         unknown_symbol: VRM_UNKNOWN_BONE
         fill_value: VRM_UNKNOWN_BONE
         missing_value_strategy: fill_with_mode
+    - name: bone_parent
+      type: text
+      level: char
+      preprocessing:
+        tokenizer: characters
+        max_sequence_length: 2048
+        unknown_symbol: VRM_UNKNOWN_BONE
+        fill_value: VRM_UNKNOWN_BONE
+        missing_value_strategy: fill_with_mode
     - name: bone_hierarchy
       type: text
       level: char

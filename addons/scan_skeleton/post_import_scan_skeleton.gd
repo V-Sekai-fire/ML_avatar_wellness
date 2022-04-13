@@ -118,6 +118,9 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
 				
 				bone["bone"] = skeleton.get_bone_name(bone_i)
+				bone["bone_parent"] = "VRM_BONE_CATEGORY_NONE"
+				if skeleton.get_bone_parent(bone_i) != -1:
+					bone["bone_parent"] = skeleton.get_bone_name(skeleton.get_bone_parent(bone_i))
 				var bone_rest = skeleton.get_bone_rest(bone_i)				
 				for key in vrm_bones:
 					bone[key] = 0
