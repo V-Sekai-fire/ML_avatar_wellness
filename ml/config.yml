@@ -68,6 +68,7 @@ input_features:
 output_features:
     - name: vrm_bone_category
       type: category
+      top_k: 1
       num_fc_layers: 2
       fc_size: 64
       loss:
