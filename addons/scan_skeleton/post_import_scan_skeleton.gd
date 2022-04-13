@@ -39,7 +39,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene, test = false, skip_vrm = false):
+static func _write_import(file, scene, test = true, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
 	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -53,7 +53,7 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 	"rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
 	"rightRingProximal","rightRingIntermediate","rightRingDistal",
 	"rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
-	const vrm_head_category: Array = ["neck","head", "leftEye","rightEye","jaw"]
+	const vrm_head_category: Array = ["neck", "head", "leftEye","rightEye","jaw"]
 	const vrm_left_arm_category : Array = ["leftShoulder","leftUpperArm",
 	"leftLowerArm","leftHand",
 	"leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
@@ -76,17 +76,11 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 	if file_path.is_empty():
 		return scene
 	var vrm_extension = scene
-	var bone_map : Dictionary
 	var human_map : Dictionary
 	if vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
-		if skip_vrm:
+		if skip_vrm and not test:
 			return
-	elif not test:
-		return
-	for key in human_map.keys():
-		var new_key = human_map[key]
-		bone_map[new_key] = key
 	var queue : Array # Node
 	queue.push_back(scene)
 	var string_builder : Array
@@ -100,10 +94,12 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				var vrm_mapping : String = "VRM_UNKNOWN_BONE"
-				if bone_map.has(bone_name) and not test:
-					vrm_mapping = bone_map[bone_name]
+				for human_key in human_map.keys():
+					if human_map[human_key] == bone_name:
+						vrm_mapping = human_key
+						break
+				bone["class"] = vrm_mapping
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
-				
 				if vrm_head_category.has(vrm_mapping):
 					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_HEAD"
 				elif vrm_left_arm_category.has(vrm_mapping):
@@ -115,10 +111,9 @@ static func _write_import(file, scene, test = false, skip_vrm = false):
 				elif vrm_left_leg_category.has(vrm_mapping):
 					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_LEFT_LEG"
 				elif vrm_right_leg_category.has(vrm_mapping):
-					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
-				
-				bone["bone"] = skeleton.get_bone_name(bone_i)
-				bone["bone_parent"] = "VRM_BONE_CATEGORY_NONE"
+					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"				
+				bone["bone"] = bone_name
+				bone["bone_parent"] = "VRM_UNKNOWN_BONE"
 				if skeleton.get_bone_parent(bone_i) != -1:
 					bone["bone_parent"] = skeleton.get_bone_name(skeleton.get_bone_parent(bone_i))
 				var bone_rest = skeleton.get_bone_rest(bone_i)				
