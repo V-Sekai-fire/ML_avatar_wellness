@@ -1,0 +1,912 @@
+{
+    "bone": {
+        "idx2str": [
+            "<EOS>",
+            "<SOS>",
+            "<PAD>",
+            "VRM_UNKNOWN_BONE",
+            "_",
+            "i",
+            "e",
+            "r",
+            "a",
+            "-",
+            "b",
+            "d",
+            "t",
+            "n",
+            "l",
+            "j",
+            "c",
+            "f",
+            "h",
+            "4",
+            "3",
+            "1",
+            "0",
+            "2",
+            "p",
+            "8",
+            "9",
+            "o",
+            "s",
+            "7",
+            "6",
+            "5",
+            "g",
+            "m",
+            "k",
+            "u",
+            ".",
+            "x",
+            "w",
+            "y",
+            "v",
+            " "
+        ],
+        "max_sequence_length": 52,
+        "max_sequence_length_99ptile": 48.0,
+        "pad_idx": 2,
+        "padding_symbol": "<PAD>",
+        "preprocessing": {
+            "computed_fill_value": "Root",
+            "fill_value": "VRM_UNKNOWN_BONE",
+            "lowercase": true,
+            "max_sequence_length": 256,
+            "missing_value_strategy": "fill_with_mode",
+            "most_common": 20000,
+            "padding": "right",
+            "padding_symbol": "<PAD>",
+            "pretrained_model_name_or_path": null,
+            "tokenizer": "characters",
+            "unknown_symbol": "VRM_UNKNOWN_BONE",
+            "vocab_file": null
+        },
+        "str2freq": {
+            " ": 18,
+            "-": 4250,
+            ".": 392,
+            "0": 2269,
+            "1": 2348,
+            "2": 2231,
+            "3": 2430,
+            "4": 2529,
+            "5": 1591,
+            "6": 1646,
+            "7": 1724,
+            "8": 1934,
+            "9": 1909,
+            "<EOS>": 0,
+            "<PAD>": 0,
+            "<SOS>": 0,
+            "VRM_UNKNOWN_BONE": 0,
+            "_": 7363,
+            "a": 4259,
+            "b": 4022,
+            "c": 2870,
+            "d": 3899,
+            "e": 5877,
+            "f": 2612,
+            "g": 1015,
+            "h": 2548,
+            "i": 5924,
+            "j": 2923,
+            "k": 791,
+            "l": 2967,
+            "m": 858,
+            "n": 3007,
+            "o": 1873,
+            "p": 1973,
+            "r": 4291,
+            "s": 1834,
+            "t": 3827,
+            "u": 678,
+            "v": 79,
+            "w": 236,
+            "x": 334,
+            "y": 220
+        },
+        "str2idx": {
+            " ": 41,
+            "-": 9,
+            ".": 36,
+            "0": 22,
+            "1": 21,
+            "2": 23,
+            "3": 20,
+            "4": 19,
+            "5": 31,
+            "6": 30,
+            "7": 29,
+            "8": 25,
+            "9": 26,
+            "<EOS>": 0,
+            "<PAD>": 2,
+            "<SOS>": 1,
+            "VRM_UNKNOWN_BONE": 3,
+            "_": 4,
+            "a": 8,
+            "b": 10,
+            "c": 16,
+            "d": 11,
+            "e": 6,
+            "f": 17,
+            "g": 32,
+            "h": 18,
+            "i": 5,
+            "j": 15,
+            "k": 34,
+            "l": 14,
+            "m": 33,
+            "n": 13,
+            "o": 27,
+            "p": 24,
+            "r": 7,
+            "s": 28,
+            "t": 12,
+            "u": 35,
+            "v": 40,
+            "w": 38,
+            "x": 37,
+            "y": 39
+        },
+        "unknown_symbol": "VRM_UNKNOWN_BONE",
+        "vocab_size": 42
+    },
+    "bone_hierarchy": {
+        "idx2str": [
+            "<EOS>",
+            "<SOS>",
+            "<PAD>",
+            "VRM_UNKNOWN_BONE",
+            "_",
+            "i",
+            "e",
+            "-",
+            ",",
+            "a",
+            "b",
+            "r",
+            "d",
+            "t",
+            "j",
+            "c",
+            "n",
+            "4",
+            "l",
+            "f",
+            "3",
+            "1",
+            "2",
+            "0",
+            "h",
+            "8",
+            "9",
+            "p",
+            "s",
+            "o",
+            "7",
+            "6",
+            "5",
+            "g",
+            "k",
+            "m",
+            "u",
+            "x",
+            ".",
+            "w",
+            "y",
+            "v",
+            " "
+        ],
+        "max_sequence_length": 258,
+        "max_sequence_length_99ptile": 258,
+        "pad_idx": 2,
+        "padding_symbol": "<PAD>",
+        "preprocessing": {
+            "computed_fill_value": "Hips,Spine,Spine1,Spine2,Neck,Head,leaf,LeftEye,RightEye,LeftShoulder,LeftArm,LeftForeArm,LeftHand,LeftHandThumb1,LeftHandThumb2,LeftHandThumb3,leaf.001,LeftHandIndex1,LeftHandIndex2,LeftHandIndex3,leaf.002,LeftHandMiddle1,LeftHandMiddle2,LeftHandMiddle3,leaf.003,LeftHandRing1,LeftHandRing2,LeftHandRing3,leaf.004,LeftHandPinky1,LeftHandPinky2,LeftHandPinky3,leaf.005,RightShoulder,RightArm,RightForeArm,RightHand,RightHandThumb1,RightHandThumb2,RightHandThumb3,leaf.006,RightHandIndex1,RightHandIndex2,RightHandIndex3,leaf.007,RightHandMiddle1,RightHandMiddle2,RightHandMiddle3,leaf.008,RightHandRing1,RightHandRing2,RightHandRing3,leaf.009,RightHandPinky1,RightHandPinky2,RightHandPinky3,leaf.010,LeftUpLeg,LeftLeg,LeftFoot,LeftToeBase,leaf.011,RightUpLeg,RightLeg,RightFoot,RightToeBase,leaf.012,",
+            "fill_value": "VRM_UNKNOWN_BONE",
+            "lowercase": true,
+            "max_sequence_length": 256,
+            "missing_value_strategy": "fill_with_mode",
+            "most_common": 20000,
+            "padding": "right",
+            "padding_symbol": "<PAD>",
+            "pretrained_model_name_or_path": null,
+            "tokenizer": "characters",
+            "unknown_symbol": "VRM_UNKNOWN_BONE",
+            "vocab_file": null
+        },
+        "str2freq": {
+            " ": 2196,
+            ",": 526413,
+            "-": 564990,
+            ".": 29374,
+            "0": 275150,
+            "1": 294106,
+            "2": 281567,
+            "3": 306383,
+            "4": 332968,
+            "5": 210234,
+            "6": 217558,
+            "7": 227267,
+            "8": 257004,
+            "9": 252153,
+            "<EOS>": 0,
+            "<PAD>": 0,
+            "<SOS>": 0,
+            "VRM_UNKNOWN_BONE": 0,
+            "_": 934657,
+            "a": 524039,
+            "b": 514256,
+            "c": 370850,
+            "d": 468963,
+            "e": 701712,
+            "f": 314896,
+            "g": 98750,
+            "h": 273623,
+            "i": 715205,
+            "j": 385660,
+            "k": 95435,
+            "l": 326434,
+            "m": 92328,
+            "n": 348039,
+            "o": 227416,
+            "p": 241461,
+            "r": 503030,
+            "s": 229183,
+            "t": 435893,
+            "u": 75305,
+            "v": 10275,
+            "w": 24266,
+            "x": 36054,
+            "y": 22162
+        },
+        "str2idx": {
+            " ": 42,
+            ",": 8,
+            "-": 7,
+            ".": 38,
+            "0": 23,
+            "1": 21,
+            "2": 22,
+            "3": 20,
+            "4": 17,
+            "5": 32,
+            "6": 31,
+            "7": 30,
+            "8": 25,
+            "9": 26,
+            "<EOS>": 0,
+            "<PAD>": 2,
+            "<SOS>": 1,
+            "VRM_UNKNOWN_BONE": 3,
+            "_": 4,
+            "a": 9,
+            "b": 10,
+            "c": 15,
+            "d": 12,
+            "e": 6,
+            "f": 19,
+            "g": 33,
+            "h": 24,
+            "i": 5,
+            "j": 14,
+            "k": 34,
+            "l": 18,
+            "m": 35,
+            "n": 16,
+            "o": 29,
+            "p": 27,
+            "r": 11,
+            "s": 28,
+            "t": 13,
+            "u": 36,
+            "v": 41,
+            "w": 39,
+            "x": 37,
+            "y": 40
+        },
+        "unknown_symbol": "VRM_UNKNOWN_BONE",
+        "vocab_size": 43
+    },
+    "bone_parent": {
+        "idx2str": [
+            "<EOS>",
+            "<SOS>",
+            "<PAD>",
+            "VRM_UNKNOWN_BONE",
+            "_",
+            "i",
+            "e",
+            "r",
+            "a",
+            "b",
+            "d",
+            "h",
+            "p",
+            "t",
+            "-",
+            "j",
+            "l",
+            "c",
+            "n",
+            "f",
+            "4",
+            "1",
+            "2",
+            "3",
+            "s",
+            "o",
+            "0",
+            "8",
+            "9",
+            "6",
+            "7",
+            "5",
+            "g",
+            "u",
+            "m",
+            "k",
+            ".",
+            "w",
+            "x",
+            "y",
+            "v",
+            " "
+        ],
+        "max_sequence_length": 48,
+        "max_sequence_length_99ptile": 48,
+        "pad_idx": 2,
+        "padding_symbol": "<PAD>",
+        "preprocessing": {
+            "computed_fill_value": "J_Bip_C_Head",
+            "fill_value": "VRM_UNKNOWN_BONE",
+            "lowercase": true,
+            "max_sequence_length": 256,
+            "missing_value_strategy": "fill_with_mode",
+            "most_common": 20000,
+            "padding": "right",
+            "padding_symbol": "<PAD>",
+            "pretrained_model_name_or_path": null,
+            "tokenizer": "characters",
+            "unknown_symbol": "VRM_UNKNOWN_BONE",
+            "vocab_file": null
+        },
+        "str2freq": {
+            " ": 30,
+            "-": 2860,
+            ".": 300,
+            "0": 1418,
+            "1": 1708,
+            "2": 1565,
+            "3": 1546,
+            "4": 1730,
+            "5": 1073,
+            "6": 1116,
+            "7": 1098,
+            "8": 1339,
+            "9": 1281,
+            "<EOS>": 0,
+            "<PAD>": 0,
+            "<SOS>": 0,
+            "VRM_UNKNOWN_BONE": 0,
+            "_": 7373,
+            "a": 3721,
+            "b": 3688,
+            "c": 2492,
+            "d": 3170,
+            "e": 4808,
+            "f": 1858,
+            "g": 1017,
+            "h": 3066,
+            "i": 5334,
+            "j": 2842,
+            "k": 567,
+            "l": 2660,
+            "m": 778,
+            "n": 2433,
+            "o": 1530,
+            "p": 2989,
+            "r": 3755,
+            "s": 1546,
+            "t": 2951,
+            "u": 780,
+            "v": 105,
+            "w": 278,
+            "x": 272,
+            "y": 106
+        },
+        "str2idx": {
+            " ": 41,
+            "-": 14,
+            ".": 36,
+            "0": 26,
+            "1": 21,
+            "2": 22,
+            "3": 23,
+            "4": 20,
+            "5": 31,
+            "6": 29,
+            "7": 30,
+            "8": 27,
+            "9": 28,
+            "<EOS>": 0,
+            "<PAD>": 2,
+            "<SOS>": 1,
+            "VRM_UNKNOWN_BONE": 3,
+            "_": 4,
+            "a": 8,
+            "b": 9,
+            "c": 17,
+            "d": 10,
+            "e": 6,
+            "f": 19,
+            "g": 32,
+            "h": 11,
+            "i": 5,
+            "j": 15,
+            "k": 35,
+            "l": 16,
+            "m": 34,
+            "n": 18,
+            "o": 25,
+            "p": 12,
+            "r": 7,
+            "s": 24,
+            "t": 13,
+            "u": 33,
+            "v": 40,
+            "w": 37,
+            "x": 38,
+            "y": 39
+        },
+        "unknown_symbol": "VRM_UNKNOWN_BONE",
+        "vocab_size": 42
+    },
+    "bone_x_global_origin_in_meters": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const",
+            "normalization": null
+        }
+    },
+    "bone_y_global_origin_in_meters": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const",
+            "normalization": null
+        }
+    },
+    "bone_z_global_origin_in_meters": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const",
+            "normalization": null
+        }
+    },
+    "checksum": "u7od2La_NAykURVGLF0vcg==",
+    "chest": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "data_train_hdf5_fp": "train.training.hdf5",
+    "dataset_src": "train.tsv",
+    "head": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "hips": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftEye": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftFoot": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftHand": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftIndexDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftIndexIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftIndexProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftLittleDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftLittleIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftLittleProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftLowerArm": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftLowerLeg": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftMiddleDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftMiddleIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftMiddleProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftRingDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftRingIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftRingProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftShoulder": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftThumbDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftThumbIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftThumbProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftToes": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftUpperArm": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "leftUpperLeg": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "neck": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightEye": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightFoot": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightHand": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightIndexDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightIndexIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightIndexProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightLittleDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightLittleIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightLittleProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightLowerArm": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightLowerLeg": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightMiddleDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightMiddleIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightMiddleProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightRingDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightRingIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightRingProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightShoulder": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightThumbDistal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightThumbIntermediate": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightThumbProximal": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightToes": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightUpperArm": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "rightUpperLeg": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "spine": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "upperChest": {
+        "preprocessing": {
+            "computed_fill_value": 0,
+            "fill_value": 0,
+            "missing_value_strategy": "fill_with_const"
+        }
+    },
+    "vrm_bone_category": {
+        "idx2str": [
+            "<UNK>",
+            "VRM_BONE_CATEGORY_NONE",
+            "VRM_BONE_CATEGORY_LEFT_ARM",
+            "VRM_BONE_CATEGORY_RIGHT_ARM",
+            "VRM_BONE_CATEGORY_LEFT_LEG",
+            "VRM_BONE_CATEGORY_RIGHT_LEG",
+            "VRM_BONE_CATEGORY_TORSO",
+            "VRM_BONE_CATEGORY_HEAD"
+        ],
+        "preprocessing": {
+            "computed_fill_value": "VRM_BONE_CATEGORY_NONE",
+            "fill_value": "VRM_BONE_CATEGORY_NONE",
+            "lowercase": false,
+            "missing_value_strategy": "fill_with_const",
+            "most_common": 10000
+        },
+        "str2freq": {
+            "<UNK>": 0,
+            "VRM_BONE_CATEGORY_HEAD": 171,
+            "VRM_BONE_CATEGORY_LEFT_ARM": 797,
+            "VRM_BONE_CATEGORY_LEFT_LEG": 188,
+            "VRM_BONE_CATEGORY_NONE": 2339,
+            "VRM_BONE_CATEGORY_RIGHT_ARM": 797,
+            "VRM_BONE_CATEGORY_RIGHT_LEG": 188,
+            "VRM_BONE_CATEGORY_TORSO": 177
+        },
+        "str2idx": {
+            "<UNK>": 0,
+            "VRM_BONE_CATEGORY_HEAD": 7,
+            "VRM_BONE_CATEGORY_LEFT_ARM": 2,
+            "VRM_BONE_CATEGORY_LEFT_LEG": 4,
+            "VRM_BONE_CATEGORY_NONE": 1,
+            "VRM_BONE_CATEGORY_RIGHT_ARM": 3,
+            "VRM_BONE_CATEGORY_RIGHT_LEG": 5,
+            "VRM_BONE_CATEGORY_TORSO": 6
+        },
+        "vocab_size": 8
+    }
+}
