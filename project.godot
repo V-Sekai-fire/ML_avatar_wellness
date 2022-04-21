@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Avatar Wellness"
-config/features=PackedStringArray("4.0", "Double Precision")
+config/features=PackedStringArray("4.0")
 
 [autoload]
 
@@ -45,6 +45,10 @@ enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://a
 [entities]
 
 config/process_priority=0
+
+[filesystem]
+
+import/blender/enabled=false
 
 [importer_defaults]
 
