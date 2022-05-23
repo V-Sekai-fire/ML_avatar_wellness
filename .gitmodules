@@ -4,3 +4,6 @@
 [submodule "addons/correct_bone_direction"]
 	path = addons/correct_bone_direction
 	url = https://github.com/fire/ADDON_correct_bone_direction.git
+[submodule "addons/force_bone_forward"]
+	path = addons/force_bone_forward
+	url = https://github.com/V-Sekai-fire/ADDON_force_bone_forward.git
