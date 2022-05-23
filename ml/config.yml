@@ -29,8 +29,6 @@ input_features:
     type: numerical
   - name: bone_z_global_origin_in_meters
     type: numerical
-combiner:
-  type: tabnet
 output_features:
   - name: vrm_bone_category
     type: category
