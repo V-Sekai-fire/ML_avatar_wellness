@@ -42,7 +42,6 @@ func _post_process(scene: Node) -> void:
 		if node is Skeleton3D:
 			correct_bone_directions(scene, node, null, null)
 			_refresh_skeleton(node)
-			break
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
