@@ -23,14 +23,14 @@
 @tool
 extends EditorScenePostImportPlugin
 
-const bone_direction_const = preload("bone_direction.gd")
+var bone_direction = load("bone_direction.gd").new()
 
 static func _refresh_skeleton(p_skeleton : Skeleton3D):
 	p_skeleton.visible = not p_skeleton.visible
 	p_skeleton.visible = not p_skeleton.visible
 
-static func correct_bone_directions(p_root: Node, p_skeleton_node: Skeleton3D, p_humanoid_data: HumanoidData, p_undo_redo: UndoRedo) -> void:
-	bone_direction_const.fix_skeleton(p_root, p_skeleton_node, p_humanoid_data, p_undo_redo)
+func correct_bone_directions(p_root: Node, p_skeleton_node: Skeleton3D, p_humanoid_data: HumanoidData, p_undo_redo: UndoRedo) -> void:
+	bone_direction.fix_skeleton(p_root, p_skeleton_node, p_humanoid_data, p_undo_redo)
 
 func _post_process(scene: Node) -> void:
 	var queue : Array
