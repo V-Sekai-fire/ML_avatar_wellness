@@ -29,6 +29,30 @@ input_features:
     type: numerical
   - name: bone_z_global_origin_in_meters
     type: numerical
+  - name: bone_truncated_normalized_basis_axis_x_0
+    type: numerical
+  - name: bone_truncated_normalized_basis_axis_x_1
+    type: numerical
+  - name: bone_truncated_normalized_basis_axis_x_2
+    type: numerical
+  - name: bone_truncated_normalized_basis_axis_y_0
+    type: numerical
+  - name: bone_truncated_normalized_basis_axis_y_1
+    type: numerical
+  - name: bone_truncated_normalized_basis_axis_y_2
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_x_0
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_x_1
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_x_2
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_y_0
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_y_1
+    type: numerical
+  - name: bone_parent_truncated_normalized_basis_axis_y_2
+    type: numerical
 output_features:
   - name: vrm_bone_category
     type: category
