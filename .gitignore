@@ -18,3 +18,5 @@ data_*/
 *.blend1
 
 ml/results/
+
+ml/output/
