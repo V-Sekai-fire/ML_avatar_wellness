@@ -3,7 +3,7 @@ input_features:
     type: text
     level: char
     preprocessing:
-      tokenizer: characters
+      tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
@@ -11,7 +11,7 @@ input_features:
     type: text
     level: char
     preprocessing:
-      tokenizer: characters
+      tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
@@ -19,7 +19,7 @@ input_features:
     type: text
     level: char
     preprocessing:
-      tokenizer: characters
+      tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
