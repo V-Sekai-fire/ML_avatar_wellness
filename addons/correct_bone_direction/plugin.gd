@@ -4,7 +4,7 @@ extends EditorPlugin
 var import_plugin : EditorScenePostImportPlugin = null
 
 func _enter_tree():
-	import_plugin = preload("correct_bone_dir.gd").new()
+	import_plugin = load("correct_bone_dir.gd").new()
 	add_scene_post_import_plugin(import_plugin)
 
 
