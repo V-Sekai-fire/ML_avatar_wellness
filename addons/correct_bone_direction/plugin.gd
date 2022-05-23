@@ -2,9 +2,10 @@
 extends EditorPlugin
 
 var import_plugin : EditorScenePostImportPlugin = null
+var correct_bone_dir_script = load("res://addons/correct_bone_direction/correct_bone_dir.gd")
 
 func _enter_tree():
-	import_plugin = load("correct_bone_dir.gd").new()
+	import_plugin = correct_bone_dir_script.new()
 	add_scene_post_import_plugin(import_plugin)
 
 

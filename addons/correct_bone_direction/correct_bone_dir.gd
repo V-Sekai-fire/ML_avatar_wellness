@@ -23,7 +23,7 @@
 @tool
 extends EditorScenePostImportPlugin
 
-var bone_direction = load("bone_direction.gd").new()
+var bone_direction = preload("res://addons/correct_bone_direction/bone_direction.gd")
 
 static func _refresh_skeleton(p_skeleton : Skeleton3D):
 	p_skeleton.visible = not p_skeleton.visible
