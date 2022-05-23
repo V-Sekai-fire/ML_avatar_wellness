@@ -41,6 +41,12 @@ input_features:
     type: numerical
   - name: bone_truncated_normalized_basis_axis_y_2
     type: numerical
+  - name: bone_parent_x_global_origin_in_meters
+    type: numerical
+  - name: bone_parent_y_global_origin_in_meters
+    type: numerical
+  - name: bone_parent_z_global_origin_in_meters
+    type: numerical
   - name: bone_parent_truncated_normalized_basis_axis_x_0
     type: numerical
   - name: bone_parent_truncated_normalized_basis_axis_x_1
