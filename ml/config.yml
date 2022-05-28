@@ -68,19 +68,8 @@ input_features:
   - name: bone_parent_truncated_normalized_basis_axis_y_2
     type: numerical
 output_features:
-  - name: bone
-    type: text
-    level: char
-    preprocessing:
-      tokenizer: gpt2bpe
-      unknown_symbol: VRM_UNKNOWN_BONE
-      fill_value: VRM_UNKNOWN_BONE
-      missing_value_strategy: fill_with_mode
   - name: class
     type: category
-    top_k: 1
-    num_fc_layers: 2
-    fc_size: 64
     loss:
       weight: 55
     preprocessing:
@@ -88,9 +77,6 @@ output_features:
       missing_value_strategy: fill_with_const
   - name: vrm_bone_category
     type: category
-    top_k: 1
-    num_fc_layers: 2
-    fc_size: 64
     loss:
       weight: 6
     preprocessing:
