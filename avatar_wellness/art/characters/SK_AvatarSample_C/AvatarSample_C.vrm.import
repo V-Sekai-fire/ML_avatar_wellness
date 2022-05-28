@@ -4,13 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d30gcis1oudy1"
-path="res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"
+valid=false
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_AvatarSample_C/AvatarSample_C.vrm"
-dest_files=["res://.godot/imported/AvatarSample_C.vrm-b2b244b82df0bc928f0a2555395a9a89.scn"]
-
 [params]
 
 nodes/root_type="Node3D"

@@ -4,13 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d15o60e5xoj8a"
-path="res://.godot/imported/v_sekai_adult-female.vrm-673cb8c71c1b55e2d808bd0d84b79408.scn"
+valid=false
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_Adult_Female/v_sekai_adult-female.vrm"
-dest_files=["res://.godot/imported/v_sekai_adult-female.vrm-673cb8c71c1b55e2d808bd0d84b79408.scn"]
-
 [params]
 
 nodes/root_type="Node3D"

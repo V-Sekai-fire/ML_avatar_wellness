@@ -4,13 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dbliqmh0px21m"
-path="res://.godot/imported/kurisu.vrm-5585adedb29aaad1b6f4c2932b1e42f2.scn"
+valid=false
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_kurisu/kurisu.vrm"
-dest_files=["res://.godot/imported/kurisu.vrm-5585adedb29aaad1b6f4c2932b1e42f2.scn"]
-
 [params]
 
 nodes/root_type="Node3D"

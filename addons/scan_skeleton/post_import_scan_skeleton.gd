@@ -40,7 +40,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene : Node, test = true, skip_vrm = false):
+static func _write_import(file, scene : Node, test = false, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
 	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",

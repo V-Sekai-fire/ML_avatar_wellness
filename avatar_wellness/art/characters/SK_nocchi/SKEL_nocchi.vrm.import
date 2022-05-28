@@ -4,13 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dhryahng7jh5b"
-path="res://.godot/imported/SKEL_nocchi.vrm-54929f06094e354c82b09999355f4db8.scn"
+valid=false
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_nocchi/SKEL_nocchi.vrm"
-dest_files=["res://.godot/imported/SKEL_nocchi.vrm-54929f06094e354c82b09999355f4db8.scn"]
-
 [params]
 
 nodes/root_type="Node3D"
