@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4jbiyp8ishae"
-valid=false
+path="res://.godot/imported/SK_EpsilonNought.vrm-3382345b16c22dadb67c0680b3019333.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_EpsilonNought/SK_EpsilonNought.vrm"
+dest_files=["res://.godot/imported/SK_EpsilonNought.vrm-3382345b16c22dadb67c0680b3019333.scn"]
+
 [params]
 
 nodes/root_type="Node3D"

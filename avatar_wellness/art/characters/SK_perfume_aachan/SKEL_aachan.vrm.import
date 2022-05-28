@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cycv25251dltg"
-valid=false
+path="res://.godot/imported/SKEL_aachan.vrm-0b0232ffbd467f7783e1527f95f8f143.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_perfume_aachan/SKEL_aachan.vrm"
+dest_files=["res://.godot/imported/SKEL_aachan.vrm-0b0232ffbd467f7783e1527f95f8f143.scn"]
+
 [params]
 
 nodes/root_type="Node3D"

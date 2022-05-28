@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8oyw8uiao68g"
-valid=false
+path="res://.godot/imported/SK_saiky.vrm-df2c001094db1e346a2b687b1033a43c.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_saiky/SK_saiky.vrm"
+dest_files=["res://.godot/imported/SK_saiky.vrm-df2c001094db1e346a2b687b1033a43c.scn"]
+
 [params]
 
 nodes/root_type="Node3D"

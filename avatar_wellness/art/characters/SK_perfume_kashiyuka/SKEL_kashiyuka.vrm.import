@@ -4,11 +4,13 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://pgqoq2lips5o"
-valid=false
+path="res://.godot/imported/SKEL_kashiyuka.vrm-86212ebe3709496e37fd39dc6eaf2c73.scn"
 
 [deps]
 
 source_file="res://avatar_wellness/art/characters/SK_perfume_kashiyuka/SKEL_kashiyuka.vrm"
+dest_files=["res://.godot/imported/SKEL_kashiyuka.vrm-86212ebe3709496e37fd39dc6eaf2c73.scn"]
+
 [params]
 
 nodes/root_type="Node3D"
