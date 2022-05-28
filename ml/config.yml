@@ -7,6 +7,18 @@ input_features:
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
+  - name: texture_path
+    type: image
+    encoder: vit
+    use_pretrained: true
+    preprocessing:
+      height: 256
+      width: 256
+      num_channels: 3
+      resize_method: interpolate
+      scaling: pixel_normalization
+      in_memory: true
+      num_processes: 4
   - name: bone_parent
     type: text
     level: char

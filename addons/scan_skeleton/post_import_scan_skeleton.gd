@@ -40,7 +40,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene, test = true, skip_vrm = false):
+static func _write_import(file, scene : Node, test = true, skip_vrm = false):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
 	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -92,11 +92,19 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
 		
-		
+	var vrm_texture_path = "VRM_TEXTURE_UNKNOWN"
 	if vrm_extension and vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
+		var texture : Texture = vrm_extension["vrm_meta"]["texture"]
+		var image : Image = null
+		if texture:
+			image = texture.image
+		if image:
+			var scene_file_path : String = scene.scene_file_path
+			vrm_texture_path = vrm_extension["vrm_meta"]["title"] + "-" + scene_file_path.md5_text() + ".png"
+			image.save_png("res://" + vrm_texture_path)
 		if skip_vrm and not test:
-			return	
+			return
 	queue.push_back(scene)
 	var string_builder : Array
 	while not queue.is_empty():
@@ -117,8 +125,10 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 						break
 				bone["class"] = vrm_mapping
 				bone["title"] = "VRM_TITLE_UNKNOWN"
+				bone["texture_path"] = "VRM_TEXTURE_UNKNOWN"
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					bone["title"] = vrm_extension["vrm_meta"]["title"]
+					bone["texture_path"] = vrm_texture_path
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_UNKNOWN"
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
