@@ -144,7 +144,7 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 					bone[key] = "VRM_BONE_UNKNOWN"
 				for key in human_map.keys():
 					if human_map.has(key) and key == vrm_mapping:
-						bone[key] = "VRM_BONE_KNOWN"
+						bone[key] = key
 					else:
 						bone[key] = "VRM_BONE_NONE"
 				bone_global_pose = skeleton.local_pose_to_global_pose(bone_i, bone_global_pose)
