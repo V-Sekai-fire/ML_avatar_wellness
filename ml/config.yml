@@ -64,6 +64,7 @@ input_features:
 output_features:
   - name: vrm_bone_category
     type: category
+    threshold: 0.80
     loss:
       weight: 6
     preprocessing:
