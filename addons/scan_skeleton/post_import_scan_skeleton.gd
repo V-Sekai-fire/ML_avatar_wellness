@@ -40,7 +40,7 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
-static func _write_import(file, scene : Node, test = false, skip_vrm = false):
+static func _write_import(file, scene : Node, test, skip_vrm):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
 	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -110,10 +110,13 @@ static func _write_import(file, scene : Node, test = false, skip_vrm = false):
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
-				for human_key in human_map.keys():
-					if human_map[human_key] == bone_name:
-						vrm_mapping = human_key
-						break
+				if not test:
+					for human_key in human_map.keys():
+						if human_map[human_key] == bone_name:
+							vrm_mapping = human_key
+							break
+					if vrm_mapping == "VRM_BONE_UNKNOWN":
+						vrm_mapping = "VRM_BONE_NONE"
 				bone["class"] = vrm_mapping
 				bone["title"] = "VRM_TITLE_UNKNOWN"
 				if vrm_extension and vrm_extension.get("vrm_meta"):
@@ -287,7 +290,7 @@ func _post_import(scene : Node):
 		var front = queue.front()
 		var node = front
 		if node is Skeleton3D:
-			_write_import(get_source_file(), scene)
+			_write_import(get_source_file(), scene, false, false)
 			break
 		var child_count : int = node.get_child_count()
 		for i in child_count:
