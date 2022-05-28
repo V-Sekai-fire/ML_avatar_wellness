@@ -461,5 +461,4 @@ output_features:
       fill_value: VRM_BONE_UNKNOWN
       missing_value_strategy: fill_with_const
 preprocessing:
-  oversample_minority: 0.5
   stratify: class
