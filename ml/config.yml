@@ -15,6 +15,14 @@ input_features:
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
+  - name: title
+    type: text
+    level: char
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: bone_hierarchy
     type: text
     level: char
