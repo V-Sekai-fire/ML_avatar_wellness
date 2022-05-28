@@ -8,6 +8,7 @@ input_features:
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
   - name: bone_parent
+    tied: bone
     type: text
     level: char
     preprocessing:
@@ -64,7 +65,6 @@ input_features:
 output_features:
   - name: vrm_bone_category
     type: category
-    threshold: 0.80
     loss:
       weight: 6
     preprocessing:
