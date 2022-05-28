@@ -102,6 +102,9 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 						vrm_mapping = human_key
 						break
 				bone["class"] = vrm_mapping
+				bone["title"] = "VRM_TITLE_NONE"
+				if vrm_extension.get("vrm_meta"):
+					bone["title"] = vrm_extension["vrm_meta"]["title"]
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
 				if vrm_head_category.has(vrm_mapping):
 					bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_HEAD"
