@@ -79,7 +79,7 @@ output_features:
       fill_value: VRM_BONE_CATEGORY_NONE
       missing_value_strategy: fill_with_const
   - name: hips
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -87,7 +87,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftUpperLeg
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -95,7 +95,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightUpperLeg
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -103,7 +103,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLowerLeg
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -111,7 +111,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLowerLeg
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -119,7 +119,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftFoot
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -127,7 +127,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightFoot
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -135,7 +135,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: spine
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -143,7 +143,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: chest
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -151,7 +151,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: neck
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -159,7 +159,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: head
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -167,7 +167,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftShoulder
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -175,7 +175,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightShoulder
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -183,7 +183,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftUpperArm
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -191,7 +191,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightUpperArm
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -199,7 +199,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLowerArm
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -207,7 +207,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLowerArm
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -215,7 +215,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftHand
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -223,7 +223,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightHand
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -231,7 +231,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftToes
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -239,7 +239,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightToes
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -247,7 +247,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftEye
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -255,7 +255,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightEye
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -263,7 +263,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -271,7 +271,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -279,7 +279,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -287,7 +287,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -295,7 +295,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -303,7 +303,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -311,7 +311,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -319,7 +319,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -327,7 +327,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -335,7 +335,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -343,7 +343,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -351,7 +351,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -359,7 +359,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -367,7 +367,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -375,7 +375,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -383,7 +383,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -391,7 +391,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -399,7 +399,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -407,7 +407,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -415,7 +415,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -423,7 +423,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -431,7 +431,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -439,7 +439,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -447,7 +447,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -455,7 +455,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -463,7 +463,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -471,7 +471,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -479,7 +479,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleProximal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -487,7 +487,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleIntermediate
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -495,7 +495,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleDistal
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55
@@ -503,7 +503,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: upperChest
-    type: category
+    type: binary
     threshold: 0.35
     loss:
       weight: 55

@@ -141,12 +141,10 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 					bone["bone_parent"] = skeleton.get_bone_name(skeleton.get_bone_parent(bone_i))
 				var bone_global_pose = skeleton.get_bone_global_pose(bone_i)				
 				for key in vrm_bones:
-					bone[key] = "VRM_BONE_UNKNOWN"
+					bone[key] = 0
 				for key in human_map.keys():
 					if human_map.has(key) and key == vrm_mapping:
-						bone[key] = key
-					else:
-						bone[key] = "VRM_BONE_NONE"
+						bone[key] = 1
 				bone_global_pose = skeleton.local_pose_to_global_pose(bone_i, bone_global_pose)
 				bone["bone_x_global_origin_in_meters"] = bone_global_pose.origin.x
 				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.x
