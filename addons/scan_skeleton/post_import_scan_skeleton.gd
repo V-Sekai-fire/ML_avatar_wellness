@@ -200,15 +200,11 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["bone_parent_y_global_scale_in_meters"] = parent_scale.y
 				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
 				var bone_hierarchy : String = ""
-				var bone_hierarchy_numerical : String = ""
 				for bone_id in neighbours:
 					if bone_hierarchy.is_empty():
-						bone_hierarchy_numerical = str(bone_id) + ","
 						bone_hierarchy = skeleton.get_bone_name(bone_id) + ","
 						continue
 					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + ","
-					bone_hierarchy_numerical = bone_hierarchy_numerical + str(bone_id) + ","
-				bone["bone_hierarchy_numerical"] = bone_hierarchy_numerical
 				bone["bone_hierarchy"] = bone_hierarchy
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
@@ -255,9 +251,9 @@ static func _generate_bone_chains(skeleton : Skeleton3D) -> Array:
 		queue.push_back(parentless_bone)
 	while not queue.is_empty():
 		var front = queue.front()
-		for new_bone_id in skeleton.get_bone_children(front):
+		neighbor_list.push_back(front)
+		for new_bone_id in skeleton.get_bone_children(front):	
 			queue.push_back(new_bone_id)
-			neighbor_list.push_back(new_bone_id)
 		queue.pop_front()
 	neighbor_list.reverse()
 	return neighbor_list
