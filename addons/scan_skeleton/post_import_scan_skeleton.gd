@@ -203,7 +203,7 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 						continue
 					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + ","
 				bone["bone_hierarchy"] = bone_hierarchy
-				if vrm_extension.get("vrm_meta"):
+				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
 					if version == null or version.is_empty():
 						version = "VRM_UNVERSIONED"
