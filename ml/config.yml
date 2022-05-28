@@ -31,6 +31,8 @@ input_features:
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
+  - name: bone_hierarchy_numerical
+    type: sequence
   - name: bone_x_global_origin_in_meters
     type: numerical
   - name: bone_y_global_origin_in_meters

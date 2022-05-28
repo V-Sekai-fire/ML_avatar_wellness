@@ -103,9 +103,9 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 		var node = front
 		if node is Skeleton3D:
 			var skeleton : Skeleton3D = node
+			var neighbours = _generate_bone_chains(skeleton)
 			correct_bone_dir_const.fix_skeleton(scene, skeleton)
 			correct_bone_dir_const._refresh_skeleton(skeleton)
-			var print_skeleton_neighbours_text_cache : Dictionary
 			var bone : Dictionary
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
@@ -199,14 +199,16 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["bone_parent_x_global_scale_in_meters"] = parent_scale.x
 				bone["bone_parent_y_global_scale_in_meters"] = parent_scale.y
 				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
-				var neighbours = skeleton_neighbours(print_skeleton_neighbours_text_cache, skeleton)[bone_i]
 				var bone_hierarchy : String = ""
-				for elem_i in neighbours.size():
-					var bone_id = neighbours[elem_i]
+				var bone_hierarchy_numerical : String = ""
+				for bone_id in neighbours:
 					if bone_hierarchy.is_empty():
+						bone_hierarchy_numerical = str(bone_id) + ","
 						bone_hierarchy = skeleton.get_bone_name(bone_id) + ","
 						continue
 					bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + ","
+					bone_hierarchy_numerical = bone_hierarchy_numerical + str(bone_id) + ","
+				bone["bone_hierarchy_numerical"] = bone_hierarchy_numerical
 				bone["bone_hierarchy"] = bone_hierarchy
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("specVersion")
@@ -229,59 +231,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 	_write_train(filename, string_builder)
 	return scene
 
-
-static func skeleton_neighbours(skeleton_neighbours_cache : Dictionary, skeleton):
-	if skeleton_neighbours_cache.has(skeleton):
-		return skeleton_neighbours_cache[skeleton]
-	var bone_list_text : String
-	var roots : PackedInt32Array
-	for bone_i in skeleton.get_bone_count():
-		if skeleton.get_bone_parent(bone_i) == -1:
-			roots.push_back(bone_i)
-	var queue : Array
-	var parents : Array
-	for bone_i in roots:
-		queue.push_back(bone_i)
-	var seen : Array
-	while not queue.is_empty():
-		var front = queue.front()
-		parents.push_front(front)
-		var children : PackedInt32Array = skeleton.get_bone_children(front)
-		for child in children:
-			queue.push_back(child)
-		queue.pop_front()
-	var neighbor_list = find_neighbor_joint(parents, 2.0)
-	if neighbor_list.size() == 0:
-		return [].duplicate()
-	skeleton_neighbours_cache[skeleton] = neighbor_list
-	return neighbor_list
-
-
-static func find_neighbor_joint(parents, threshold):
-# The code in find_neighbor_joint(parents, threshold) is adapted
-# from deep-motion-editing by kfiraberman, PeizhuoLi and HalfSummer11.
-	var n_joint = parents.size()
-	var dist_mat : PackedInt32Array
-	dist_mat.resize(n_joint * n_joint)
-	for j in dist_mat.size():
-		dist_mat[j] = 1
-		if j == n_joint * j + j:
-			dist_mat[j] = 0
-#   Floyd's algorithm
-	for k in range(n_joint):
-		for i in range(n_joint):
-			for j in range(n_joint):
-				dist_mat[i * j + j] = min(dist_mat[i * j + j], dist_mat[i * k + k] + dist_mat[k * j + j])
-
-	var neighbor_list : Array = [].duplicate()
-	for i in range(n_joint):
-		var neighbor = [].duplicate()
-		for j in range(n_joint):
-			if dist_mat[i * j + j] <= threshold:
-				neighbor.append(j)
-		neighbor_list.append(neighbor)
-	return neighbor_list
-	
 func _post_import(scene : Node):
 	var queue : Array
 	queue.push_back(scene)
@@ -298,3 +247,17 @@ func _post_import(scene : Node):
 		queue.pop_front()
 	return scene
 
+
+static func _generate_bone_chains(skeleton : Skeleton3D) -> Array:
+	var neighbor_list : Array
+	var queue : Array
+	for parentless_bone in skeleton.get_parentless_bones():
+		queue.push_back(parentless_bone)
+	while not queue.is_empty():
+		var front = queue.front()
+		for new_bone_id in skeleton.get_bone_children(front):
+			queue.push_back(new_bone_id)
+			neighbor_list.push_back(new_bone_id)
+		queue.pop_front()
+	neighbor_list.reverse()
+	return neighbor_list
