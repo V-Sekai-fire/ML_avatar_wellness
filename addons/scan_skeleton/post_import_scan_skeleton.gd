@@ -76,13 +76,27 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 	print(file_path)
 	if file_path.is_empty():
 		return scene
-	var vrm_extension = scene
+	var vrm_extension : VRMTopLevel = null
 	var human_map : Dictionary
-	if vrm_extension.get("vrm_meta"):
+	
+	var queue : Array # Node
+	queue.push_back(scene)
+	while not queue.is_empty():
+		var front = queue.front()
+		var node = front
+		if node.get("vrm_meta"):
+			vrm_extension = node
+			break
+		var child_count : int = node.get_child_count()
+		for i in child_count:
+			queue.push_back(node.get_child(i))
+		queue.pop_front()
+		
+		
+	if vrm_extension and vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
 		if skip_vrm and not test:
-			return
-	var queue : Array # Node
+			return	
 	queue.push_back(scene)
 	var string_builder : Array
 	while not queue.is_empty():
@@ -103,7 +117,7 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 						break
 				bone["class"] = vrm_mapping
 				bone["title"] = "VRM_TITLE_NONE"
-				if vrm_extension.get("vrm_meta"):
+				if vrm_extension and vrm_extension.get("vrm_meta"):
 					bone["title"] = vrm_extension["vrm_meta"]["title"]
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
 				if vrm_head_category.has(vrm_mapping):
