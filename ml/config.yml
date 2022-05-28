@@ -79,7 +79,7 @@ output_features:
       fill_value: VRM_BONE_CATEGORY_NONE
       missing_value_strategy: fill_with_const
   - name: hips
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -89,7 +89,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperLeg
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -99,7 +99,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperLeg
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -109,7 +109,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerLeg
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -119,7 +119,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerLeg
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -129,7 +129,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftFoot
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -139,7 +139,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightFoot
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -149,7 +149,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: spine
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -159,7 +159,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: chest
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -169,7 +169,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: neck
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -179,7 +179,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: head
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -189,7 +189,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftShoulder
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -199,7 +199,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightShoulder
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -209,7 +209,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperArm
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -219,7 +219,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperArm
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -229,7 +229,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerArm
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -239,7 +239,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerArm
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -249,7 +249,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftHand
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -259,7 +259,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightHand
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -269,7 +269,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftToes
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -279,7 +279,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightToes
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -289,7 +289,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftEye
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -299,7 +299,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightEye
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -309,7 +309,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -319,7 +319,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -329,7 +329,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -339,7 +339,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -349,7 +349,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -359,7 +359,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -369,7 +369,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -379,7 +379,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -389,7 +389,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -399,7 +399,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -409,7 +409,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -419,7 +419,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -429,7 +429,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -439,7 +439,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -449,7 +449,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -459,7 +459,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -469,7 +469,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -479,7 +479,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -489,7 +489,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -499,7 +499,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -509,7 +509,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -519,7 +519,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -529,7 +529,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -539,7 +539,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -549,7 +549,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -559,7 +559,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -569,7 +569,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -579,7 +579,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleProximal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -589,7 +589,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleIntermediate
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -599,7 +599,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleDistal
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
@@ -609,7 +609,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: upperChest
-    type: categoric
+    type: category
     threshold: 0.35
     loss:
       weight: 55
