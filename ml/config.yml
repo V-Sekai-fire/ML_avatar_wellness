@@ -68,6 +68,14 @@ input_features:
   - name: bone_parent_truncated_normalized_basis_axis_y_2
     type: numerical
 output_features:
+  - name: bone
+    type: text
+    level: char
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: class
     type: category
     top_k: 1
@@ -90,7 +98,6 @@ output_features:
       missing_value_strategy: fill_with_const
   - name: hips
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -98,7 +105,6 @@ output_features:
       fill_value: 0
   - name: leftUpperLeg
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -106,7 +112,6 @@ output_features:
       fill_value: 0
   - name: rightUpperLeg
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -114,7 +119,6 @@ output_features:
       fill_value: 0
   - name: leftLowerLeg
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -122,7 +126,6 @@ output_features:
       fill_value: 0
   - name: rightLowerLeg
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -130,7 +133,6 @@ output_features:
       fill_value: 0
   - name: leftFoot
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -138,7 +140,6 @@ output_features:
       fill_value: 0
   - name: rightFoot
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -146,7 +147,6 @@ output_features:
       fill_value: 0
   - name: spine
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -154,7 +154,6 @@ output_features:
       fill_value: 0
   - name: chest
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -162,7 +161,6 @@ output_features:
       fill_value: 0
   - name: neck
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -170,7 +168,6 @@ output_features:
       fill_value: 0
   - name: head
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -178,7 +175,6 @@ output_features:
       fill_value: 0
   - name: leftShoulder
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -186,7 +182,6 @@ output_features:
       fill_value: 0
   - name: rightShoulder
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -194,7 +189,6 @@ output_features:
       fill_value: 0
   - name: leftUpperArm
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -202,7 +196,6 @@ output_features:
       fill_value: 0
   - name: rightUpperArm
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -210,7 +203,6 @@ output_features:
       fill_value: 0
   - name: leftLowerArm
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -218,7 +210,6 @@ output_features:
       fill_value: 0
   - name: rightLowerArm
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -226,7 +217,6 @@ output_features:
       fill_value: 0
   - name: leftHand
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -234,7 +224,6 @@ output_features:
       fill_value: 0
   - name: rightHand
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -242,7 +231,6 @@ output_features:
       fill_value: 0
   - name: leftToes
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -250,7 +238,6 @@ output_features:
       fill_value: 0
   - name: rightToes
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -258,7 +245,6 @@ output_features:
       fill_value: 0
   - name: leftEye
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -266,7 +252,6 @@ output_features:
       fill_value: 0
   - name: rightEye
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -274,7 +259,6 @@ output_features:
       fill_value: 0
   - name: leftThumbProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -282,7 +266,6 @@ output_features:
       fill_value: 0
   - name: leftThumbIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -290,7 +273,6 @@ output_features:
       fill_value: 0
   - name: leftThumbDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -298,7 +280,6 @@ output_features:
       fill_value: 0
   - name: leftIndexProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -306,7 +287,6 @@ output_features:
       fill_value: 0
   - name: leftIndexIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -314,7 +294,6 @@ output_features:
       fill_value: 0
   - name: leftIndexDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -322,7 +301,6 @@ output_features:
       fill_value: 0
   - name: leftMiddleProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -330,7 +308,6 @@ output_features:
       fill_value: 0
   - name: leftMiddleIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -338,7 +315,6 @@ output_features:
       fill_value: 0
   - name: leftMiddleDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -346,7 +322,6 @@ output_features:
       fill_value: 0
   - name: leftRingProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -354,7 +329,6 @@ output_features:
       fill_value: 0
   - name: leftRingIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -362,7 +336,6 @@ output_features:
       fill_value: 0
   - name: leftRingDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -370,7 +343,6 @@ output_features:
       fill_value: 0
   - name: leftLittleProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -378,7 +350,6 @@ output_features:
       fill_value: 0
   - name: leftLittleIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -386,7 +357,6 @@ output_features:
       fill_value: 0
   - name: leftLittleDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -394,7 +364,6 @@ output_features:
       fill_value: 0
   - name: rightThumbProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -402,7 +371,6 @@ output_features:
       fill_value: 0
   - name: rightThumbIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -410,7 +378,6 @@ output_features:
       fill_value: 0
   - name: rightThumbDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -418,7 +385,6 @@ output_features:
       fill_value: 0
   - name: rightIndexProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -426,7 +392,6 @@ output_features:
       fill_value: 0
   - name: rightIndexIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -434,7 +399,6 @@ output_features:
       fill_value: 0
   - name: rightIndexDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -442,7 +406,6 @@ output_features:
       fill_value: 0
   - name: rightMiddleProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -450,7 +413,6 @@ output_features:
       fill_value: 0
   - name: rightMiddleIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -458,7 +420,6 @@ output_features:
       fill_value: 0
   - name: rightMiddleDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -466,7 +427,6 @@ output_features:
       fill_value: 0
   - name: rightRingProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -474,7 +434,6 @@ output_features:
       fill_value: 0
   - name: rightRingIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -482,7 +441,6 @@ output_features:
       fill_value: 0
   - name: rightRingDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -490,7 +448,6 @@ output_features:
       fill_value: 0
   - name: rightLittleProximal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -498,7 +455,6 @@ output_features:
       fill_value: 0
   - name: rightLittleIntermediate
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -506,7 +462,6 @@ output_features:
       fill_value: 0
   - name: rightLittleDistal
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
@@ -514,7 +469,6 @@ output_features:
       fill_value: 0
   - name: upperChest
     type: binary
-    threshold: 0.20
     loss:
       weight: 55
     preprocessing:
