@@ -23,6 +23,7 @@
 @tool
 extends EditorScenePostImport
 
+const correct_bone_dir_const = preload("res://addons/force_bone_forward/correct_bone_dir.gd")
 
 static func _write_train(write_path, text):
 	var file = File.new()
@@ -89,6 +90,8 @@ static func _write_import(file, scene, test = true, skip_vrm = false):
 		var node = front
 		if node is Skeleton3D:
 			var skeleton : Skeleton3D = node
+			correct_bone_dir_const.fix_skeleton(scene, skeleton)
+			correct_bone_dir_const._refresh_skeleton(skeleton)
 			var print_skeleton_neighbours_text_cache : Dictionary
 			var bone : Dictionary
 			for bone_i in skeleton.get_bone_count():
