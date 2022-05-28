@@ -67,13 +67,6 @@ input_features:
     type: numerical
   - name: bone_parent_truncated_normalized_basis_axis_y_2
     type: numerical
-  - name: vrm_bone_category
-    type: category
-    loss:
-      weight: 6
-    preprocessing:
-      fill_value: VRM_BONE_CATEGORY_UNKNOWN
-      missing_value_strategy: fill_with_const
   - name: hips
     type: binary
     loss:
@@ -453,8 +446,17 @@ input_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
 output_features:
+  - name: vrm_bone_category
+    type: category
+    loss:
+      weight: 6
+    preprocessing:
+      fill_value: VRM_BONE_CATEGORY_UNKNOWN
+      missing_value_strategy: fill_with_const
   - name: class
     type: category
+    dependencies:
+        - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
