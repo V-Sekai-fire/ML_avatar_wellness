@@ -80,541 +80,379 @@ output_features:
       missing_value_strategy: fill_with_const
   - name: hips
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftUpperLeg
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightUpperLeg
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLowerLeg
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLowerLeg
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftFoot
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightFoot
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: spine
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: chest
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: neck
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: head
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftShoulder
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightShoulder
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftUpperArm
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightUpperArm
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLowerArm
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLowerArm
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftHand
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightHand
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftToes
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightToes
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftEye
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightEye
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftThumbDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftIndexDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftMiddleDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftRingDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: leftLittleDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightThumbDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightIndexDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightMiddleDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightRingDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleProximal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleIntermediate
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: rightLittleDistal
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
   - name: upperChest
     type: category
-    threshold: 0.35
     loss:
       weight: 55
-    num_fc_layers: 1
-    fc_size: 64
     preprocessing:
       missing_value_strategy: fill_with_const
       fill_value: VRM_BONE_UNKNOWN
