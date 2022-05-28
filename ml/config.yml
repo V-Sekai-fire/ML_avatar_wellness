@@ -75,16 +75,6 @@ output_features:
     preprocessing:
       fill_value: VRM_BONE_CATEGORY_UNKNOWN
       missing_value_strategy: fill_with_const
-  - name: class
-    type: category
-    dependencies:
-      - vrm_bone_category
-    loss:
-      weight: 55
-    preprocessing:
-      fill_value: VRM_BONE_UNKNOWN
-      missing_value_strategy: fill_with_const
-
   - name: hips
     type: binary
     dependencies:
