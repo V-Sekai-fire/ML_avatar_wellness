@@ -79,7 +79,7 @@ output_features:
       fill_value: VRM_BONE_CATEGORY_NONE
       missing_value_strategy: fill_with_const
   - name: hips
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -89,7 +89,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperLeg
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -99,7 +99,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperLeg
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -109,7 +109,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerLeg
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -119,7 +119,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerLeg
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -129,7 +129,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftFoot
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -139,7 +139,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightFoot
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -149,7 +149,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: spine
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -159,7 +159,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: chest
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -169,7 +169,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: neck
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -179,7 +179,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: head
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -189,7 +189,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftShoulder
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -199,7 +199,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightShoulder
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -209,7 +209,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperArm
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -219,7 +219,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperArm
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -229,7 +229,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerArm
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -239,7 +239,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerArm
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -249,7 +249,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftHand
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -259,7 +259,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightHand
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -269,7 +269,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftToes
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -279,7 +279,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightToes
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -289,7 +289,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftEye
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -299,7 +299,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightEye
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -309,7 +309,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -319,7 +319,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -329,7 +329,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -339,7 +339,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -349,7 +349,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -359,7 +359,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -369,7 +369,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -379,7 +379,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -389,7 +389,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -399,7 +399,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -409,7 +409,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -419,7 +419,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -429,7 +429,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -439,7 +439,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -449,7 +449,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -459,7 +459,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -469,7 +469,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -479,7 +479,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -489,7 +489,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -499,7 +499,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -509,7 +509,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -519,7 +519,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -529,7 +529,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -539,7 +539,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -549,7 +549,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -559,7 +559,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -569,7 +569,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -579,7 +579,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleProximal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -589,7 +589,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleIntermediate
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -599,7 +599,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleDistal
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
@@ -609,7 +609,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: upperChest
-    type: binary
+    type: categoric
     threshold: 0.35
     loss:
       weight: 55
