@@ -78,7 +78,7 @@ output_features:
   - name: class
     type: category
     dependencies:
-        - vrm_bone_category
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -87,6 +87,8 @@ output_features:
 
   - name: hips
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -94,6 +96,8 @@ output_features:
       fill_value: 0
   - name: leftUpperLeg
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -101,6 +105,8 @@ output_features:
       fill_value: 0
   - name: rightUpperLeg
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -108,6 +114,8 @@ output_features:
       fill_value: 0
   - name: leftLowerLeg
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -115,6 +123,8 @@ output_features:
       fill_value: 0
   - name: rightLowerLeg
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -122,6 +132,8 @@ output_features:
       fill_value: 0
   - name: leftFoot
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -129,6 +141,8 @@ output_features:
       fill_value: 0
   - name: rightFoot
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -136,6 +150,8 @@ output_features:
       fill_value: 0
   - name: spine
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -143,6 +159,8 @@ output_features:
       fill_value: 0
   - name: chest
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -150,6 +168,8 @@ output_features:
       fill_value: 0
   - name: neck
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -157,6 +177,8 @@ output_features:
       fill_value: 0
   - name: head
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -164,6 +186,8 @@ output_features:
       fill_value: 0
   - name: leftShoulder
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -171,6 +195,8 @@ output_features:
       fill_value: 0
   - name: rightShoulder
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -178,6 +204,8 @@ output_features:
       fill_value: 0
   - name: leftUpperArm
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -185,6 +213,8 @@ output_features:
       fill_value: 0
   - name: rightUpperArm
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -192,6 +222,8 @@ output_features:
       fill_value: 0
   - name: leftLowerArm
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -199,6 +231,8 @@ output_features:
       fill_value: 0
   - name: rightLowerArm
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -206,6 +240,8 @@ output_features:
       fill_value: 0
   - name: leftHand
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -213,6 +249,8 @@ output_features:
       fill_value: 0
   - name: rightHand
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -220,6 +258,8 @@ output_features:
       fill_value: 0
   - name: leftToes
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -227,6 +267,8 @@ output_features:
       fill_value: 0
   - name: rightToes
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -234,6 +276,8 @@ output_features:
       fill_value: 0
   - name: leftEye
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -241,6 +285,8 @@ output_features:
       fill_value: 0
   - name: rightEye
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -248,6 +294,8 @@ output_features:
       fill_value: 0
   - name: leftThumbProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -255,6 +303,8 @@ output_features:
       fill_value: 0
   - name: leftThumbIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -262,6 +312,8 @@ output_features:
       fill_value: 0
   - name: leftThumbDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -269,6 +321,8 @@ output_features:
       fill_value: 0
   - name: leftIndexProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -276,6 +330,8 @@ output_features:
       fill_value: 0
   - name: leftIndexIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -283,6 +339,8 @@ output_features:
       fill_value: 0
   - name: leftIndexDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -290,6 +348,8 @@ output_features:
       fill_value: 0
   - name: leftMiddleProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -297,6 +357,8 @@ output_features:
       fill_value: 0
   - name: leftMiddleIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -304,6 +366,8 @@ output_features:
       fill_value: 0
   - name: leftMiddleDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -311,6 +375,8 @@ output_features:
       fill_value: 0
   - name: leftRingProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -318,6 +384,8 @@ output_features:
       fill_value: 0
   - name: leftRingIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -325,6 +393,8 @@ output_features:
       fill_value: 0
   - name: leftRingDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -332,6 +402,8 @@ output_features:
       fill_value: 0
   - name: leftLittleProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -339,6 +411,8 @@ output_features:
       fill_value: 0
   - name: leftLittleIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -346,6 +420,8 @@ output_features:
       fill_value: 0
   - name: leftLittleDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -353,6 +429,8 @@ output_features:
       fill_value: 0
   - name: rightThumbProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -360,6 +438,8 @@ output_features:
       fill_value: 0
   - name: rightThumbIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -367,6 +447,8 @@ output_features:
       fill_value: 0
   - name: rightThumbDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -374,6 +456,8 @@ output_features:
       fill_value: 0
   - name: rightIndexProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -381,6 +465,8 @@ output_features:
       fill_value: 0
   - name: rightIndexIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -388,6 +474,8 @@ output_features:
       fill_value: 0
   - name: rightIndexDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -395,6 +483,8 @@ output_features:
       fill_value: 0
   - name: rightMiddleProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -402,6 +492,8 @@ output_features:
       fill_value: 0
   - name: rightMiddleIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -409,6 +501,8 @@ output_features:
       fill_value: 0
   - name: rightMiddleDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -416,6 +510,8 @@ output_features:
       fill_value: 0
   - name: rightRingProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -423,6 +519,8 @@ output_features:
       fill_value: 0
   - name: rightRingIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -430,6 +528,8 @@ output_features:
       fill_value: 0
   - name: rightRingDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -437,6 +537,8 @@ output_features:
       fill_value: 0
   - name: rightLittleProximal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -444,6 +546,8 @@ output_features:
       fill_value: 0
   - name: rightLittleIntermediate
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -451,6 +555,8 @@ output_features:
       fill_value: 0
   - name: rightLittleDistal
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
@@ -458,6 +564,8 @@ output_features:
       fill_value: 0
   - name: upperChest
     type: binary
+    dependencies:
+      - vrm_bone_category
     loss:
       weight: 55
     preprocessing:
