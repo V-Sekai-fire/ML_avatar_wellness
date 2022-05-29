@@ -23,7 +23,7 @@
 @tool
 extends EditorScenePostImport
 
-const post_import_scan = preload("addons/scan_skeleton/post_import_scan_skeleton.gd")
+const post_import_scan = preload("post_import_scan_skeleton.gd")
 	
 func _post_import(scene : Node):
 	var queue : Array

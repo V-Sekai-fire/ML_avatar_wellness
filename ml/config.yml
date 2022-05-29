@@ -8,6 +8,7 @@ input_features:
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
   - name: bone_parent
+    tied: bone
     type: text
     level: char
     preprocessing:
@@ -24,24 +25,12 @@ input_features:
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
   - name: bone_hierarchy
-    type: text
-    level: char
-    preprocessing:
-      tokenizer: gpt2bpe
-      unknown_symbol: VRM_UNKNOWN_BONE
-      fill_value: VRM_UNKNOWN_BONE
-      missing_value_strategy: fill_with_mode
+    type: sequence
   - name: bone_x_global_origin_in_meters
     type: numerical
   - name: bone_y_global_origin_in_meters
     type: numerical
   - name: bone_z_global_origin_in_meters
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_x_0
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_x_1
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_x_2
     type: numerical
   - name: bone_truncated_normalized_basis_axis_y_0
     type: numerical
@@ -54,12 +43,6 @@ input_features:
   - name: bone_parent_y_global_origin_in_meters
     type: numerical
   - name: bone_parent_z_global_origin_in_meters
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_x_0
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_x_1
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_x_2
     type: numerical
   - name: bone_parent_truncated_normalized_basis_axis_y_0
     type: numerical
@@ -84,7 +67,6 @@ output_features:
     preprocessing:
       fill_value: VRM_BONE_UNKNOWN
       missing_value_strategy: fill_with_const
-
   - name: hips
     type: binary
     dependencies:
@@ -572,4 +554,4 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
 preprocessing:
-  stratify: class
+  stratify: vrm_bone_category
