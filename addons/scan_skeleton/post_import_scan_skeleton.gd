@@ -149,12 +149,9 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						bone[key] = 1
 				bone_global_pose = skeleton.local_pose_to_global_pose(bone_i, bone_global_pose)
 				bone["bone_x_global_origin_in_meters"] = bone_global_pose.origin.x
-				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.x
-				bone["bone_z_global_origin_in_meters"] = bone_global_pose.origin.x
+				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.y
+				bone["bone_z_global_origin_in_meters"] = bone_global_pose.origin.z
 				var bone_global_pose_basis = bone_global_pose.basis.orthonormalized()
-				bone["bone_truncated_normalized_basis_axis_x_0"] = bone_global_pose_basis.x.x
-				bone["bone_truncated_normalized_basis_axis_x_1"] = bone_global_pose_basis.x.y
-				bone["bone_truncated_normalized_basis_axis_x_2"] = bone_global_pose_basis.x.z
 				bone["bone_truncated_normalized_basis_axis_y_0"] = bone_global_pose_basis.y.x
 				bone["bone_truncated_normalized_basis_axis_y_1"] = bone_global_pose_basis.y.y
 				bone["bone_truncated_normalized_basis_axis_y_2"] = bone_global_pose_basis.y.z
@@ -162,22 +159,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["bone_x_global_scale_in_meters"] = bone_global_pose_scale.x
 				bone["bone_y_global_scale_in_meters"] = bone_global_pose_scale.y
 				bone["bone_z_global_scale_in_meters"] = bone_global_pose_scale.z
-				var bone_pose = skeleton.get_bone_global_pose(bone_i)
-				bone_pose = skeleton.global_pose_to_world_transform(bone_pose)
-				bone["bone_x_global_origin_in_meters"] = bone_pose.origin.x
-				bone["bone_y_global_origin_in_meters"] = bone_pose.origin.y
-				bone["bone_z_global_origin_in_meters"] = bone_pose.origin.z
-				var basis = bone_pose.basis.orthonormalized()
-				bone["bone_truncated_normalized_basis_axis_x_0"] = basis.x.x
-				bone["bone_truncated_normalized_basis_axis_x_1"] = basis.x.y
-				bone["bone_truncated_normalized_basis_axis_x_2"] = basis.x.z
-				bone["bone_truncated_normalized_basis_axis_y_0"] = basis.y.x
-				bone["bone_truncated_normalized_basis_axis_y_1"] = basis.y.y
-				bone["bone_truncated_normalized_basis_axis_y_2"] = basis.y.z
-				var scale = bone_pose.basis.get_scale()
-				bone["bone_x_global_scale_in_meters"] = scale.x
-				bone["bone_y_global_scale_in_meters"] = scale.y
-				bone["bone_z_global_scale_in_meters"] = scale.z
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				var bone_parent_pose : Transform3D
 				if bone_parent != -1:
@@ -189,9 +170,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				var parent_basis : Basis
 				if bone_parent != -1:
 					parent_basis = bone_parent_pose.basis.orthonormalized()
-				bone["bone_parent_truncated_normalized_basis_axis_x_0"] = parent_basis.x.x
-				bone["bone_parent_truncated_normalized_basis_axis_x_1"] = parent_basis.x.y
-				bone["bone_parent_truncated_normalized_basis_axis_x_2"] = parent_basis.x.z
 				bone["bone_parent_truncated_normalized_basis_axis_y_0"] = parent_basis.y.x
 				bone["bone_parent_truncated_normalized_basis_axis_y_1"] = parent_basis.y.y
 				bone["bone_parent_truncated_normalized_basis_axis_y_2"] = parent_basis.y.z
