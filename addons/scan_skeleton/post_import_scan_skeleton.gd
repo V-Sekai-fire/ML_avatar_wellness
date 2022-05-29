@@ -151,7 +151,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["bone_x_global_origin_in_meters"] = bone_global_pose.origin.x
 				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.y
 				bone["bone_z_global_origin_in_meters"] = bone_global_pose.origin.z
-				var bone_global_pose_basis = bone_global_pose.basis.orthonormalized()
+				var bone_global_pose_basis = bone_global_pose.basis
 				bone["bone_truncated_normalized_basis_axis_y_0"] = bone_global_pose_basis.y.x
 				bone["bone_truncated_normalized_basis_axis_y_1"] = bone_global_pose_basis.y.y
 				bone["bone_truncated_normalized_basis_axis_y_2"] = bone_global_pose_basis.y.z
@@ -169,7 +169,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["bone_parent_z_global_origin_in_meters"] = bone_parent_pose.origin.z
 				var parent_basis : Basis
 				if bone_parent != -1:
-					parent_basis = bone_parent_pose.basis.orthonormalized()
+					parent_basis = bone_parent_pose.basis
 				bone["bone_parent_truncated_normalized_basis_axis_y_0"] = parent_basis.y.x
 				bone["bone_parent_truncated_normalized_basis_axis_y_1"] = parent_basis.y.y
 				bone["bone_parent_truncated_normalized_basis_axis_y_2"] = parent_basis.y.z
