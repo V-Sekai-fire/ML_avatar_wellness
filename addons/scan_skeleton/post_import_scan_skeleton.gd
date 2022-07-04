@@ -150,6 +150,12 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				for key in human_map.keys():
 					if human_map.has(key) and key == vrm_mapping:
 						bone[key] = 1
+				bone["has_upper_chest"] = 0
+				if human_map.keys().has("upperChest") and not human_map["upperChest"].is_empty():
+					bone["has_upper_chest"] = 1
+				bone["has_jaw"] = 0
+				if human_map.keys().has("jaws") and not human_map["jaw"].is_empty():
+					bone["has_jaw"] = 1
 				bone_global_pose = skeleton.local_pose_to_global_pose(bone_i, bone_global_pose)
 				bone["bone_x_global_origin_in_meters"] = bone_global_pose.origin.x
 				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.y
@@ -191,7 +197,14 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + " "
 				bone["bone_hierarchy"] = bone_hierarchy
 				if vrm_extension and vrm_extension.get("vrm_meta"):
-					var version = vrm_extension["vrm_meta"].get("specVersion")
+					var version = vrm_extension["vrm_meta"].get("exporter_version")
+					if version == null or version.is_empty():
+						version = "VRM_EXPORTER_VERSION_UNKNOWN"
+					bone["exporter_version"] = version
+				else:
+					bone["exporter_version"] = "VRM_EXPORTER_VERSION_UNKNOWN"
+				if vrm_extension and vrm_extension.get("vrm_meta"):
+					var version = vrm_extension["vrm_meta"].get("spec_version")
 					if version == null or version.is_empty():
 						version = "VRM_UNVERSIONED"
 					bone["specification_version"] = version

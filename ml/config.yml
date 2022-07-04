@@ -1,4 +1,22 @@
 input_features:
+  - name: specification_version
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
+  - name: exporter_version
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: bone
     type: text
     level: char
