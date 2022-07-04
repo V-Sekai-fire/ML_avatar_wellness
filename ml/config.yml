@@ -1,17 +1,18 @@
 input_features:
   - name: bone
     type: text
+    level: char
     trainable: true
-    tokenizer: mt5
     preprocessing:
       tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
       fill_value: VRM_UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
   - name: bone_parent
+    tied: bone
     type: text
+    level: char
     trainable: true
-    tokenizer: mt5
     preprocessing:
       tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
@@ -19,8 +20,8 @@ input_features:
       missing_value_strategy: fill_with_mode
   - name: title
     type: text
+    level: char
     trainable: true
-    tokenizer: mt5
     preprocessing:
       tokenizer: gpt2bpe
       unknown_symbol: VRM_UNKNOWN_BONE
@@ -29,12 +30,6 @@ input_features:
   - name: bone_hierarchy
     type: sequence
     trainable: true
-    tokenizer: mt5
-    preprocessing:
-      tokenizer: gpt2bpe
-      unknown_symbol: VRM_UNKNOWN_BONE
-      fill_value: VRM_UNKNOWN_BONE
-      missing_value_strategy: fill_with_mode
   - name: bone_x_global_origin_in_meters
     type: numerical
   - name: bone_y_global_origin_in_meters
@@ -59,28 +54,7 @@ input_features:
     type: numerical
   - name: bone_parent_truncated_normalized_basis_axis_y_2
     type: numerical
-combiner:
-  type: tabnet
-  size: 32
-  ooutput_size: 32
-  num_steps: 5
-  num_total_blocks: 4
-  num_shared_blocks: 2
-  relaxation_factor: 1.5
-  bn_epsilon: 0.001
-  bn_momentum: 0.7
-  bn_virtual_bs: 128
-  sparsity: 0.00001
-  dropout: 0
 output_features:
-  - name: title
-    type: text
-    level: char
-    preprocessing:
-      tokenizer: gpt2bpe
-      unknown_symbol: VRM_UNKNOWN_BONE
-      fill_value: VRM_UNKNOWN_BONE
-      missing_value_strategy: fill_with_mode
   - name: vrm_bone_category
     type: category
     loss:
