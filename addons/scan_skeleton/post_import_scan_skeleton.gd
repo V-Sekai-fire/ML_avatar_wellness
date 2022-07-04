@@ -119,8 +119,11 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						vrm_mapping = "VRM_BONE_NONE"
 				bone["class"] = vrm_mapping
 				bone["title"] = "VRM_TITLE_UNKNOWN"
+				bone["author"] = "VRM_AUTHOR_UNKNOWN"
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					bone["title"] = vrm_extension["vrm_meta"]["title"]
+				if vrm_extension and vrm_extension.get("vrm_meta"):
+					bone["author"] = vrm_extension["vrm_meta"]["author"]
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_UNKNOWN"
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
