@@ -1,4 +1,13 @@
 input_features:
+  - name: bone
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: bone_parent
     type: text
     level: char
@@ -61,6 +70,19 @@ input_features:
   - name: bone_parent_truncated_normalized_basis_axis_y_2
     type: numerical
 output_features:
+  - name: bone
+    type: text
+    level: char
+    trainable: true
+    dependencies:
+        - vrm_bone_category
+    num_fc_layers: 1
+    output_size: 64
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: VRM_UNKNOWN_BONE
+      fill_value: VRM_UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: vrm_bone_category
     type: category
     level: char
@@ -78,4 +100,4 @@ output_features:
     num_fc_layers: 1
     output_size: 64
 preprocessing:
-  stratify: vrm_bone_category
+  stratify: class
