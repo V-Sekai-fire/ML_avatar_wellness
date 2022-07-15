@@ -169,57 +169,13 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 			correct_bone_dir_const.fix_skeleton(scene, skeleton)
 			correct_bone_dir_const._refresh_skeleton(skeleton)
 			var bone : Dictionary
-#			var bone_hierarchy : Dictionary
-#			var bone_pose_hierarchy : Dictionary
-#			var bone_scale_hierarchy : Dictionary
-#			var neighbor_bone : Array
-#			for vrm in vrm_to_godot.keys():
-#				bone_hierarchy[vrm] = -1
-#				bone_pose_hierarchy[vrm] = Transform3D()
-#				bone_scale_hierarchy[vrm] = Vector3(1, 1, 1)
-#			var order : Array
 			var bone_hierarchy_string : String
 			for neighbour in neighbours:
 				var bone_name = skeleton.get_bone_name(neighbour)
-#				if not godot_to_vrm.keys().has(bone_name):
-#					continue
-#				order.push_back(bone_name)
 				bone_hierarchy_string = bone_hierarchy_string + str(bone_name) + " "
 			var bone_hierarchy_id_string : String
 			for neighbour in neighbours:
-#				if not godot_to_vrm.keys().has(bone_name):
-#					continue
-#				order.push_back(bone_name)
 				bone_hierarchy_id_string = bone_hierarchy_id_string + str(neighbour) + " "
-#			for neighbour in neighbours:
-#				var bone_name = skeleton.get_bone_name(neighbour)
-#				if not godot_to_vrm.keys().has(bone_name):
-#					continue
-#				var bone_id = skeleton.find_bone(bone_name)
-#				var pose : Transform3D = skeleton.get_bone_global_pose(bone_id)
-#				var scale = pose.basis.get_scale()
-#				pose.basis = pose.basis.orthonormalized()
-#				var vrm = godot_to_vrm[bone_name]
-#				bone_hierarchy[vrm] = bone_id
-#				bone_pose_hierarchy[vrm] = pose
-#				bone_scale_hierarchy[vrm] = pose.basis.get_scale()
-#			var bone_sorted : Array = bone_hierarchy.keys()
-#			bone_sorted.sort()
-#			var bone_pose_sorted : Array = bone_pose_hierarchy.keys()
-#			bone_pose_sorted.sort()
-#			var bone_basis_hierarchy_string : String
-#			var bone_scale_hierarchy_string : String
-#			for key in bone_sorted:
-#				bone_hierarchy_string = bone_hierarchy_string + str(bone_hierarchy[key]) + " "
-#			for key in bone_pose_sorted:
-#				var pose : Transform3D = bone_pose_hierarchy[key]
-#				var basis : Basis = pose.basis
-#				bone_basis_hierarchy_string = bone_basis_hierarchy_string + "%f %f %f %f %f %f" % \
-#					[pose.basis.x.x, pose.basis.x.y, pose.basis.x.z,
-#					pose.basis.y.x, pose.basis.y.y, pose.basis.y.z] + " "
-#				var scale = pose.basis.get_scale()
-#				bone_scale_hierarchy_string = bone_scale_hierarchy_string + "%f %f %f" % \
-#					[scale.x, scale.y, scale.z] + " "
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
