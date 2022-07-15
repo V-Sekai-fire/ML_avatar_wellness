@@ -16,3 +16,9 @@ data_*/
 .DS_Store
 
 *.blend1
+
+ml/results/
+
+ml/output/
+
+ml/train.meta.json

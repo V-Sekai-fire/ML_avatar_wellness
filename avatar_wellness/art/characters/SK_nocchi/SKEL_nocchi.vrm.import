@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/SKEL_nocchi.vrm-54929f06094e354c82b09999355f4
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/scene_scale=1.0
 nodes/root_scale=1.0
 nodes/generate_physics=false
 nodes/generate_navmesh=0

@@ -40,6 +40,65 @@ static func _write_train(write_path, text):
 		file.store_csv_line(t, "\t")
 	file.close()
 
+const vrm_to_godot : Dictionary = {
+	"root": "Root",
+	"hips": "Hips",
+	"spine": "Spine",
+	"chest": "Chest",
+	"upperChest": "UpperChest",
+	"neck": "Neck",
+	"head": "Head",
+	"leftEye": "LeftEye",
+	"rightEye": "RightEye",
+	"jaw": "Jaw",
+	"leftShoulder": "LeftShoulder",
+	"leftUpperArm": "LeftUpperArm",
+	"leftLowerArms": "LeftLowerArm",
+	"leftHand": "LeftHand",
+	"leftThumbProximal": "LeftThumbProximal",
+	"leftThumbIntermediate": "LeftThumbIntermediate",
+	"leftThumbDistal": "LeftThumbDistal",
+	"leftIndexProximal": "LeftIndexProximal",
+	"leftIndexIntermediate": "LeftIndexIntermediate",
+	"leftIndexDistal": "LeftIndexDistal",
+	"leftMiddleProximal": "LeftMiddleProximal",
+	"leftMiddleIntermediate": "LeftMiddleIntermediate",
+	"leftMiddleDistal": "LeftMiddleDistal",
+	"leftRingProximal": "LeftRingProximal",
+	"leftRingIntermediate": "LeftRingIntermediate",
+	"leftRingDistal": "LeftRingDistal",
+	"leftLittleProximal": "LeftLittleProximal",
+	"leftLittleIntermediate": "LeftLittleIntermediate",
+	"leftLittleDistal": "LeftLittleDistal",
+	"rightShoulder": "RightShoulder",
+	"rightUpperArm": "RightUpperArm",
+	"rightLowerArm": "RightLowerArm",
+	"rightHand": "RightHand",
+	"rightThumbProximal": "RightThumbProximal",
+	"rightThumbIntermediate": "RightThumbIntermediate",
+	"rightThumbDistal": "RightThumbDistal",
+	"rightIndexProximal": "RightIndexProximal",
+	"rightIndexIntermediate": "RightIndexIntermediate",
+	"rightIndexDistal": "RightIndexDistal",
+	"rightMiddleProximal": "RightMiddleProximal",
+	"rightMiddleIntermediate": "RightMiddleIntermediate",
+	"rightMiddleDistal": "RightMiddleDistal",
+	"rightRingProximal": "RightRingProximal",
+	"rightRingIntermediate": "RightRingIntermediate",
+	"rightRingDistal": "RightRingDistal",
+	"rightLittleProximal": "RightLittleProximal",
+	"rightLittleIntermediate": "RightLittleIntermediate",
+	"rightLittleDistal": "RightLittleDistal",
+	"leftUpperLeg": "LeftUpperLeg",
+	"leftLowerLeg": "LeftLowerLeg",
+	"leftFoot": "LeftFoot",
+	"leftToes": "LeftToes",
+	"rightUpperLeg": "RightUpperLeg",
+	"rightLowerLeg": "RightLowerLeg",
+	"rightFoot": "RightFoot",
+	"rightToes": "RightToes",
+}
+
 static func _write_import(file, scene : Node, test, skip_vrm):
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
@@ -91,11 +150,14 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-		
+
 	if vrm_extension and vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
 		if skip_vrm and not test:
 			return
+	var godot_to_vrm : Dictionary
+	for key in human_map.keys():
+		godot_to_vrm[human_map[key]] = key
 	queue.push_back(scene)
 	var string_builder : Array
 	while not queue.is_empty():
@@ -107,6 +169,57 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 			correct_bone_dir_const.fix_skeleton(scene, skeleton)
 			correct_bone_dir_const._refresh_skeleton(skeleton)
 			var bone : Dictionary
+#			var bone_hierarchy : Dictionary
+#			var bone_pose_hierarchy : Dictionary
+#			var bone_scale_hierarchy : Dictionary
+#			var neighbor_bone : Array
+#			for vrm in vrm_to_godot.keys():
+#				bone_hierarchy[vrm] = -1
+#				bone_pose_hierarchy[vrm] = Transform3D()
+#				bone_scale_hierarchy[vrm] = Vector3(1, 1, 1)
+#			var order : Array
+			var bone_hierarchy_string : String
+			for neighbour in neighbours:
+				var bone_name = skeleton.get_bone_name(neighbour)
+#				if not godot_to_vrm.keys().has(bone_name):
+#					continue
+#				order.push_back(bone_name)
+				bone_hierarchy_string = bone_hierarchy_string + str(bone_name) + " "
+			var bone_hierarchy_id_string : String
+			for neighbour in neighbours:
+#				if not godot_to_vrm.keys().has(bone_name):
+#					continue
+#				order.push_back(bone_name)
+				bone_hierarchy_id_string = bone_hierarchy_id_string + str(neighbour) + " "
+#			for neighbour in neighbours:
+#				var bone_name = skeleton.get_bone_name(neighbour)
+#				if not godot_to_vrm.keys().has(bone_name):
+#					continue
+#				var bone_id = skeleton.find_bone(bone_name)
+#				var pose : Transform3D = skeleton.get_bone_global_pose(bone_id)
+#				var scale = pose.basis.get_scale()
+#				pose.basis = pose.basis.orthonormalized()
+#				var vrm = godot_to_vrm[bone_name]
+#				bone_hierarchy[vrm] = bone_id
+#				bone_pose_hierarchy[vrm] = pose
+#				bone_scale_hierarchy[vrm] = pose.basis.get_scale()
+#			var bone_sorted : Array = bone_hierarchy.keys()
+#			bone_sorted.sort()
+#			var bone_pose_sorted : Array = bone_pose_hierarchy.keys()
+#			bone_pose_sorted.sort()
+#			var bone_basis_hierarchy_string : String
+#			var bone_scale_hierarchy_string : String
+#			for key in bone_sorted:
+#				bone_hierarchy_string = bone_hierarchy_string + str(bone_hierarchy[key]) + " "
+#			for key in bone_pose_sorted:
+#				var pose : Transform3D = bone_pose_hierarchy[key]
+#				var basis : Basis = pose.basis
+#				bone_basis_hierarchy_string = bone_basis_hierarchy_string + "%f %f %f %f %f %f" % \
+#					[pose.basis.x.x, pose.basis.x.y, pose.basis.x.z,
+#					pose.basis.y.x, pose.basis.y.y, pose.basis.y.z] + " "
+#				var scale = pose.basis.get_scale()
+#				bone_scale_hierarchy_string = bone_scale_hierarchy_string + "%f %f %f" % \
+#					[scale.x, scale.y, scale.z] + " "
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
@@ -118,6 +231,10 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					if vrm_mapping == "VRM_BONE_UNKNOWN":
 						vrm_mapping = "VRM_BONE_NONE"
 				bone["class"] = vrm_mapping
+				if vrm_to_godot.has(vrm_mapping):
+					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
+				else:
+					bone["humanoid_bone"] = "HUMANOID_BONE_NONE"
 				bone["title"] = "VRM_TITLE_UNKNOWN"
 				bone["author"] = "VRM_AUTHOR_UNKNOWN"
 				if vrm_extension and vrm_extension.get("vrm_meta"):
@@ -157,45 +274,48 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				if human_map.keys().has("jaws") and not human_map["jaw"].is_empty():
 					bone["has_jaw"] = 1
 				bone_global_pose = skeleton.local_pose_to_global_pose(bone_i, bone_global_pose)
-				bone["bone_x_global_origin_in_meters"] = bone_global_pose.origin.x
-				bone["bone_y_global_origin_in_meters"] = bone_global_pose.origin.y
-				bone["bone_z_global_origin_in_meters"] = bone_global_pose.origin.z
-				var bone_global_pose_basis = bone_global_pose.basis
-				bone["bone_truncated_normalized_basis_axis_y_0"] = bone_global_pose_basis.y.x
-				bone["bone_truncated_normalized_basis_axis_y_1"] = bone_global_pose_basis.y.y
-				bone["bone_truncated_normalized_basis_axis_y_2"] = bone_global_pose_basis.y.z
+				bone["bone_global_origin_in_meters"] = "%f %f %f" % \
+				[bone_global_pose.origin.x, bone_global_pose.origin.y, bone_global_pose.origin.z]
+				var bone_global_pose_basis = bone_global_pose.basis.orthonormalized()
+				bone_global_pose_basis = bone_global_pose_basis.scaled(bone_global_pose.basis.get_scale())
+				bone["bone_global_basis_6d"] = "%f %f %f %f %f %f" % \
+				[bone_global_pose_basis.x.x, bone_global_pose_basis.x.y, bone_global_pose_basis.x.z,
+				bone_global_pose_basis.y.x, bone_global_pose_basis.y.y, bone_global_pose_basis.y.z]
 				var bone_global_pose_scale = bone_global_pose.basis.get_scale()
-				bone["bone_x_global_scale_in_meters"] = bone_global_pose_scale.x
-				bone["bone_y_global_scale_in_meters"] = bone_global_pose_scale.y
-				bone["bone_z_global_scale_in_meters"] = bone_global_pose_scale.z
 				var bone_parent = skeleton.get_bone_parent(bone_i)
 				var bone_parent_pose : Transform3D
 				if bone_parent != -1:
 					bone_parent_pose = skeleton.get_bone_global_pose(bone_parent)
 				bone_parent_pose = skeleton.global_pose_to_world_transform(bone_parent_pose)
-				bone["bone_parent_x_global_origin_in_meters"] = bone_parent_pose.origin.x
-				bone["bone_parent_y_global_origin_in_meters"] = bone_parent_pose.origin.y
-				bone["bone_parent_z_global_origin_in_meters"] = bone_parent_pose.origin.z
 				var parent_basis : Basis
-				if bone_parent != -1:
-					parent_basis = bone_parent_pose.basis
-				bone["bone_parent_truncated_normalized_basis_axis_y_0"] = parent_basis.y.x
-				bone["bone_parent_truncated_normalized_basis_axis_y_1"] = parent_basis.y.y
-				bone["bone_parent_truncated_normalized_basis_axis_y_2"] = parent_basis.y.z
 				var parent_scale = bone_parent_pose.basis.get_scale()
-				bone["bone_parent_x_global_scale_in_meters"] = parent_scale.x
-				bone["bone_parent_y_global_scale_in_meters"] = parent_scale.y
-				bone["bone_parent_z_global_scale_in_meters"] = parent_scale.z
-				var bone_hierarchy : String = ""
-				for bone_id in neighbours:
-					for key in human_map.keys():
-						if human_map[key] != skeleton.get_bone_name(bone_id):
-							continue
-						if bone_hierarchy.is_empty():
-							bone_hierarchy = skeleton.get_bone_name(bone_id) + " "
-							continue
-						bone_hierarchy = bone_hierarchy + skeleton.get_bone_name(bone_id) + " "
-				bone["bone_hierarchy"] = bone_hierarchy
+				bone["bone_parent_global_scale_in_meters"] = "%f %f %f" % \
+				[parent_scale.x, parent_scale.y, parent_scale.z]
+				parent_basis = bone_parent_pose.basis.orthonormalized()
+				bone["bone_parent_global_basis_6d"] = "%f %f %f %f %f %f" % \
+				[parent_basis.x.x, parent_basis.x.y, parent_basis.x.z,
+				parent_basis.y.x, parent_basis.y.y, parent_basis.y.z]
+				bone["bone_parent_global_origin_in_meters"] = "%f %f %f" % \
+				[bone_parent_pose.origin.x, bone_parent_pose.origin.y, bone_parent_pose.origin.z]
+				var hips_pose : Transform3D
+				if human_map.keys().has("hips"):
+					var hips_id = skeleton.find_bone(human_map["hips"])
+					hips_pose = skeleton.get_bone_global_pose(hips_id)
+				var hips_scale = hips_pose.basis.get_scale()
+				bone["bone_hips_global_scale_in_meters"] = "%f %f %f" % \
+				[hips_scale.x, hips_scale.y, hips_scale.z]
+				hips_pose = hips_pose.orthonormalized()
+				var hips_basis : Basis = hips_pose.basis
+				bone["bone_hips_global_basis_6d"] = "%f %f %f %f %f %f" % \
+				[hips_basis.x.x, hips_basis.x.y, hips_basis.x.z,
+				hips_basis.y.x, hips_basis.y.y, hips_basis.y.z]
+				var hips_origin = hips_pose.origin
+				bone["bone_hips_global_origin_in_meters"] = "%f %f %f" % \
+				[hips_origin.x, hips_origin.y, hips_origin.z]
+				bone["bone_hierarchy"] = bone_hierarchy_string
+				bone["bone_hierarchy_id"] = bone_hierarchy_id_string
+#				bone["bone_basis_hierarchy"] = bone_basis_hierarchy_string
+#				bone["bone_scale_hierarchy"] = bone_scale_hierarchy_string
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("exporter_version")
 					if version == null or version.is_empty():

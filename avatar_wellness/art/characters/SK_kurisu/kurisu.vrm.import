@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/kurisu.vrm-5585adedb29aaad1b6f4c2932b1e42f2.s
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/scene_scale=1.0
 nodes/root_scale=1.0
 nodes/generate_physics=false
 nodes/generate_navmesh=0

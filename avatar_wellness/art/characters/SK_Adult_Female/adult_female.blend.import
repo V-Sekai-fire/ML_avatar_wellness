@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/adult_female.blend-aa5a8aab64be9059ed2a7d3a82
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
+nodes/scene_scale=1.0
 nodes/root_scale=1.0
 nodes/generate_physics=false
 nodes/generate_navmesh=0

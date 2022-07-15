@@ -63,31 +63,29 @@ input_features:
       unknown_symbol: VRM_UNKNOWN_AUTHOR
       fill_value: VRM_UNKNOWN_AUTHOR
       missing_value_strategy: fill_with_mode
-  - name: bone_x_global_origin_in_meters
-    type: numerical
-  - name: bone_y_global_origin_in_meters
-    type: numerical
-  - name: bone_z_global_origin_in_meters
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_y_0
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_y_1
-    type: numerical
-  - name: bone_truncated_normalized_basis_axis_y_2
-    type: numerical
-  - name: bone_parent_x_global_origin_in_meters
-    type: numerical
-  - name: bone_parent_y_global_origin_in_meters
-    type: numerical
-  - name: bone_parent_z_global_origin_in_meters
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_y_0
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_y_1
-    type: numerical
-  - name: bone_parent_truncated_normalized_basis_axis_y_2
-    type: numerical
+  - name: bone_hierarchy_id
+    type: sequence
+  - name: bone_global_origin_in_meters
+    type: vector
+  - name: bone_global_basis_6d
+    type: vector
+  - name: bone_parent_global_origin_in_meters
+    type: vector
+  - name: bone_parent_global_basis_6d
+    type: vector
+  - name: bone_hips_global_basis_6d
+    type: vector
+  - name: bone_hips_global_origin_in_meters
+    type: vector
 output_features:
+  - name: class
+    dependencies:
+      - vrm_bone_category
+    type: category
+  - name: humanoid_bone
+    dependencies:
+      - vrm_bone_category
+    type: category
   - name: has_upper_chest
     type: binary
     dependencies:
