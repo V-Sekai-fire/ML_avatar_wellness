@@ -191,12 +191,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
 				else:
 					bone["humanoid_bone"] = "HUMANOID_BONE_NONE"
-				bone["title"] = "VRM_TITLE_UNKNOWN"
-				bone["author"] = "VRM_AUTHOR_UNKNOWN"
-				if vrm_extension and vrm_extension.get("vrm_meta"):
-					bone["title"] = vrm_extension["vrm_meta"]["title"]
-				if vrm_extension and vrm_extension.get("vrm_meta"):
-					bone["author"] = vrm_extension["vrm_meta"]["author"]
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_UNKNOWN"
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
@@ -213,10 +207,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
 					else:
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
-				bone["bone"] = bone_name
-				bone["bone_parent"] = "VRM_UNKNOWN_BONE"
-				if skeleton.get_bone_parent(bone_i) != -1:
-					bone["bone_parent"] = skeleton.get_bone_name(skeleton.get_bone_parent(bone_i))
+				bone["bone"] = vrm_mapping
 				var bone_global_pose = skeleton.get_bone_global_pose(bone_i)				
 				for key in vrm_bones:
 					bone[key] = 0
@@ -268,10 +259,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				var hips_origin = hips_pose.origin
 				bone["bone_hips_global_origin_in_meters"] = "%f %f %f" % \
 				[hips_origin.x, hips_origin.y, hips_origin.z]
-				bone["bone_hierarchy"] = bone_hierarchy_string
 				bone["bone_hierarchy_id"] = bone_hierarchy_id_string
-#				bone["bone_basis_hierarchy"] = bone_basis_hierarchy_string
-#				bone["bone_scale_hierarchy"] = bone_scale_hierarchy_string
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("exporter_version")
 					if version == null or version.is_empty():
