@@ -61,7 +61,7 @@ output_features:
       weight: 80 # 54 + some slack
     type: vector
   - name: has_upper_chest
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -71,7 +71,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: has_jaw
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -89,7 +89,7 @@ output_features:
     num_fc_layers: 2
     output_size: 64
   - name: hips
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -101,7 +101,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -113,7 +113,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -125,7 +125,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -137,7 +137,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -149,7 +149,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftFoot
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -161,7 +161,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightFoot
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -173,7 +173,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: spine
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -185,7 +185,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: chest
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -197,7 +197,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: neck
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -209,7 +209,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: head
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -221,7 +221,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftShoulder
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -233,7 +233,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightShoulder
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -245,7 +245,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -257,7 +257,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -269,7 +269,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -281,7 +281,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -293,7 +293,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftHand
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -305,7 +305,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightHand
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -317,7 +317,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftToes
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -329,7 +329,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightToes
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -341,7 +341,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftEye
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -353,7 +353,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightEye
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -365,7 +365,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -377,7 +377,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -389,7 +389,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -401,7 +401,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -413,7 +413,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -425,7 +425,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -437,7 +437,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -449,7 +449,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -461,7 +461,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -473,7 +473,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -485,7 +485,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -497,7 +497,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -509,7 +509,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -521,7 +521,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -533,7 +533,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -545,7 +545,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -557,7 +557,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -569,7 +569,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -581,7 +581,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -593,7 +593,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -605,7 +605,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -617,7 +617,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -629,7 +629,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -641,7 +641,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -653,7 +653,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -665,7 +665,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -677,7 +677,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -689,7 +689,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -701,7 +701,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -713,7 +713,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -749,7 +749,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Hips
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -761,7 +761,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftUpperLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -773,7 +773,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightUpperLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -785,7 +785,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLowerLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -797,7 +797,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLowerLeg
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -809,7 +809,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftFoot
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -821,7 +821,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightFoot
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -833,7 +833,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Spine
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -845,7 +845,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Chest
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -857,7 +857,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Neck
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -869,7 +869,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Head
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -881,7 +881,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftShoulder
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -893,7 +893,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightShoulder
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -905,7 +905,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftUpperArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -917,7 +917,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightUpperArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -929,7 +929,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLowerArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -941,7 +941,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLowerArm
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -953,7 +953,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftHand
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -965,7 +965,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightHand
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -977,7 +977,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftToes
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -989,7 +989,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightToes
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1001,7 +1001,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftEye
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1013,7 +1013,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightEye
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1025,7 +1025,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1037,7 +1037,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1049,7 +1049,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1061,7 +1061,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1073,7 +1073,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1085,7 +1085,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1097,7 +1097,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1109,7 +1109,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1121,7 +1121,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1133,7 +1133,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1145,7 +1145,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1157,7 +1157,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1169,7 +1169,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1181,7 +1181,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1193,7 +1193,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1205,7 +1205,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1217,7 +1217,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1229,7 +1229,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1241,7 +1241,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1253,7 +1253,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1265,7 +1265,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1277,7 +1277,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1289,7 +1289,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1301,7 +1301,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1313,7 +1313,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1325,7 +1325,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1337,7 +1337,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1349,7 +1349,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleProximal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1361,7 +1361,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleIntermediate
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1373,7 +1373,7 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleDistal
-    type: number
+    type: binary
     dependencies:
       - vrm_bone_category
     trainable: true
