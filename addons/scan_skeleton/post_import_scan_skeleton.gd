@@ -180,7 +180,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				bone["bone_name"] = bone_name
-				var vrm_mapping : String = ""
+				var vrm_mapping : String = "VRM_BONE_NONE"
 				if not test:
 					for human_key in human_map.keys():
 						if human_map[human_key] == bone_name:
@@ -196,10 +196,9 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					var godot_bone_id = profile.find_bone(godot_bone_name)
 					var skeleton_bone_id = skeleton.find_bone(godot_bone_name)
 				bone["bone"] = vrm_mapping
+				bone["humanoid_bone"] = "HUMANOID_BONE_NONE"
 				if vrm_to_godot.has(vrm_mapping):
 					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
-				else:
-					bone["humanoid_bone"] = ""
 				bone["vrm_bone_category"] = ""
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
