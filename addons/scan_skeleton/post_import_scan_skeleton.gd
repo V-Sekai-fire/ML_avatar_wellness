@@ -188,7 +188,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 							break
 					if vrm_mapping == "VRM_BONE_UNKNOWN":
 						vrm_mapping = "VRM_BONE_NONE"
-#				bone["class"] = vrm_mapping
 				var vrm_bone_string : String = " "
 				var profile : SkeletonProfileHumanoid = SkeletonProfileHumanoid.new()
 				var vrm_keys = vrm_to_godot.keys()
