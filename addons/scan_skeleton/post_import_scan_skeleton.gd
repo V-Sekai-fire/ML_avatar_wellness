@@ -227,6 +227,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone["number_of_parents"] = number_of_parents
 				bone["number_of_children"] = skeleton.get_bone_children(bone_i).size()
 				var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
+				bone_global_pose = skeleton.global_pose_to_world_transform(bone_global_pose)
 				var vrm_bones_ordered : Array = human_map.keys()
 				bone["has_upper_chest"] = 0
 				if human_map.keys().has("upperChest") and not human_map["upperChest"].is_empty():
@@ -262,6 +263,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				if human_map.keys().has("hips"):
 					var hips_id = skeleton.find_bone(human_map["hips"])
 					hips_pose = skeleton.get_bone_global_pose(hips_id)
+					hips_pose = skeleton.global_pose_to_world_transform(hips_pose)
 				var hips_scale = hips_pose.basis.get_scale()
 				bone["bone_hips_global_scale_in_meters"] = "%f %f %f" % \
 				[hips_scale.x, hips_scale.y, hips_scale.z]
