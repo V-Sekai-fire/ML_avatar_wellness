@@ -53,7 +53,7 @@ const vrm_to_godot : Dictionary = {
 	"jaw": "Jaw",
 	"leftShoulder": "LeftShoulder",
 	"leftUpperArm": "LeftUpperArm",
-	"leftLowerArms": "LeftLowerArm",
+	"leftLowerArm": "LeftLowerArm",
 	"leftHand": "LeftHand",
 	"leftThumbProximal": "LeftThumbProximal",
 	"leftThumbIntermediate": "LeftThumbIntermediate",
@@ -99,7 +99,7 @@ const vrm_to_godot : Dictionary = {
 	"rightToes": "RightToes",
 }
 
-static func _write_import(file, scene : Node, test, skip_vrm):
+static func _write_import(file, scene : Node, test, skip_vrm):	
 	const vrm_bones : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
 	"spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
 	"leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
@@ -186,11 +186,24 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 							break
 					if vrm_mapping == "VRM_BONE_UNKNOWN":
 						vrm_mapping = "VRM_BONE_NONE"
+#				bone["class"] = vrm_mapping
+				var godot_bone_string : String = " "
+				var vrm_bone_string : String = " "
+				var profile : SkeletonProfileHumanoid = SkeletonProfileHumanoid.new()
+				var vrm_keys = vrm_to_godot.keys()
+				vrm_keys.sort()
+				for key_i in range(0, vrm_keys.size()):
+					var key = vrm_to_godot.keys()[key_i]
+					var godot_bone_name = vrm_to_godot[key]
+					var godot_bone_id = profile.find_bone(godot_bone_name)
+					godot_bone_string = godot_bone_string + str(godot_bone_id) + " "
+					var skeleton_bone_id = skeleton.find_bone(godot_bone_name)
 				bone["class"] = vrm_mapping
+				bone["humanoid_hierarchy"] = godot_bone_string
 				if vrm_to_godot.has(vrm_mapping):
 					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
 				else:
-					bone["humanoid_bone"] = "HUMANOID_BONE_NONE"
+					bone["humanoid_bone"] = "BONE_NONE"
 				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_UNKNOWN"
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
@@ -208,12 +221,21 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					else:
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
 				bone["bone"] = vrm_mapping
-				var bone_global_pose = skeleton.get_bone_global_pose(bone_i)				
-				for key in vrm_bones:
-					bone[key] = 0
-				for key in human_map.keys():
+				var number_of_parents : int = 0
+				var current : int = bone_i
+				while current > 0:
+					number_of_parents = number_of_parents + 1
+					current = skeleton.get_bone_parent(current)
+				bone["number_of_parents"] = number_of_parents
+				bone["number_of_children"] = skeleton.get_bone_children(bone_i).size()
+				var bone_global_pose = skeleton.get_bone_global_pose(bone_i)
+				var vrm_bones_ordered : Array = human_map.keys()
+				var vrm_skeleton_string : String = " "
+				for key_i in range(0, vrm_bones_ordered.size()):
+					var key = vrm_bones_ordered[key_i]
 					if human_map.has(key) and key == vrm_mapping:
-						bone[key] = 1
+						vrm_skeleton_string = vrm_skeleton_string + str(key_i) + " "
+				bone["vrm_skeleton"] = vrm_skeleton_string
 				bone["has_upper_chest"] = 0
 				if human_map.keys().has("upperChest") and not human_map["upperChest"].is_empty():
 					bone["has_upper_chest"] = 1
@@ -259,6 +281,15 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				var hips_origin = hips_pose.origin
 				bone["bone_hips_global_origin_in_meters"] = "%f %f %f" % \
 				[hips_origin.x, hips_origin.y, hips_origin.z]
+				for key in vrm_bones:
+					bone[key] = 0
+					if vrm_to_godot.has(key):
+						bone[vrm_to_godot[key]] = 0
+				for key in human_map.keys():
+					if human_map.has(key) and key == vrm_mapping:
+						bone[key] = 1
+						if vrm_to_godot.has(key):
+							bone[vrm_to_godot[key]] = 1
 				bone["bone_hierarchy_id"] = bone_hierarchy_id_string
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("exporter_version")

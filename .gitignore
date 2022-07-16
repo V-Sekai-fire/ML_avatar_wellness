@@ -24,3 +24,7 @@ ml/output/
 ml/train.meta.json
 
 *.hdf5
+
+ml/train.split.csv
+
+ml/evaluate.txt

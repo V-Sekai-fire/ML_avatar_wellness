@@ -3,6 +3,10 @@ input_features:
     type: category
   - name: exporter_version
     type: category
+  - name: number_of_parents
+    type: number
+  - name: number_of_children
+    type: number
   - name: bone
     type: category
   - name: bone_hierarchy_id
@@ -21,13 +25,27 @@ input_features:
     type: vector
 output_features:
   - name: class
+    loss:
+      weight: 54
     dependencies:
       - vrm_bone_category
     type: category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
   - name: humanoid_bone
+    loss:
+      weight: 54
     dependencies:
       - vrm_bone_category
     type: category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+  - name: humanoid_hierarchy
+    loss:
+      weight: 80 # 54 + some slack
+    type: vector
   - name: has_upper_chest
     type: number
     dependencies:
@@ -705,6 +723,666 @@ output_features:
       missing_value_strategy: fill_with_const
       fill_value: 0
   - name: jaw
+    type: number
+    dependencies:
+      - has_jaw
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Hips
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftUpperLeg
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightUpperLeg
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftLowerLeg
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightLowerLeg
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftFoot
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightFoot
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Spine
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Chest
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Neck
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Head
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftShoulder
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightShoulder
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftUpperArm
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightUpperArm
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftLowerArm
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightLowerArm
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftHand
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightHand
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftToes
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightToes
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftEye
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightEye
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftThumbProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftThumbIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftThumbDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftIndexProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftIndexIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftIndexDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftMiddleProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftMiddleIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftMiddleDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftRingProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftRingIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftRingDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftLittleProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftLittleIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: LeftLittleDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightThumbProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightThumbIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightThumbDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightIndexProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightIndexIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightIndexDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightMiddleProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightMiddleIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightMiddleDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightRingProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightRingIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightRingDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightLittleProximal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightLittleIntermediate
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: RightLittleDistal
+    type: number
+    dependencies:
+      - vrm_bone_category
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: UpperChest
+    type: number
+    dependencies:
+      - has_upper_chest
+    trainable: true
+    num_fc_layers: 1
+    output_size: 64
+    loss:
+      weight: 54
+    preprocessing:
+      missing_value_strategy: fill_with_const
+      fill_value: 0
+  - name: Jaw
     type: number
     dependencies:
       - has_jaw
