@@ -13,16 +13,12 @@ input_features:
     trainable: true
     preprocessing:
       tokenizer: gpt2bpe
-      unknown_symbol: UNKNOWN_BONE
-      fill_value: UNKNOWN_BONE
-      missing_value_strategy: fill_with_mode
   - name: bone_hierarchy_id
     type: text
     level: char
     trainable: true
     preprocessing:
       tokenizer: gpt2bpe
-      missing_value_strategy: fill_with_mode
   - name: bone_hierarchy
     type: sequence
   - name: bone_global_origin_in_meters
@@ -64,7 +60,6 @@ output_features:
     num_fc_layers: 1
     output_size: 64
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: has_jaw
     type: binary
@@ -74,7 +69,6 @@ output_features:
     num_fc_layers: 1
     output_size: 64
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: vrm_bone_category
     type: category
@@ -94,7 +88,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperLeg
     type: binary
@@ -106,7 +99,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperLeg
     type: binary
@@ -118,7 +110,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerLeg
     type: binary
@@ -130,7 +121,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerLeg
     type: binary
@@ -142,7 +132,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftFoot
     type: binary
@@ -154,7 +143,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightFoot
     type: binary
@@ -166,7 +154,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: spine
     type: binary
@@ -178,7 +165,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: chest
     type: binary
@@ -190,7 +176,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: neck
     type: binary
@@ -202,7 +187,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: head
     type: binary
@@ -214,7 +198,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftShoulder
     type: binary
@@ -226,7 +209,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightShoulder
     type: binary
@@ -238,7 +220,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftUpperArm
     type: binary
@@ -250,7 +231,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightUpperArm
     type: binary
@@ -262,7 +242,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLowerArm
     type: binary
@@ -274,7 +253,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLowerArm
     type: binary
@@ -286,7 +264,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftHand
     type: binary
@@ -298,7 +275,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightHand
     type: binary
@@ -310,7 +286,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftToes
     type: binary
@@ -322,7 +297,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightToes
     type: binary
@@ -334,7 +308,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftEye
     type: binary
@@ -346,7 +319,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightEye
     type: binary
@@ -358,7 +330,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbProximal
     type: binary
@@ -370,7 +341,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbIntermediate
     type: binary
@@ -382,7 +352,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftThumbDistal
     type: binary
@@ -394,7 +363,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexProximal
     type: binary
@@ -406,7 +374,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexIntermediate
     type: binary
@@ -418,7 +385,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftIndexDistal
     type: binary
@@ -430,7 +396,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleProximal
     type: binary
@@ -442,7 +407,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleIntermediate
     type: binary
@@ -454,7 +418,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftMiddleDistal
     type: binary
@@ -466,7 +429,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingProximal
     type: binary
@@ -478,7 +440,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingIntermediate
     type: binary
@@ -490,7 +451,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftRingDistal
     type: binary
@@ -502,7 +462,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleProximal
     type: binary
@@ -514,7 +473,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleIntermediate
     type: binary
@@ -526,7 +484,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: leftLittleDistal
     type: binary
@@ -538,7 +495,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbProximal
     type: binary
@@ -550,7 +506,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbIntermediate
     type: binary
@@ -562,7 +517,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightThumbDistal
     type: binary
@@ -574,7 +528,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexProximal
     type: binary
@@ -586,7 +539,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexIntermediate
     type: binary
@@ -598,7 +550,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightIndexDistal
     type: binary
@@ -610,7 +561,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleProximal
     type: binary
@@ -622,7 +572,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleIntermediate
     type: binary
@@ -634,7 +583,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightMiddleDistal
     type: binary
@@ -646,7 +594,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingProximal
     type: binary
@@ -658,7 +605,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingIntermediate
     type: binary
@@ -670,7 +616,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightRingDistal
     type: binary
@@ -682,7 +627,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleProximal
     type: binary
@@ -694,7 +638,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleIntermediate
     type: binary
@@ -706,7 +649,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: rightLittleDistal
     type: binary
@@ -718,7 +660,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: upperChest
     type: binary
@@ -730,7 +671,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: jaw
     type: binary
@@ -742,7 +682,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Hips
     type: binary
@@ -754,7 +693,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftUpperLeg
     type: binary
@@ -766,7 +704,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightUpperLeg
     type: binary
@@ -778,7 +715,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLowerLeg
     type: binary
@@ -790,7 +726,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLowerLeg
     type: binary
@@ -802,7 +737,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftFoot
     type: binary
@@ -814,7 +748,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightFoot
     type: binary
@@ -826,7 +759,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Spine
     type: binary
@@ -838,7 +770,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Chest
     type: binary
@@ -850,7 +781,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Neck
     type: binary
@@ -862,7 +792,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Head
     type: binary
@@ -874,7 +803,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftShoulder
     type: binary
@@ -886,7 +814,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightShoulder
     type: binary
@@ -898,7 +825,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftUpperArm
     type: binary
@@ -910,7 +836,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightUpperArm
     type: binary
@@ -922,7 +847,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLowerArm
     type: binary
@@ -934,7 +858,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLowerArm
     type: binary
@@ -946,7 +869,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftHand
     type: binary
@@ -958,7 +880,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightHand
     type: binary
@@ -970,7 +891,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftToes
     type: binary
@@ -982,7 +902,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightToes
     type: binary
@@ -994,7 +913,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftEye
     type: binary
@@ -1006,7 +924,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightEye
     type: binary
@@ -1018,7 +935,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbProximal
     type: binary
@@ -1030,7 +946,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbIntermediate
     type: binary
@@ -1042,7 +957,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftThumbDistal
     type: binary
@@ -1054,7 +968,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexProximal
     type: binary
@@ -1066,7 +979,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexIntermediate
     type: binary
@@ -1078,7 +990,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftIndexDistal
     type: binary
@@ -1090,7 +1001,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleProximal
     type: binary
@@ -1102,7 +1012,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleIntermediate
     type: binary
@@ -1114,7 +1023,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftMiddleDistal
     type: binary
@@ -1126,7 +1034,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingProximal
     type: binary
@@ -1138,7 +1045,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingIntermediate
     type: binary
@@ -1150,7 +1056,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftRingDistal
     type: binary
@@ -1162,7 +1067,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleProximal
     type: binary
@@ -1174,7 +1078,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleIntermediate
     type: binary
@@ -1186,7 +1089,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: LeftLittleDistal
     type: binary
@@ -1198,7 +1100,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbProximal
     type: binary
@@ -1210,7 +1111,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbIntermediate
     type: binary
@@ -1222,7 +1122,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightThumbDistal
     type: binary
@@ -1234,7 +1133,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexProximal
     type: binary
@@ -1246,7 +1144,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexIntermediate
     type: binary
@@ -1258,7 +1155,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightIndexDistal
     type: binary
@@ -1270,7 +1166,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleProximal
     type: binary
@@ -1282,7 +1177,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleIntermediate
     type: binary
@@ -1294,7 +1188,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightMiddleDistal
     type: binary
@@ -1306,7 +1199,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingProximal
     type: binary
@@ -1318,7 +1210,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingIntermediate
     type: binary
@@ -1330,7 +1221,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightRingDistal
     type: binary
@@ -1342,7 +1232,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleProximal
     type: binary
@@ -1354,7 +1243,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleIntermediate
     type: binary
@@ -1366,7 +1254,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: RightLittleDistal
     type: binary
@@ -1378,7 +1265,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: UpperChest
     type: binary
@@ -1390,7 +1276,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
   - name: Jaw
     type: binary
@@ -1402,7 +1287,6 @@ output_features:
     loss:
       weight: 54
     preprocessing:
-      missing_value_strategy: fill_with_const
       fill_value: 0
 preprocessing:
   stratify: bone
