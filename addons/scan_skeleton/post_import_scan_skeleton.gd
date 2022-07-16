@@ -216,8 +216,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_LEFT_LEG"
 					elif vrm_right_leg_category.has(vrm_mapping):
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
-					else:
-						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
 				var number_of_parents : int = 0
 				var current : int = bone_i
 				while current > 0:
