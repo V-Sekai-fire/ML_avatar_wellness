@@ -7,8 +7,15 @@ input_features:
     type: number
   - name: number_of_children
     type: number
-  - name: bone
-    type: category
+  - name: bone_name
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+      unknown_symbol: UNKNOWN_BONE
+      fill_value: UNKNOWN_BONE
+      missing_value_strategy: fill_with_mode
   - name: bone_hierarchy_id
     type: sequence
   - name: bone_global_origin_in_meters
@@ -24,7 +31,7 @@ input_features:
   - name: bone_hips_global_origin_in_meters
     type: vector
 output_features:
-  - name: class
+  - name: bone
     loss:
       weight: 54
     dependencies:
