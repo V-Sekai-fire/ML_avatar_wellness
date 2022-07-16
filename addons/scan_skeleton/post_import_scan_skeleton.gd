@@ -145,12 +145,12 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 		var node = front
 		if node.get("vrm_meta"):
 			vrm_extension = node
+			queue.clear()
 			break
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))
 		queue.pop_front()
-
 	if vrm_extension and vrm_extension.get("vrm_meta"):
 		human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
 		if skip_vrm and not test:
