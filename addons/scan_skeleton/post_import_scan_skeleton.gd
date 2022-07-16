@@ -179,6 +179,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
+				bone["bone_name"] = bone_name
 				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
 				if not test:
 					for human_key in human_map.keys():
@@ -221,7 +222,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_RIGHT_LEG"
 					else:
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_NONE"
-				bone["bone_name"] = bone_name
 				var number_of_parents : int = 0
 				var current : int = bone_i
 				while current > 0:
