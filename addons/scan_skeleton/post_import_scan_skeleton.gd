@@ -180,14 +180,12 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				bone["bone_name"] = bone_name
-				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
+				var vrm_mapping : String = ""
 				if not test:
 					for human_key in human_map.keys():
 						if human_map[human_key] == bone_name:
 							vrm_mapping = human_key
 							break
-					if vrm_mapping == "VRM_BONE_UNKNOWN":
-						vrm_mapping = "VRM_BONE_NONE"
 				var vrm_bone_string : String = " "
 				var profile : SkeletonProfileHumanoid = SkeletonProfileHumanoid.new()
 				var vrm_keys = vrm_to_godot.keys()
@@ -201,8 +199,8 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				if vrm_to_godot.has(vrm_mapping):
 					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
 				else:
-					bone["humanoid_bone"] = "BONE_NONE"
-				bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_UNKNOWN"
+					bone["humanoid_bone"] = ""
+				bone["vrm_bone_category"] = ""
 				if vrm_extension:
 					if vrm_head_category.has(vrm_mapping):
 						bone["vrm_bone_category"] = "VRM_BONE_CATEGORY_HEAD"
@@ -286,17 +284,17 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("exporter_version")
 					if version == null or version.is_empty():
-						version = "VRM_EXPORTER_VERSION_UNKNOWN"
+						version = ""
 					bone["exporter_version"] = version
 				else:
-					bone["exporter_version"] = "VRM_EXPORTER_VERSION_UNKNOWN"
+					bone["exporter_version"] = ""
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("spec_version")
 					if version == null or version.is_empty():
 						version = "VRM_UNVERSIONED"
 					bone["specification_version"] = version
 				else:
-					bone["specification_version"] = "VRM_SPECIFICATION_UNKNOWN"
+					bone["specification_version"] = ""
 				if string_builder.is_empty():
 					string_builder.push_back(bone.keys())
 				string_builder.push_back(bone.values())
