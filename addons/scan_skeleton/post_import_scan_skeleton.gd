@@ -189,7 +189,6 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					if vrm_mapping == "VRM_BONE_UNKNOWN":
 						vrm_mapping = "VRM_BONE_NONE"
 #				bone["class"] = vrm_mapping
-				var godot_bone_string : String = " "
 				var vrm_bone_string : String = " "
 				var profile : SkeletonProfileHumanoid = SkeletonProfileHumanoid.new()
 				var vrm_keys = vrm_to_godot.keys()
@@ -198,10 +197,8 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 					var key = vrm_to_godot.keys()[key_i]
 					var godot_bone_name = vrm_to_godot[key]
 					var godot_bone_id = profile.find_bone(godot_bone_name)
-					godot_bone_string = godot_bone_string + str(godot_bone_id) + " "
 					var skeleton_bone_id = skeleton.find_bone(godot_bone_name)
 				bone["bone"] = vrm_mapping
-				bone["humanoid_hierarchy"] = godot_bone_string
 				if vrm_to_godot.has(vrm_mapping):
 					bone["humanoid_bone"] = vrm_to_godot[vrm_mapping]
 				else:

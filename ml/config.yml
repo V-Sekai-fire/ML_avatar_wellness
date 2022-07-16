@@ -37,8 +37,6 @@ input_features:
     type: vector
   - name: bone_hips_global_origin_in_meters
     type: vector
-  - name: humanoid_hierarchy
-    type: vector
 output_features:
   - name: bone
     loss:
