@@ -17,6 +17,13 @@ input_features:
       fill_value: UNKNOWN_BONE
       missing_value_strategy: fill_with_mode
   - name: bone_hierarchy_id
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+      missing_value_strategy: fill_with_mode
+  - name: bone_hierarchy
     type: sequence
   - name: bone_global_origin_in_meters
     type: vector

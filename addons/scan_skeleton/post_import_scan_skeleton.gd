@@ -169,13 +169,14 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 			correct_bone_dir_const.fix_skeleton(scene, skeleton)
 			correct_bone_dir_const._refresh_skeleton(skeleton)
 			var bone : Dictionary
-			var bone_hierarchy_string : String
+			var bone_hierarchy_id_string : String = " "
+			var bone_hierarchy_string : String = " "
 			for neighbour in neighbours:
 				var bone_name = skeleton.get_bone_name(neighbour)
 				bone_hierarchy_string = bone_hierarchy_string + str(bone_name) + " "
-			var bone_hierarchy_id_string : String
 			for neighbour in neighbours:
 				bone_hierarchy_id_string = bone_hierarchy_id_string + str(neighbour) + " "
+				bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
 			for bone_i in skeleton.get_bone_count():
 				var bone_name : String = skeleton.get_bone_name(bone_i)
 				var vrm_mapping : String = "VRM_BONE_UNKNOWN"
@@ -285,6 +286,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 						if vrm_to_godot.has(key):
 							bone[vrm_to_godot[key]] = 1
 				bone["bone_hierarchy_id"] = bone_hierarchy_id_string
+				bone["bone_hierarchy"] = bone_hierarchy_string
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					var version = vrm_extension["vrm_meta"].get("exporter_version")
 					if version == null or version.is_empty():
