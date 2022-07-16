@@ -34,7 +34,6 @@ func _post_import(scene : Node):
 		var node = front
 		if node is Skeleton3D:
 			post_import_scan._write_import(get_source_file(), scene, true, true)
-			break
 		var child_count : int = node.get_child_count()
 		for i in child_count:
 			queue.push_back(node.get_child(i))

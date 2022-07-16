@@ -37,6 +37,8 @@ input_features:
     type: vector
   - name: bone_hips_global_origin_in_meters
     type: vector
+  - name: humanoid_hierarchy
+    type: vector
 output_features:
   - name: bone
     loss:
@@ -56,10 +58,6 @@ output_features:
     trainable: true
     num_fc_layers: 1
     output_size: 64
-  - name: humanoid_hierarchy
-    loss:
-      weight: 80 # 54 + some slack
-    type: vector
   - name: has_upper_chest
     type: binary
     dependencies:
