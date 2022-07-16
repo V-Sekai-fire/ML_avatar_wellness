@@ -25,9 +25,9 @@ extends EditorScenePostImport
 
 const correct_bone_dir_const = preload("res://addons/force_bone_forward/correct_bone_dir.gd")
 
-static func _write_train(write_path, text):
+static func _write_train(write_path, text, test):
 	var file = File.new()
-	if not file.file_exists(write_path):
+	if not file.file_exists(write_path) or test:
 		file.open(write_path, File.WRITE)
 	else:
 		file.open(write_path, File.READ_WRITE)
@@ -311,7 +311,7 @@ static func _write_import(file, scene : Node, test, skip_vrm):
 	var filename = "res://train.tsv"
 	if test:
 		filename = "res://test.tsv"
-	_write_train(filename, string_builder)
+	_write_train(filename, string_builder, test)
 	return scene
 
 func _post_import(scene : Node):
