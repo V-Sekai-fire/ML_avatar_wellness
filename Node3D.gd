@@ -136,7 +136,9 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			# Hierarchy info -- TODO: Normalize
 			float(bone_depth_info[bone_id]["depth"]) / float(bone_count),
 			float(bone_depth_info[bone_id]["children"]) / float(bone_count),
-			float(bone_depth_info[bone_id]["siblings"]) / float(bone_count), 
+			float(bone_depth_info[bone_id]["siblings"]) / float(bone_count),
+			int(bone_name.findn("left") != -1),
+			int(bone_name.findn("right") != -1),
 			# Wish I could do stuff with names.  :'(
 		]
 	return result
