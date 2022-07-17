@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://p1kif32ygmpp"]
+[gd_scene load_steps=24 format=3 uid="uid://p1kif32ygmpp"]
 
 [ext_resource type="Script" path="res://Node3D.gd" id="1_k3in6"]
-[ext_resource type="PackedScene" uid="uid://bdan11begbskx" path="res://Miraikomachi.vrm" id="2_grvs2"]
 [ext_resource type="PackedScene" uid="uid://d15o60e5xoj8a" path="res://avatar_wellness/art/characters/SK_Adult_Female/v_sekai_adult-female.vrm" id="2_hxngh"]
 [ext_resource type="PackedScene" uid="uid://dhxigmvwk1f5c" path="res://avatar_wellness/art/characters/SK_Adult_Male/v_sekai_adult-male.vrm" id="3_6er8f"]
 [ext_resource type="PackedScene" uid="uid://b0nvx6xrny0h1" path="res://avatar_wellness/art/characters/SK_AliciaSolid_vrm-0.51/SK_AliciaSolid_vrm-0.51.vrm" id="4_kbhgf"]
@@ -10,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://b4jbiyp8ishae" path="res://avatar_wellness/art/characters/SK_EpsilonNought/SK_EpsilonNought.vrm" id="8_7p7iw"]
 [ext_resource type="PackedScene" uid="uid://mjxvqu5bpi8w" path="res://avatar_wellness/art/characters/SK_Godot_Chan_Stealth/SK_Godot_Chan_Stealth.vrm" id="9_2sohu"]
 [ext_resource type="PackedScene" uid="uid://dbliqmh0px21m" path="res://avatar_wellness/art/characters/SK_kurisu/kurisu.vrm" id="10_q36fi"]
-[ext_resource type="PackedScene" uid="uid://2ofe1x12c0r7" path="res://avatar_wellness/art/characters/SK_Magical_Girl/magic_girl_mahou.vrm" id="11_847i5"]
 [ext_resource type="PackedScene" uid="uid://d1ws8ptf6lr4w" path="res://avatar_wellness/art/characters/SK_mannequiny/mannequiny.vrm" id="12_cme4c"]
 [ext_resource type="PackedScene" uid="uid://dhryahng7jh5b" path="res://avatar_wellness/art/characters/SK_nocchi/SKEL_nocchi.vrm" id="13_465lh"]
 [ext_resource type="PackedScene" uid="uid://cycv25251dltg" path="res://avatar_wellness/art/characters/SK_perfume_aachan/SKEL_aachan.vrm" id="14_f7u5b"]
@@ -29,9 +27,6 @@
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_k3in6")
 
-[node name="Miraikomachi" parent="." instance=ExtResource("2_grvs2")]
-visible = false
-
 [node name="v_sekai_adult-female" parent="." instance=ExtResource("2_hxngh")]
 
 [node name="v_sekai_adult-male" parent="." instance=ExtResource("3_6er8f")]
@@ -47,8 +42,6 @@ visible = false
 [node name="SK_Godot_Chan_Stealth" parent="." instance=ExtResource("9_2sohu")]
 
 [node name="kurisu" parent="." instance=ExtResource("10_q36fi")]
-
-[node name="magic_girl_mahou" parent="." instance=ExtResource("11_847i5")]
 
 [node name="mannequiny" parent="." instance=ExtResource("12_cme4c")]
 
@@ -78,7 +71,6 @@ visible = false
 
 [node name="SK_波覇ありす" parent="." instance=ExtResource("25_r0cb6")]
 
-[editable path="Miraikomachi"]
 [editable path="v_sekai_adult-female"]
 [editable path="v_sekai_adult-male"]
 [editable path="SK_AliciaSolid_vrm-051"]
@@ -87,7 +79,6 @@ visible = false
 [editable path="SK_EpsilonNought"]
 [editable path="SK_Godot_Chan_Stealth"]
 [editable path="kurisu"]
-[editable path="magic_girl_mahou"]
 [editable path="mannequiny"]
 [editable path="SKEL_nocchi"]
 [editable path="SKEL_aachan"]
