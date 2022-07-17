@@ -1,6 +1,18 @@
 input_features:
   - name: vector
-    type: vector
+    type: sequence 
+  - name: bone_sink
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+  - name: bone_source
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
 output_features:
   - name: label
     type: category

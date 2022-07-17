@@ -16,8 +16,6 @@ func train():
 	f.open("res://train.tsv", File.WRITE)
 	var header : PackedStringArray
 	header.push_back("label")
-	header.push_back("debug_bone_sink")
-	header.push_back("debug_bone_source")
 	header.push_back("vector")
 	f.store_csv_line(header, "\t")
 	
@@ -62,8 +60,6 @@ func train():
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
-					line.push_back(bone_name_source)
-					line.push_back(bone_name_sink)
 					var feature_string : String = ""
 					for feature in feature_vector:
 						feature_string = feature_string + str(feature) + " "
@@ -123,7 +119,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 	for bone_id in skeleton.get_bone_count():
 		var pose:Transform3D = skeleton.get_bone_global_pose(bone_id)  # get_global_pose?
 		pose = skeleton.global_pose_to_world_transform(pose)
-		var bone_name : String = "BONE_NONE"
+		var bone_name : String = "VRM_BONE_NONE"
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
 			if human_map[key] == skeleton.get_bone_name(bone_id):
@@ -142,5 +138,6 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			float(bone_depth_info[bone_id]["children"]) / float(bone_count),
 			float(bone_depth_info[bone_id]["siblings"]) / float(bone_count), 
 			# Wish I could do stuff with names.  :'(
+			skeleton.get_bone_name(bone_id),
 		]
 	return result
