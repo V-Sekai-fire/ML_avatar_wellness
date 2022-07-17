@@ -16,6 +16,8 @@ func train():
 	f.open("res://train.tsv", File.WRITE)
 	var header : PackedStringArray
 	header.push_back("label")
+	header.push_back("debug_bone_sink")
+	header.push_back("debug_bone_source")
 	header.push_back("vector")
 	f.store_csv_line(header, "\t")
 	
@@ -60,6 +62,8 @@ func train():
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
+					line.push_back(bone_name_source)
+					line.push_back(bone_name_sink)
 					var feature_string : String = ""
 					for feature in feature_vector:
 						feature_string = feature_string + str(feature) + " "

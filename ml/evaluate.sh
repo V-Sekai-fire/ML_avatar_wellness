@@ -1,4 +1,4 @@
-ludwig predict --dataset batter_on_deck.tsv --model_path results/experiment_run_10/model --skip_save_unprocessed_output  --output_directory output --skip_save_unprocessed_output
+ludwig predict --dataset test.tsv --model_path results/experiment_run_11/model --skip_save_unprocessed_output  --output_directory output --skip_save_unprocessed_output
 # pip install -e ".[serve]"
 #  ludwig serve --model_path ./results/experiment_run_1/model
 # msys2

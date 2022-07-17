@@ -28,54 +28,71 @@
 script = ExtResource("1_k3in6")
 
 [node name="v_sekai_adult-female" parent="." instance=ExtResource("2_hxngh")]
+visible = false
+
+[node name="SK_AliciaSolid_vrm-051" parent="." instance=ExtResource("4_kbhgf")]
+visible = false
+
+[node name="SK_EpsilonNought" parent="." instance=ExtResource("8_7p7iw")]
+visible = false
+
+[node name="SK_Godot_Chan_Stealth" parent="." instance=ExtResource("9_2sohu")]
+visible = false
+
+[node name="kurisu" parent="." instance=ExtResource("10_q36fi")]
+visible = false
+
+[node name="mannequiny" parent="." instance=ExtResource("12_cme4c")]
+visible = false
+
+[node name="SKEL_nocchi" parent="." instance=ExtResource("13_465lh")]
+visible = false
+
+[node name="SKEL_aachan" parent="." instance=ExtResource("14_f7u5b")]
+visible = false
+
+[node name="SKEL_kashiyuka" parent="." instance=ExtResource("15_0vw2n")]
+visible = false
+
+[node name="SK_saiky" parent="." instance=ExtResource("16_8578s")]
+visible = false
+
+[node name="SK_unamed_girl" parent="." instance=ExtResource("17_s2j44")]
+visible = false
+
+[node name="Vita" parent="." instance=ExtResource("18_prth7")]
+visible = false
+
+[node name="Vivi" parent="." instance=ExtResource("19_qbhnu")]
+visible = false
+
+[node name="ﾃ珂�ﾃｦ笊ｩﾃ｢ﾃｻﾃ�Jﾃ�av0131_SRanipal1311ﾃｦ笊ｬﾃｫ竄ｧ" parent="." instance=ExtResource("20_0tmjs")]
+visible = false
+
+[node name="ﾃｬ竕暗ｴcﾃ�jﾃｹﾃｿﾃｻﾎｵv0131_SRanipal1311ﾃｦ笊ｬﾃｫ竄ｧ" parent="." instance=ExtResource("21_phnl0")]
+visible = false
+
+[node name="ツインテ少女" parent="." instance=ExtResource("22_fg43t")]
+visible = false
+
+[node name="SK_ドコカノうさぎ VRoid Ver2" parent="." instance=ExtResource("23_c1v3s")]
+visible = false
+
+[node name="SK_小倉小町" parent="." instance=ExtResource("24_puesl")]
+visible = false
+
+[node name="SK_波覇ありす" parent="." instance=ExtResource("25_r0cb6")]
+visible = false
+
+[node name="AvatarSample_C" parent="." instance=ExtResource("5_vlhlu")]
+visible = false
 
 [node name="v_sekai_adult-male" parent="." instance=ExtResource("3_6er8f")]
 
-[node name="SK_AliciaSolid_vrm-051" parent="." instance=ExtResource("4_kbhgf")]
-
-[node name="AvatarSample_C" parent="." instance=ExtResource("5_vlhlu")]
-
 [node name="AvatarSample_A" parent="." instance=ExtResource("6_wldum")]
 
-[node name="SK_EpsilonNought" parent="." instance=ExtResource("8_7p7iw")]
-
-[node name="SK_Godot_Chan_Stealth" parent="." instance=ExtResource("9_2sohu")]
-
-[node name="kurisu" parent="." instance=ExtResource("10_q36fi")]
-
-[node name="mannequiny" parent="." instance=ExtResource("12_cme4c")]
-
-[node name="SKEL_nocchi" parent="." instance=ExtResource("13_465lh")]
-
-[node name="SKEL_aachan" parent="." instance=ExtResource("14_f7u5b")]
-
-[node name="SKEL_kashiyuka" parent="." instance=ExtResource("15_0vw2n")]
-
-[node name="SK_saiky" parent="." instance=ExtResource("16_8578s")]
-
-[node name="SK_unamed_girl" parent="." instance=ExtResource("17_s2j44")]
-
-[node name="Vita" parent="." instance=ExtResource("18_prth7")]
-
-[node name="Vivi" parent="." instance=ExtResource("19_qbhnu")]
-
-[node name="ﾃ珂�ﾃｦ笊ｩﾃ｢ﾃｻﾃ�Jﾃ�av0131_SRanipal1311ﾃｦ笊ｬﾃｫ竄ｧ" parent="." instance=ExtResource("20_0tmjs")]
-
-[node name="ﾃｬ竕暗ｴcﾃ�jﾃｹﾃｿﾃｻﾎｵv0131_SRanipal1311ﾃｦ笊ｬﾃｫ竄ｧ" parent="." instance=ExtResource("21_phnl0")]
-
-[node name="ツインテ少女" parent="." instance=ExtResource("22_fg43t")]
-
-[node name="SK_ドコカノうさぎ VRoid Ver2" parent="." instance=ExtResource("23_c1v3s")]
-
-[node name="SK_小倉小町" parent="." instance=ExtResource("24_puesl")]
-
-[node name="SK_波覇ありす" parent="." instance=ExtResource("25_r0cb6")]
-
 [editable path="v_sekai_adult-female"]
-[editable path="v_sekai_adult-male"]
 [editable path="SK_AliciaSolid_vrm-051"]
-[editable path="AvatarSample_C"]
-[editable path="AvatarSample_A"]
 [editable path="SK_EpsilonNought"]
 [editable path="SK_Godot_Chan_Stealth"]
 [editable path="kurisu"]
@@ -93,3 +110,6 @@ script = ExtResource("1_k3in6")
 [editable path="SK_ドコカノうさぎ VRoid Ver2"]
 [editable path="SK_小倉小町"]
 [editable path="SK_波覇ありす"]
+[editable path="AvatarSample_C"]
+[editable path="v_sekai_adult-male"]
+[editable path="AvatarSample_A"]

@@ -9,5 +9,3 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-preprocessing:
-  stratify: label
