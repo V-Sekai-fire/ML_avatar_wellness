@@ -11,13 +11,9 @@ func train():
 	var bone_descriptors = Dictionary()  # name -> list of list of featuress
 	# Ring finger -> [all the different bones we've seen that also ring fingers]
 	
-	# DEBUG: Save a CSV of this data:
+	var first : bool = true
 	var f = File.new()
 	f.open("res://train.tsv", File.WRITE)
-	var header : PackedStringArray
-	header.push_back("label")
-	header.push_back("vector")
-	f.store_csv_line(header, "\t")
 	
 	for child in self.get_children():
 		if not child.visible:
@@ -56,14 +52,25 @@ func train():
 					feature_vector.append_array(bone_array_a)
 					feature_vector.append_array(bone_array_b)
 					var line : PackedStringArray
-					if bone_name_sink == bone_name_source:
+					if bone_name_sink == bone_name_source and bone_name_source != "VRM_BONE_NONE":
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
+					line.push_back(bone_name_sink)
+					line.push_back(bone_name_source)
 					var feature_string : String = ""
+					if first:
+						# DEBUG: Save a CSV of this data:s
+						var header : PackedStringArray
+						header.push_back("label")
+						header.push_back("sink_bone")
+						header.push_back("source_bone")
+						for feature_i in feature_vector.size():
+							header.push_back("humanoid_" + str(feature_i))
+						f.store_csv_line(header, "\t")
+						first = false
 					for feature in feature_vector:
-						feature_string = feature_string + str(feature) + " "
-					line.push_back(feature_string)
+						line.push_back(str(feature))
 					f.store_csv_line(line, "\t")
 
 func compute_bone_depth_and_child_count(skeleton:Skeleton3D, bone_id:int, skeleton_info:Dictionary):

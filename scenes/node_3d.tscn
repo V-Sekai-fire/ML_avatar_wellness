@@ -70,7 +70,6 @@ script = ExtResource("1_k3in6")
 [node name="v_sekai_adult-male" parent="." instance=ExtResource("3_6er8f")]
 
 [node name="AvatarSample_A" parent="." instance=ExtResource("6_wldum")]
-visible = false
 
 [editable path="v_sekai_adult-female"]
 [editable path="SK_AliciaSolid_vrm-051"]
