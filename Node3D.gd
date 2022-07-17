@@ -46,27 +46,20 @@ func train():
 				queue.push_back(node.get_child(i))
 			queue.pop_front()
 
-	var done : Array
-
 	# Build all possible pairs of bones.
 	# [[bone_properties_a, bone_properties_b, 1/0], ...]
-	for bone_name_a in bone_descriptors.keys():
-		for bone_array_a in bone_descriptors[bone_name_a]:
-			for bone_name_b in bone_descriptors.keys():
-				for bone_array_b in bone_descriptors[bone_name_b]:
-					var bone_pair : Dictionary = {bone_name_a: true, bone_name_b : true}
-					if done.has(bone_pair):
-						continue
-					else:
-						bone_pair[bone_pair] = true
+	for bone_name_source in bone_descriptors.keys():
+		for bone_array_a in bone_descriptors[bone_name_source]:
+			for bone_name_sink in bone_descriptors.keys():
+				for bone_array_b in bone_descriptors[bone_name_sink]:
 					var feature_vector = []
 					feature_vector.append_array(bone_array_a)
 					feature_vector.append_array(bone_array_b)
 					var line : PackedStringArray
-					var bone_name : String = "BONE_NONE"
-					if bone_name_a == bone_name_b:
-						bone_name = bone_name_a
-					line.push_back(bone_name)
+					if bone_name_sink == bone_name_source:
+						line.push_back(str(true))
+					else:
+						line.push_back(str(false))
 					var feature_string : String = ""
 					for feature in feature_vector:
 						feature_string = feature_string + str(feature) + " "
@@ -126,11 +119,12 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 	for bone_id in skeleton.get_bone_count():
 		var pose:Transform3D = skeleton.get_bone_global_pose(bone_id)  # get_global_pose?
 		pose = skeleton.global_pose_to_world_transform(pose)
-		var bone_name : String = skeleton.get_bone_name(bone_id)	
+		var bone_name : String = "BONE_NONE"
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
-			if human_map.has(key) and human_map[key] == bone_name:
+			if human_map[key] == skeleton.get_bone_name(bone_id):
 				bone_name = key
+				break
 		result[bone_name] = [
 			# Position
 			pose.origin.x, pose.origin.y, pose.origin.z, 
