@@ -1,23 +1,9 @@
 input_features:
   - name: vector
-    type: sequence 
-  - name: bone_sink
-    type: text
-    level: char
-    trainable: true
-    preprocessing:
-      tokenizer: gpt2bpe
-  - name: bone_source
-    type: text
-    level: char
-    trainable: true
-    preprocessing:
-      tokenizer: gpt2bpe
+    type: vector
 output_features:
   - name: label
-    type: category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
+    type: binary
+training:
+  validation_field: label
+  validation_metric: accuracy

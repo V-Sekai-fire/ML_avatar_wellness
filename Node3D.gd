@@ -138,6 +138,5 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			float(bone_depth_info[bone_id]["children"]) / float(bone_count),
 			float(bone_depth_info[bone_id]["siblings"]) / float(bone_count), 
 			# Wish I could do stuff with names.  :'(
-			skeleton.get_bone_name(bone_id),
 		]
 	return result
