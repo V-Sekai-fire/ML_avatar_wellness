@@ -13,14 +13,12 @@ input_features:
     trainable: true
     preprocessing:
       tokenizer: gpt2bpe
-  - name: bone_hierarchy_id
+  - name: bone_hierarchy
     type: text
     level: char
     trainable: true
     preprocessing:
       tokenizer: gpt2bpe
-  - name: bone_hierarchy
-    type: sequence
   - name: bone_global_origin_in_meters
     type: vector
   - name: bone_global_basis_6d
@@ -34,15 +32,6 @@ input_features:
   - name: bone_hips_global_origin_in_meters
     type: vector
 output_features:
-  - name: bone
-    loss:
-      weight: 54
-    dependencies:
-      - vrm_bone_category
-    type: category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
   - name: humanoid_bone
     loss:
       weight: 54
@@ -59,8 +48,6 @@ output_features:
     trainable: true
     num_fc_layers: 1
     output_size: 64
-    preprocessing:
-      fill_value: 0
   - name: has_jaw
     type: binary
     dependencies:
@@ -68,8 +55,6 @@ output_features:
     trainable: true
     num_fc_layers: 1
     output_size: 64
-    preprocessing:
-      fill_value: 0
   - name: vrm_bone_category
     type: category
     level: char
@@ -78,613 +63,8 @@ output_features:
     trainable: true
     num_fc_layers: 2
     output_size: 64
-  - name: hips
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftUpperLeg
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightUpperLeg
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftLowerLeg
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightLowerLeg
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftFoot
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightFoot
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: spine
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: chest
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: neck
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: head
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftShoulder
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightShoulder
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftUpperArm
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightUpperArm
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftLowerArm
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightLowerArm
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftHand
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightHand
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftToes
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightToes
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftEye
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightEye
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftThumbProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftThumbIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftThumbDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftIndexProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftIndexIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftIndexDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftMiddleProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftMiddleIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftMiddleDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftRingProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftRingIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftRingDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftLittleProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftLittleIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: leftLittleDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightThumbProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightThumbIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightThumbDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightIndexProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightIndexIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightIndexDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightMiddleProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightMiddleIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightMiddleDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightRingProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightRingIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightRingDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightLittleProximal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightLittleIntermediate
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: rightLittleDistal
-    type: binary
-    dependencies:
-      - vrm_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: upperChest
-    type: binary
-    dependencies:
-      - has_upper_chest
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
-  - name: jaw
-    type: binary
-    dependencies:
-      - has_jaw
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Hips
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -692,10 +72,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftUpperLeg
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -703,10 +81,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightUpperLeg
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -714,10 +90,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftLowerLeg
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -725,10 +99,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightLowerLeg
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -736,10 +108,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftFoot
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -747,10 +117,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightFoot
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -758,10 +126,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Spine
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -769,10 +135,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Chest
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -780,10 +144,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Neck
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -791,10 +153,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Head
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -802,10 +162,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftShoulder
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -813,10 +171,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightShoulder
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -824,10 +180,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftUpperArm
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -835,10 +189,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightUpperArm
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -846,10 +198,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftLowerArm
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -857,10 +207,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightLowerArm
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -868,10 +216,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftHand
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -879,10 +225,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightHand
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -890,10 +234,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftToes
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -901,10 +243,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightToes
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -912,10 +252,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftEye
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -923,10 +261,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightEye
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -934,10 +270,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftThumbProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -945,10 +279,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftThumbIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -956,10 +288,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftThumbDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -967,10 +297,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftIndexProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -978,10 +306,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftIndexIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -989,10 +315,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftIndexDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1000,10 +324,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftMiddleProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1011,10 +333,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftMiddleIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1022,10 +342,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftMiddleDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1033,10 +351,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftRingProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1044,10 +360,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftRingIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1055,10 +369,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftRingDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1066,10 +378,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftLittleProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1077,10 +387,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftLittleIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1088,10 +396,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: LeftLittleDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1099,10 +405,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightThumbProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1110,10 +414,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightThumbIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1121,10 +423,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightThumbDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1132,10 +432,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightIndexProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1143,10 +441,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightIndexIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1154,10 +450,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightIndexDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1165,10 +459,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightMiddleProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1176,10 +468,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightMiddleIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1187,10 +477,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightMiddleDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1198,10 +486,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightRingProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1209,10 +495,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightRingIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1220,10 +504,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightRingDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1231,10 +513,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightLittleProximal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1242,10 +522,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightLittleIntermediate
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1253,10 +531,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: RightLittleDistal
-    type: binary
+    type: category
     dependencies:
       - vrm_bone_category
     trainable: true
@@ -1264,10 +540,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: UpperChest
-    type: binary
+    type: category
     dependencies:
       - has_upper_chest
     trainable: true
@@ -1275,10 +549,8 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
   - name: Jaw
-    type: binary
+    type: category
     dependencies:
       - has_jaw
     trainable: true
@@ -1286,7 +558,5 @@ output_features:
     output_size: 64
     loss:
       weight: 54
-    preprocessing:
-      fill_value: 0
 preprocessing:
   stratify: bone

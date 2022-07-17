@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Avatar Wellness"
+run/main_scene="res://scenes/node_3d.tscn"
 config/features=PackedStringArray("4.0")
 
 [autoload]
@@ -40,7 +41,7 @@ import/reimport_missing_imported_files=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg", "res://addons/force_bone_forward/plugin.cfg")
+enabled=PackedStringArray("res://addons/Godot-MToon-Shader/plugin.cfg", "res://addons/vrm/plugin.cfg")
 
 [entities]
 
@@ -51,9 +52,6 @@ config/process_priority=0
 texture={
 "compress/bptc_ldr": 2,
 "compress/mode": 2
-}
-scene={
-"import_script/path": "res://addons/scan_skeleton/post_import_scan_skeleton.gd"
 }
 
 [network]
