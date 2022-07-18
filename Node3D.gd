@@ -43,6 +43,7 @@ func train():
 		queue.push_back(child)
 		var vrm_extension : VRMTopLevel = null
 		var human_map : Dictionary
+		var vrm_meta : RefCounted
 		while not queue.is_empty():
 			var front = queue.front()
 			var node = front
@@ -52,7 +53,8 @@ func train():
 				var skeleton = node
 				if vrm_extension and vrm_extension.get("vrm_meta"):
 					human_map = vrm_extension["vrm_meta"]["humanoid_bone_mapping"]
-				var skeleton_properties = make_features_for_skeleton(skeleton, human_map)
+					vrm_meta = vrm_extension["vrm_meta"]
+				var skeleton_properties = make_features_for_skeleton(skeleton, human_map, vrm_meta)
 				for name in skeleton_properties.keys():
 					if not bone_descriptors.has(name):
 						bone_descriptors[name] = []
@@ -69,6 +71,18 @@ func train():
 		for bone_array_a in bone_descriptors[bone_a]:
 			for bone_array_b in bone_descriptors[bone_b]:
 				var feature_vector = []
+				var sink_bone : String
+				for feature in bone_array_a:
+					if typeof(feature) == TYPE_STRING:
+						sink_bone = feature
+						break
+				var source_bone : String
+				for feature in bone_array_b:
+					if typeof(feature) == TYPE_STRING:
+						source_bone = feature
+						break
+				if source_bone == sink_bone:
+					continue
 				feature_vector.append_array(bone_array_a)
 				feature_vector.append_array(bone_array_b)
 				var line : PackedStringArray
@@ -92,9 +106,17 @@ func train():
 					header.push_back("sink_bone")
 					header.push_back("sink_bone_category")
 					header.push_back("sink_bone_hierarchy_id")
+					header.push_back("sink_title")
+					header.push_back("sink_version")
+					header.push_back("sink_exporter_version")
+					header.push_back("sink_spec_version")
 					header.push_back("source_bone")
 					header.push_back("source_bone_category")
 					header.push_back("source_bone_hierarchy_id")
+					header.push_back("source_title")
+					header.push_back("source_version")
+					header.push_back("source_exporter_version")
+					header.push_back("source_spec_version")
 					header.push_back("vector")
 					f.store_csv_line(header, "\t")
 					first = false
@@ -155,7 +177,7 @@ const vrm_torso_category : Array = ["hips",	"spine","chest", "upperChest"]
 const vrm_left_leg_category : Array = ["leftUpperLeg","leftLowerLeg","leftFoot","leftToes"]
 const vrm_right_leg_category : Array = ["rightUpperLeg","rightLowerLeg","rightFoot","rightToes"]
 
-func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
+func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm_meta : RefCounted) -> Dictionary:
 	# Return a mapping from BONE NAME to a feature array.
 	var result : Dictionary
 	var skeleton_result : Dictionary
@@ -193,6 +215,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 		pose = skeleton.global_pose_to_world_transform(pose)
 		var bone_name : String = ""
 		var bone_category : String = ""
+		var title : String
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
 			if human_map[key] == skeleton.get_bone_name(bone_id):
@@ -226,6 +249,10 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			skeleton.get_bone_name(bone_id),
 			bone_category,
 			bone_hierarchy_id_string,
+			vrm_meta["title"],
+			vrm_meta["version"],
+			vrm_meta["exporter_version"],
+			vrm_meta["spec_version"],
 		]
 	return result
 
