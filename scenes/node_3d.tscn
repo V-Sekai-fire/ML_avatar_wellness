@@ -28,20 +28,28 @@
 script = ExtResource("1_k3in6")
 
 [node name="v_sekai_adult-female" parent="." instance=ExtResource("2_hxngh")]
+visible = false
 
 [node name="SK_AliciaSolid_vrm-051" parent="." instance=ExtResource("4_kbhgf")]
+visible = false
 
 [node name="SK_EpsilonNought" parent="." instance=ExtResource("8_7p7iw")]
+visible = false
 
 [node name="SK_Godot_Chan_Stealth" parent="." instance=ExtResource("9_2sohu")]
+visible = false
 
 [node name="kurisu" parent="." instance=ExtResource("10_q36fi")]
+visible = false
 
 [node name="mannequiny" parent="." instance=ExtResource("12_cme4c")]
+visible = false
 
 [node name="SKEL_nocchi" parent="." instance=ExtResource("13_465lh")]
+visible = false
 
 [node name="SKEL_aachan" parent="." instance=ExtResource("14_f7u5b")]
+visible = false
 
 [node name="SKEL_kashiyuka" parent="." instance=ExtResource("15_0vw2n")]
 visible = false
@@ -80,10 +88,8 @@ visible = false
 visible = false
 
 [node name="v_sekai_adult-male" parent="." instance=ExtResource("3_6er8f")]
-visible = false
 
 [node name="AvatarSample_A" parent="." instance=ExtResource("6_wldum")]
-visible = false
 
 [editable path="v_sekai_adult-female"]
 [editable path="SK_AliciaSolid_vrm-051"]

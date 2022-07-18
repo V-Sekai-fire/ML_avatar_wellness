@@ -71,18 +71,6 @@ func train():
 		for bone_array_a in bone_descriptors[bone_a]:
 			for bone_array_b in bone_descriptors[bone_b]:
 				var feature_vector = []
-				var sink_bone : String
-				for feature in bone_array_a:
-					if typeof(feature) == TYPE_STRING:
-						sink_bone = feature
-						break
-				var source_bone : String
-				for feature in bone_array_b:
-					if typeof(feature) == TYPE_STRING:
-						source_bone = feature
-						break
-				if source_bone == sink_bone:
-					continue
 				feature_vector.append_array(bone_array_a)
 				feature_vector.append_array(bone_array_b)
 				var line : PackedStringArray
