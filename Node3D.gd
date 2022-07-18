@@ -190,12 +190,13 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 				vrm_type_to_bone_id[key] = bone_i
 			else:
 				vrm_type_to_bone_id[key] = -1
-	for neighbour in neighbours:
-		for vrm_i in range(0, human_map.keys().size()):
+	for vrm_i in range(0, human_map.keys().size()):
+		for neighbour in neighbours:
 			var key = human_map.keys()[vrm_i]
-			if vrm_type_to_bone_id.has(key):
-				bone_hierarchy_id_string = bone_hierarchy_id_string + str(vrm_i) + " "
-				bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
+			if not vrm_type_to_bone_id.has(key):
+				continue
+			bone_hierarchy_id_string = bone_hierarchy_id_string + str(vrm_i) + " "
+			bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
 			break
 
 	# Start by finding the depth of every bone.
