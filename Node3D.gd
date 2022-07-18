@@ -232,6 +232,23 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 					bone_category = "VRM_BONE_CATEGORY_LEFT_LEG"
 				elif vrm_right_leg_category.has(key):
 					bone_category = "VRM_BONE_CATEGORY_RIGHT_LEG"
+		var hip : int = skeleton.find_bone(human_map["hips"])
+		var hip_pose : Transform3D  = skeleton.get_bone_global_pose(hip)
+		var head : int = skeleton.find_bone(human_map["head"])
+		var head_pose : Transform3D  = skeleton.get_bone_global_pose(head)
+		var distance_head_to_hips : float = hip_pose.origin.distance_to(head_pose.origin)
+		#
+		var right_lower_arm : int = skeleton.find_bone(human_map["rightLowerArm"])
+		var right_lower_arm_pose : Transform3D  = skeleton.get_bone_global_pose(right_lower_arm)
+		var right_upper_arm : int = skeleton.find_bone(human_map["rightUpperArm"])
+		var right_upper_arm_pose : Transform3D  = skeleton.get_bone_global_pose(right_upper_arm)
+		var distance_upper_arm_to_lower_arm : float = right_upper_arm_pose.origin.distance_to(right_lower_arm_pose.origin)
+		#
+		var right_lower_leg : int = skeleton.find_bone(human_map["rightLowerLeg"])
+		var right_lower_leg_pose : Transform3D  = skeleton.get_bone_global_pose(right_lower_leg)
+		var right_upper_leg : int = skeleton.find_bone(human_map["rightUpperLeg"])
+		var right_upper_leg_pose : Transform3D  = skeleton.get_bone_global_pose(right_upper_leg)
+		var distance_upper_leg_to_lower_leg : float = right_upper_leg_pose.origin.distance_to(right_lower_leg_pose.origin)
 		result[bone_name] = [
 			# Position
 			pose.origin.x, pose.origin.y, pose.origin.z, 
@@ -239,6 +256,10 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 			pose.basis.x.x, pose.basis.x.y, pose.basis.x.z,
 			pose.basis.y.x, pose.basis.y.y, pose.basis.y.z,
 			pose.basis.z.x, pose.basis.z.y, pose.basis.z.z,
+			# Distance to hips
+			distance_head_to_hips,
+			distance_upper_arm_to_lower_arm,
+			distance_upper_leg_to_lower_leg,
 			# Scale?
 			# Hierarchy info -- TODO: Normalize
 			float(bone_depth_info[bone_id]["depth"]) / float(bone_count),

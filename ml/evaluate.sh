@@ -1,4 +1,4 @@
-ludwig evaluate --dataset train.tsv --model_path results/experiment_run_52/model --skip_save_unprocessed_output  --output_directory output --skip_save_unprocessed_output > evaluation.txt
+ludwig evaluate --dataset test.tsv --model_path results/experiment_run_69/model --skip_save_unprocessed_output  --output_directory output --skip_save_unprocessed_output > evaluation.txt
 #  ludwig serve --model_path ./results/experiment_run_1/model
 # msys2
 # pacman -Su mingw-w64-x86_64-jq # /mingw64/bin/jq.exe
