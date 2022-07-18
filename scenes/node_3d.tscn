@@ -28,6 +28,7 @@
 script = ExtResource("1_k3in6")
 
 [node name="v_sekai_adult-female" parent="." instance=ExtResource("2_hxngh")]
+visible = false
 
 [node name="SK_AliciaSolid_vrm-051" parent="." instance=ExtResource("4_kbhgf")]
 visible = false

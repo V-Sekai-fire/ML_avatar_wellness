@@ -8,7 +8,7 @@ func _ready():
 	train()
 			
 func train():
-	var bone_descriptors = Dictionary()  # name -> list of list of featuress
+	var bone_descriptors = Dictionary()  # name -> list of list of features
 	# Ring finger -> [all the different bones we've seen that also ring fingers]
 	
 	var first : bool = true
@@ -52,26 +52,34 @@ func train():
 					feature_vector.append_array(bone_array_a)
 					feature_vector.append_array(bone_array_b)
 					var line : PackedStringArray
-					var is_empty : bool = bone_name_source[0].is_empty() and bone_name_sink[0].is_empty()
-					if bone_name_sink[0] == bone_name_source[0] and not is_empty:
+					var is_empty : bool = bone_name_source.is_empty() and bone_name_sink.is_empty()
+					if bone_name_sink == bone_name_source and not is_empty:
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
-					line.push_back(bone_name_sink[1])
-					line.push_back(bone_name_source[1])
+					for feature in feature_vector:
+						if typeof(feature) == TYPE_STRING:
+							line.push_back(feature)
+					var feature_string : String = ""
+					for feature in feature_vector:
+						if typeof(feature) != TYPE_STRING:
+							feature_string = feature_string + str(feature) + " "
+					line.push_back(feature_string)
 					if first:
 						# DEBUG: Save a CSV of this data
 						var header : PackedStringArray
 						header.push_back("label")
 						header.push_back("sink_bone")
+						header.push_back("sink_bone_category")
+						header.push_back("sink_bone_hierarchy_id")
+						header.push_back("sink_bone_hierarchy")
 						header.push_back("source_bone")
+						header.push_back("source_bone_category")
+						header.push_back("source_bone_hierarchy_id")
+						header.push_back("source_bone_hierarchy")
 						header.push_back("vector")
 						f.store_csv_line(header, "\t")
 						first = false
-					var feature_string : String = ""
-					for feature in feature_vector:
-						feature_string = feature_string + str(feature) + " "
-					line.push_back(feature_string)
 					f.store_csv_line(line, "\t")
 
 func compute_bone_depth_and_child_count(skeleton:Skeleton3D, bone_id:int, skeleton_info:Dictionary):
@@ -111,9 +119,28 @@ func compute_bone_depth_and_child_count(skeleton:Skeleton3D, bone_id:int, skelet
 	
 	return skeleton_info
 
+const vrm_head_category: Array = ["neck", "head", "leftEye","rightEye","jaw"]
+const vrm_left_arm_category : Array = ["leftShoulder","leftUpperArm",
+"leftLowerArm","leftHand",
+"leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+"leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+"leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+"leftRingProximal","leftRingIntermediate","leftRingDistal",
+"leftLittleProximal","leftLittleIntermediate","leftLittleDistal"]
+const vrm_right_arm_category : Array = ["rightShoulder","rightUpperArm","rightLowerArm","rightHand",
+	"rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+	"rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+	"rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+	"rightRingProximal","rightRingIntermediate","rightRingDistal",
+	"rightLittleProximal","rightLittleIntermediate","rightLittleDistal"]
+const vrm_torso_category : Array = ["hips",	"spine","chest", "upperChest"]
+const vrm_left_leg_category : Array = ["leftUpperLeg","leftLowerLeg","leftFoot","leftToes"]
+const vrm_right_leg_category : Array = ["rightUpperLeg","rightLowerLeg","rightFoot","rightToes"]
+
 func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 	# Return a mapping from BONE NAME to a feature array.
-	var result = {}
+	var result : Dictionary
+	var skeleton_result : Dictionary
 	
 	var bone_count = skeleton.get_bone_count()
 	
@@ -122,18 +149,49 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 	for bone_id in range(0, skeleton.get_bone_count()):
 		if skeleton.get_bone_parent(bone_id) == -1:  # If this is a root bone...
 			compute_bone_depth_and_child_count(skeleton, bone_id, bone_depth_info)
+	var neighbours = _generate_bone_chains(skeleton)
+	var bone_hierarchy_id_string : String = " "
+	var bone_hierarchy_string : String = " "
+	var vrm_type_to_bone_id : Dictionary
+	for bone_i in range(0, skeleton.get_bone_count()):
+		for vrm_i in range(0, human_map.keys().size()):
+			var key = human_map.keys()[vrm_i]
+			var bone_name = skeleton.get_bone_name(bone_i)
+			if human_map[key] == bone_name:
+				vrm_type_to_bone_id[key] = bone_i
+			else:
+				vrm_type_to_bone_id[key] = -1
+	for neighbour in neighbours:
+		for vrm_i in range(0, human_map.keys().size()):
+			var key = human_map.keys()[vrm_i]
+			if vrm_type_to_bone_id.has(key):
+				bone_hierarchy_id_string = bone_hierarchy_id_string + str(neighbour) + " "
+				bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
+			break
 
 	# Start by finding the depth of every bone.
 	for bone_id in skeleton.get_bone_count():
 		var pose:Transform3D = skeleton.get_bone_global_pose(bone_id)  # get_global_pose?
 		pose = skeleton.global_pose_to_world_transform(pose)
 		var bone_name : String = ""
+		var bone_category : String = ""
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
 			if human_map[key] == skeleton.get_bone_name(bone_id):
 				bone_name = key
-				break
-		result[[bone_name, skeleton.get_bone_name(bone_id)]] = [
+				if vrm_head_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_HEAD"
+				elif vrm_left_arm_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_LEFT_ARM"
+				elif vrm_right_arm_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_RIGHT_ARM"
+				elif vrm_torso_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_TORSO"
+				elif vrm_left_leg_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_LEFT_LEG"
+				elif vrm_right_leg_category.has(key):
+					bone_category = "VRM_BONE_CATEGORY_RIGHT_LEG"
+		result[bone_name] = [
 			# Position
 			pose.origin.x, pose.origin.y, pose.origin.z, 
 			# Rotation
@@ -147,6 +205,22 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			float(bone_depth_info[bone_id]["siblings"]) / float(bone_count),
 			int(bone_name.findn("left") != -1),
 			int(bone_name.findn("right") != -1),
-			# Wish I could do stuff with names.  :'(
+			skeleton.get_bone_name(bone_id),
+			bone_category,
+			bone_hierarchy_id_string,
+			bone_hierarchy_string,
 		]
 	return result
+
+static func _generate_bone_chains(skeleton : Skeleton3D) -> Array:
+	var neighbor_list : Array
+	var queue : Array
+	for parentless_bone in skeleton.get_parentless_bones():
+		queue.push_back(parentless_bone)
+	while not queue.is_empty():
+		var front = queue.front()
+		neighbor_list.push_back(front)
+		for new_bone_id in skeleton.get_bone_children(front):	
+			queue.push_back(new_bone_id)
+		queue.pop_front()
+	return neighbor_list
