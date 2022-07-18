@@ -687,3 +687,4 @@ preprocessing:
   stratify: label
 training:
   batch_size: 256
+  threshold: 0.02
