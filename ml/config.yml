@@ -7,21 +7,9 @@ input_features:
     trainable: true
     preprocessing:
       tokenizer: gpt2bpe
-  - name: sink_bone_hierarchy
-    type: text
-    level: char
-    trainable: true
-    preprocessing:
-      tokenizer: gpt2bpe
   - name: sink_bone_hierarchy_id
     type: sequence
   - name: source_bone
-    type: text
-    level: char
-    trainable: true
-    preprocessing:
-      tokenizer: gpt2bpe
-  - name: source_bone_hierarchy
     type: text
     level: char
     trainable: true

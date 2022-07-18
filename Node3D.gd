@@ -6,7 +6,28 @@ extends Node
 
 func _ready():
 	train()
-			
+
+
+# Build all possible pairs of bones.
+# [[bone_properties_a, bone_properties_b, 1/0], ...]
+# https://github.com/hubbyist
+# Reference https://github.com/godotengine/godot/issues/9264#issuecomment-311601979
+func array_combinations(arrays):
+	var combinations = []
+	var first = arrays.front()
+	arrays.pop_front()
+	for item in first:
+		combinations.push_back([item])
+	for array in arrays:
+		var sequences = [];
+		for item in array:
+			for combination in combinations:
+				var sequence = combination + [item]
+				sequences.push_back(sequence)
+		combinations = sequences;
+	return combinations
+
+
 func train():
 	var bone_descriptors = Dictionary()  # name -> list of list of features
 	# Ring finger -> [all the different bones we've seen that also ring fingers]
@@ -42,45 +63,42 @@ func train():
 				queue.push_back(node.get_child(i))
 			queue.pop_front()
 
-	# Build all possible pairs of bones.
-	# [[bone_properties_a, bone_properties_b, 1/0], ...]
-	for bone_name_source in bone_descriptors.keys():
-		for bone_array_a in bone_descriptors[bone_name_source]:
-			for bone_name_sink in bone_descriptors.keys():
-				for bone_array_b in bone_descriptors[bone_name_sink]:
-					var feature_vector = []
-					feature_vector.append_array(bone_array_a)
-					feature_vector.append_array(bone_array_b)
-					var line : PackedStringArray
-					var is_empty : bool = bone_name_source.is_empty() and bone_name_sink.is_empty()
-					if bone_name_sink == bone_name_source and not is_empty:
-						line.push_back(str(true))
-					else:
-						line.push_back(str(false))
-					for feature in feature_vector:
-						if typeof(feature) == TYPE_STRING:
-							line.push_back(feature)
-					var feature_string : String = ""
-					for feature in feature_vector:
-						if typeof(feature) != TYPE_STRING:
-							feature_string = feature_string + str(feature) + " "
-					line.push_back(feature_string)
-					if first:
-						# DEBUG: Save a CSV of this data
-						var header : PackedStringArray
-						header.push_back("label")
-						header.push_back("sink_bone")
-						header.push_back("sink_bone_category")
-						header.push_back("sink_bone_hierarchy_id")
-						header.push_back("sink_bone_hierarchy")
-						header.push_back("source_bone")
-						header.push_back("source_bone_category")
-						header.push_back("source_bone_hierarchy_id")
-						header.push_back("source_bone_hierarchy")
-						header.push_back("vector")
-						f.store_csv_line(header, "\t")
-						first = false
-					f.store_csv_line(line, "\t")
+	for combination in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
+		var bone_a : String = combination[0]
+		var bone_b : String = combination[1]
+		for bone_array_a in bone_descriptors[bone_a]:
+			for bone_array_b in bone_descriptors[bone_b]:
+				var feature_vector = []
+				feature_vector.append_array(bone_array_a)
+				feature_vector.append_array(bone_array_b)
+				var line : PackedStringArray
+				var is_empty : bool = bone_a.is_empty() and bone_b.is_empty()
+				if bone_b == bone_a and not is_empty:
+					line.push_back(str(true))
+				else:
+					line.push_back(str(false))
+				for feature in feature_vector:
+					if typeof(feature) == TYPE_STRING:
+						line.push_back(feature)
+				var feature_string : String = ""
+				for feature in feature_vector:
+					if typeof(feature) != TYPE_STRING:
+						feature_string = feature_string + str(feature) + " "
+				line.push_back(feature_string)
+				if first:
+					# DEBUG: Save a CSV of this data
+					var header : PackedStringArray
+					header.push_back("label")
+					header.push_back("sink_bone")
+					header.push_back("sink_bone_category")
+					header.push_back("sink_bone_hierarchy_id")
+					header.push_back("source_bone")
+					header.push_back("source_bone_category")
+					header.push_back("source_bone_hierarchy_id")
+					header.push_back("vector")
+					f.store_csv_line(header, "\t")
+					first = false
+				f.store_csv_line(line, "\t")
 
 func compute_bone_depth_and_child_count(skeleton:Skeleton3D, bone_id:int, skeleton_info:Dictionary):
 	# Mutates the given skeleton_info_dictionary
@@ -208,7 +226,6 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			skeleton.get_bone_name(bone_id),
 			bone_category,
 			bone_hierarchy_id_string,
-			bone_hierarchy_string,
 		]
 	return result
 
