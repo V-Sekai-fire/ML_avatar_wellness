@@ -64,7 +64,7 @@ func train():
 			for i in child_count:
 				queue.push_back(node.get_child(i))
 			queue.pop_front()
-
+	
 	for combination in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
 		var bone_a : String = combination[0]
 		var bone_b : String = combination[1]
@@ -79,6 +79,8 @@ func train():
 					line.push_back(str(true))
 				else:
 					line.push_back(str(false))
+				for bone in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
+					line.push_back(str(int(bone[0] == bone_a)))
 				for feature in feature_vector:
 					if typeof(feature) == TYPE_STRING:
 						line.push_back(feature)
@@ -91,6 +93,11 @@ func train():
 					# DEBUG: Save a CSV of this data
 					var header : PackedStringArray
 					header.push_back("label")
+					for bone in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
+						if bone[0].is_empty():
+							header.push_back("VRM_BONE_NONE")
+						else:
+							header.push_back(bone[0])
 					header.push_back("sink_bone")
 					header.push_back("sink_bone_category")
 					header.push_back("sink_bone_hierarchy_id")
