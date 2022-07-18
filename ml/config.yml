@@ -1,4 +1,16 @@
 input_features:
+  - name: sink_bone
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
+  - name: source_bone
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
   - name: humanoid_0
     type: number
   - name: humanoid_1
