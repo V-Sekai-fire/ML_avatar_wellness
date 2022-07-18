@@ -1,10 +1,26 @@
 extends Node
 
+
+var vrm_enum : Array = ["hips","leftUpperLeg","rightUpperLeg","leftLowerLeg","rightLowerLeg","leftFoot","rightFoot",
+ "spine","chest","neck","head","leftShoulder","rightShoulder","leftUpperArm","rightUpperArm",
+ "leftLowerArm","rightLowerArm","leftHand","rightHand","leftToes","rightToes","leftEye","rightEye","jaw",
+ "leftThumbProximal","leftThumbIntermediate","leftThumbDistal",
+ "leftIndexProximal","leftIndexIntermediate","leftIndexDistal",
+ "leftMiddleProximal","leftMiddleIntermediate","leftMiddleDistal",
+ "leftRingProximal","leftRingIntermediate","leftRingDistal",
+ "leftLittleProximal","leftLittleIntermediate","leftLittleDistal",
+ "rightThumbProximal","rightThumbIntermediate","rightThumbDistal",
+ "rightIndexProximal","rightIndexIntermediate","rightIndexDistal",
+ "rightMiddleProximal","rightMiddleIntermediate","rightMiddleDistal",
+ "rightRingProximal","rightRingIntermediate","rightRingDistal",
+ "rightLittleProximal","rightLittleIntermediate","rightLittleDistal", "upperChest"]
+
 # https://github.com/JosephCatrambone/GodotSkeletonRemapper/blob/main/LICENSE
 # MIT License
 # Copyright (c) 2022 Joseph Catrambone
 
 func _ready():
+	vrm_enum.sort()
 	train()
 
 
@@ -79,8 +95,8 @@ func train():
 					line.push_back(str(true))
 				else:
 					line.push_back(str(false))
-				for bone in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
-					line.push_back(str(int(bone[0] == bone_a)))
+				for bone in vrm_enum:
+					line.push_back(str(int(bone == bone_a)))
 				for feature in feature_vector:
 					if typeof(feature) == TYPE_STRING:
 						line.push_back(feature)
@@ -93,11 +109,8 @@ func train():
 					# DEBUG: Save a CSV of this data
 					var header : PackedStringArray
 					header.push_back("label")
-					for bone in array_combinations([bone_descriptors.keys(), bone_descriptors.keys()]):
-						if bone[0].is_empty():
-							header.push_back("VRM_BONE_NONE")
-						else:
-							header.push_back(bone[0])
+					for bone in vrm_enum:
+						header.push_back(bone)
 					header.push_back("sink_bone")
 					header.push_back("sink_bone_category")
 					header.push_back("sink_bone_hierarchy_id")
