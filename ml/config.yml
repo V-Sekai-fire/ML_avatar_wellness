@@ -8,21 +8,6 @@ input_features:
 output_features:
   - name: label
     type: binary
-    dependencies:
-      - sink_bone_category
-      - source_bone_category
-    trainable: true
-    num_fc_layers: 1
-    output_size: 64
-    loss:
-      weight: 54
-    preprocessing:
-      missing_value_strategy: fill_with_const
-      fill_value: 0
-  - name: sink_bone_category
-    type: category
-  - name: source_bone_category
-    type: category
 preprocessing:
   stratify: label
 training:
