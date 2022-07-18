@@ -194,7 +194,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
 			if vrm_type_to_bone_id.has(key):
-				bone_hierarchy_id_string = bone_hierarchy_id_string + str(neighbour) + " "
+				bone_hierarchy_id_string = bone_hierarchy_id_string + str(vrm_i) + " "
 				bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
 			break
 
