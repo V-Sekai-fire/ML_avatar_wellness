@@ -1,10 +1,10 @@
 input_features:
   - name: vector
     type: vector
-  - name: sink_bone_hierarchy_id
-    type: sequence
-  - name: source_bone_hierarchy_id
-    type: sequence
+  - name: sink_bone_hierarchy
+    type: category
+  - name: source_bone_hierarchy
+    type: category
 output_features:
   - name: label
     type: binary

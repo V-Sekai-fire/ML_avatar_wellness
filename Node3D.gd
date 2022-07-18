@@ -178,9 +178,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 	for bone_id in range(0, skeleton.get_bone_count()):
 		if skeleton.get_bone_parent(bone_id) == -1:  # If this is a root bone...
 			compute_bone_depth_and_child_count(skeleton, bone_id, bone_depth_info)
-	var neighbours = _generate_bone_chains(skeleton)
 	var bone_hierarchy_id_string : String = " "
-	var bone_hierarchy_string : String = " "
 	var vrm_type_to_bone_id : Dictionary
 	for bone_i in range(0, skeleton.get_bone_count()):
 		for vrm_i in range(0, human_map.keys().size()):
@@ -190,18 +188,27 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 				vrm_type_to_bone_id[key] = bone_i
 			else:
 				vrm_type_to_bone_id[key] = -1
-	var vrm_keys : Array = human_map.keys()
-	vrm_keys.sort()
-#	var vrm_keys : Array = ["chest", "head", "hips", "leftEye", "leftFoot", "leftHand", "leftIndexDistal", "leftIndexIntermediate", "leftIndexProximal", "leftLittleDistal", "leftLittleIntermediate", "leftLittleProximal", "leftLowerArm", "leftLowerLeg", "leftMiddleDistal", "leftMiddleIntermediate", "leftMiddleProximal", "leftRingDistal", "leftRingIntermediate", "leftRingProximal", "leftShoulder", "leftThumbDistal", "leftThumbIntermediate", "leftThumbProximal", "leftToes", "leftUpperArm", "leftUpperLeg", "neck", "rightEye", "rightFoot", "rightHand", "rightIndexDistal", "rightIndexIntermediate", "rightIndexProximal", "rightLittleDistal", "rightLittleIntermediate", "rightLittleProximal", "rightLowerArm", "rightLowerLeg", "rightMiddleDistal", "rightMiddleIntermediate", "rightMiddleProximal", "rightRingDistal", "rightRingIntermediate", "rightRingProximal", "rightShoulder", "rightThumbDistal", "rightThumbIntermediate", "rightThumbProximal", "rightToes", "rightUpperArm", "rightUpperLeg", "spine"]s
-	for neighbour in neighbours:
-		for vrm_name in vrm_keys:
-			if human_map[vrm_name] != skeleton.get_bone_name(neighbour):
-				continue
-			bone_hierarchy_id_string = bone_hierarchy_id_string + str(human_map.keys().find(vrm_name)) + " "
-			bone_hierarchy_string = bone_hierarchy_string + skeleton.get_bone_name(neighbour) + " "
-			vrm_keys.erase(vrm_name)
-			break
 
+	var parentless_bones = skeleton.get_parentless_bones()
+	var queue : Array
+	var bone_list : Array
+	var bone_list_id : Array
+	var bone_list_vrm : Array
+	var bone_list_vrm_id : Array
+	for bone_i in parentless_bones:
+		queue.push_back(bone_i)
+	while not queue.is_empty():
+		var head = queue[0]
+		for vrm in human_map.keys():
+			var vrm_bone_name = skeleton.get_bone_name(head)
+			if human_map[vrm] == vrm_bone_name:
+				bone_list.push_back(vrm_bone_name)
+				bone_list_id.push_back(head)
+				bone_list_vrm.push_back(vrm)
+				bone_list_vrm_id.push_back(human_map.keys().find(vrm))
+		queue.append_array(skeleton.get_bone_children(head))
+		queue.pop_front()
+	var neighbours = find_neighbor_joint(bone_list_id)
 	# Start by finding the depth of every bone.
 	for bone_id in skeleton.get_bone_count():
 		var pose:Transform3D = skeleton.get_bone_global_pose(bone_id)  # get_global_pose?
@@ -209,8 +216,14 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 		var bone_name : String = ""
 		var bone_category : String = ""
 		var title : String
-		for vrm_i in range(0, human_map.keys().size()):
-			var key = human_map.keys()[vrm_i]
+		var bone_hierarchy_string_id : String = " "
+		for neighbour in neighbours[bone_list_id.find(bone_id)]:
+			for vrm in human_map.keys():
+				if not (human_map.has(vrm) and human_map[vrm] == skeleton.get_bone_name(neighbour)):
+					continue
+				bone_hierarchy_string_id = bone_hierarchy_string_id + vrm + " "
+				break
+		for key in bone_list_vrm:
 			if human_map[key] == skeleton.get_bone_name(bone_id):
 				bone_name = key
 				if vrm_head_category.has(key):
@@ -262,7 +275,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 			int(bone_name.findn("right") != -1),
 			skeleton.get_bone_name(bone_id),
 			bone_category,
-			bone_hierarchy_id_string,
+			bone_hierarchy_string_id,
 			vrm_meta["title"],
 			vrm_meta["version"],
 			vrm_meta["exporter_version"],
@@ -270,15 +283,57 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map : Dictionary, vrm
 		]
 	return result
 
-static func _generate_bone_chains(skeleton : Skeleton3D) -> Array:
-	var neighbor_list : Array
-	var queue : Array
-	for parentless_bone in skeleton.get_parentless_bones():
-		queue.push_back(parentless_bone)
-	while not queue.is_empty():
-		var front = queue.front()
-		neighbor_list.push_back(front)
-		for new_bone_id in skeleton.get_bone_children(front):	
-			queue.push_back(new_bone_id)
-		queue.pop_front()
+#https://github.com/PeizhuoLi/ganimator/blob/a4e5e097f8aeb4f03361699ec9575d42ef2d8c0e/models/skeleton.py#L322
+#Copyright (c) 2020, Kfir Aberman, Peizhuo Li, Yijia Weng, Dani Lischinski, Olga Sorkine-Hornung,
+#Daniel Cohen-Or and Baoquan Chen.
+#All rights reserved.
+#
+#Redistribution and use in source and binary forms, with or without
+#modification, are permitted provided that the following conditions are met:
+#
+#* Redistributions of source code must retain the above copyright notice, this
+#  list of conditions and the following disclaimer.
+#
+#* Redistributions in binary form must reproduce the above copyright notice,
+#  this list of conditions and the following disclaimer in the documentation
+#  and/or other materials provided with the distribution.
+#
+#THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+#AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+#IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+#FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+#DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+#SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+#CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+#OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+#OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+func find_neighbor_joint(parents : Array, threshold : int = 2) -> Array:
+	var n_joint = len(parents)
+	var dist_mat : Dictionary
+	for i_joint in range(0, n_joint):
+		for j_joint in range(0, n_joint):
+			dist_mat[[i_joint, j_joint]] = 100000
+
+	for i in parents.size():
+		var p = parents[i]
+		dist_mat[[i, i]] = 0
+		if i != 0:
+			dist_mat[[p, i]] = 1
+			dist_mat[[i, p]] = dist_mat[[p, i]]
+
+	# Floyd's algorithm
+	for k in range(n_joint):
+		for i in range(n_joint):
+			for j in range(n_joint):
+				dist_mat[[i, j]] = min(dist_mat[[i, j]], dist_mat[[i, k]] + dist_mat[[k, j]])
+
+	var neighbor_list = []
+	for i in range(n_joint):
+		var neighbor = []
+		for j in range(n_joint):
+			if dist_mat[[i, j]] <= threshold:
+				neighbor.append(j)
+		neighbor_list.append(neighbor)
+
 	return neighbor_list
