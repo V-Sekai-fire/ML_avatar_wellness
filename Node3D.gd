@@ -52,21 +52,20 @@ func train():
 					feature_vector.append_array(bone_array_a)
 					feature_vector.append_array(bone_array_b)
 					var line : PackedStringArray
-					var is_empty : bool = bone_name_source.is_empty() and bone_name_sink.is_empty()
-					if bone_name_sink == bone_name_source and not is_empty:
+					var is_empty : bool = bone_name_source[0].is_empty() and bone_name_sink[0].is_empty()
+					if bone_name_sink[0] == bone_name_source[0] and not is_empty:
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
-					line.push_back(bone_name_sink)
-					line.push_back(bone_name_source)
+					line.push_back(bone_name_sink[1])
+					line.push_back(bone_name_source[1])
 					if first:
-						# DEBUG: Save a CSV of this data:s
+						# DEBUG: Save a CSV of this data
 						var header : PackedStringArray
 						header.push_back("label")
 						header.push_back("sink_bone")
 						header.push_back("source_bone")
-						for feature_i in feature_vector.size():
-							header.push_back("humanoid_" + str(feature_i))
+						header.push_back("vector")
 						f.store_csv_line(header, "\t")
 						first = false
 					var feature_string : String = ""
@@ -134,7 +133,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 			if human_map[key] == skeleton.get_bone_name(bone_id):
 				bone_name = key
 				break
-		result[bone_name] = [
+		result[[bone_name, skeleton.get_bone_name(bone_id)]] = [
 			# Position
 			pose.origin.x, pose.origin.y, pose.origin.z, 
 			# Rotation

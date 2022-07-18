@@ -1,8 +1,16 @@
 input_features:
   - name: sink_bone
-    type: category
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
   - name: source_bone
-    type: category
+    type: text
+    level: char
+    trainable: true
+    preprocessing:
+      tokenizer: gpt2bpe
   - name: vector
     type: vector
 output_features:
