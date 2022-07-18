@@ -52,13 +52,13 @@ func train():
 					feature_vector.append_array(bone_array_a)
 					feature_vector.append_array(bone_array_b)
 					var line : PackedStringArray
-					if bone_name_sink == bone_name_source and bone_name_source != "VRM_BONE_NONE":
+					var is_empty : bool = bone_name_source.is_empty() and bone_name_sink.is_empty()
+					if bone_name_sink == bone_name_source and not is_empty:
 						line.push_back(str(true))
 					else:
 						line.push_back(str(false))
 					line.push_back(bone_name_sink)
 					line.push_back(bone_name_source)
-					var feature_string : String = ""
 					if first:
 						# DEBUG: Save a CSV of this data:s
 						var header : PackedStringArray
@@ -69,8 +69,10 @@ func train():
 							header.push_back("humanoid_" + str(feature_i))
 						f.store_csv_line(header, "\t")
 						first = false
+					var feature_string : String = ""
 					for feature in feature_vector:
-						line.push_back(str(feature))
+						feature_string = feature_string + str(feature) + " "
+					line.push_back(feature_string)
 					f.store_csv_line(line, "\t")
 
 func compute_bone_depth_and_child_count(skeleton:Skeleton3D, bone_id:int, skeleton_info:Dictionary):
@@ -126,7 +128,7 @@ func make_features_for_skeleton(skeleton:Skeleton3D, human_map) -> Dictionary:
 	for bone_id in skeleton.get_bone_count():
 		var pose:Transform3D = skeleton.get_bone_global_pose(bone_id)  # get_global_pose?
 		pose = skeleton.global_pose_to_world_transform(pose)
-		var bone_name : String = "VRM_BONE_NONE"
+		var bone_name : String = ""
 		for vrm_i in range(0, human_map.keys().size()):
 			var key = human_map.keys()[vrm_i]
 			if human_map[key] == skeleton.get_bone_name(bone_id):
