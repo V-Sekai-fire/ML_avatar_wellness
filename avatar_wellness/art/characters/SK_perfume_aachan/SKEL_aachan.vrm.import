@@ -15,32 +15,8 @@ dest_files=["res://.godot/imported/SKEL_aachan.vrm-0b0232ffbd467f7783e1527f95f8f
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
-nodes/scene_scale=1.0
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
-nodes/generate_physics=false
-nodes/generate_navmesh=0
-physics/body_type=0
-physics/shape_type=0
-decomposition/advanced=false
-decomposition/precision=5
-decomposition/max_concavity=1.0
-decomposition/symmetry_planes_clipping_bias=0.05
-decomposition/revolution_axes_clipping_bias=0.05
-decomposition/min_volume_per_convex_hull=0.0001
-decomposition/resolution=10000
-decomposition/max_num_vertices_per_convex_hull=32
-decomposition/plane_downsampling=4
-decomposition/convexhull_downsampling=4
-decomposition/normalize_mesh=false
-decomposition/mode=0
-decomposition/convexhull_approximation=true
-decomposition/max_convex_hulls=1
-decomposition/project_hull_vertices=true
-primitive/size=Vector3(2, 2, 2)
-primitive/height=1.0
-primitive/radius=1.0
-primitive/position=Vector3(0, 0, 0)
-primitive/rotation=Vector3(0, 0, 0)
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -50,4 +26,12 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"","bone_map/Hips":&"Hips","bone_map/Spine":&"Chest","bone_map/Chest":&"Chest3","bone_map/UpperChest":&"Chest4","bone_map/Neck":&"Neck","bone_map/Head":&"Head","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"LeftCollar","bone_map/LeftUpperArm":&"LeftShoulder","bone_map/LeftLowerArm":&"LeftElbow","bone_map/LeftHand":&"LeftWrist","bone_map/LeftThumbMetacarpal":&"","bone_map/LeftThumbProximal":&"","bone_map/LeftThumbDistal":&"","bone_map/LeftIndexProximal":&"","bone_map/LeftIndexIntermediate":&"","bone_map/LeftIndexDistal":&"","bone_map/LeftMiddleProximal":&"","bone_map/LeftMiddleIntermediate":&"","bone_map/LeftMiddleDistal":&"","bone_map/LeftRingProximal":&"","bone_map/LeftRingIntermediate":&"","bone_map/LeftRingDistal":&"","bone_map/LeftLittleProximal":&"","bone_map/LeftLittleIntermediate":&"","bone_map/LeftLittleDistal":&"","bone_map/RightShoulder":&"RightCollar","bone_map/RightUpperArm":&"RightShoulder","bone_map/RightLowerArm":&"RightElbow","bone_map/RightHand":&"RightWrist","bone_map/RightThumbMetacarpal":&"","bone_map/RightThumbProximal":&"","bone_map/RightThumbDistal":&"","bone_map/RightIndexProximal":&"","bone_map/RightIndexIntermediate":&"","bone_map/RightIndexDistal":&"","bone_map/RightMiddleProximal":&"","bone_map/RightMiddleIntermediate":&"","bone_map/RightMiddleDistal":&"","bone_map/RightRingProximal":&"","bone_map/RightRingIntermediate":&"","bone_map/RightRingDistal":&"","bone_map/RightLittleProximal":&"","bone_map/RightLittleIntermediate":&"","bone_map/RightLittleDistal":&"","bone_map/LeftUpperLeg":&"LeftHip","bone_map/LeftLowerLeg":&"LeftKnee","bone_map/LeftFoot":&"LeftAnkle","bone_map/LeftToes":&"LeftToe","bone_map/RightUpperLeg":&"RightHip","bone_map/RightLowerLeg":&"RightKnee","bone_map/RightFoot":&"RightAnkle","bone_map/RightToes":&"RightToe","script":null)
+
+}
+}
+}

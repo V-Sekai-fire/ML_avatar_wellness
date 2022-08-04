@@ -15,32 +15,8 @@ dest_files=["res://.godot/imported/SK_unamed_girl.vrm-dad798962e8737aae79f81fd44
 
 nodes/root_type="Node3D"
 nodes/root_name="Scene Root"
-nodes/scene_scale=1.0
+nodes/apply_root_scale=true
 nodes/root_scale=1.0
-nodes/generate_physics=false
-nodes/generate_navmesh=0
-physics/body_type=0
-physics/shape_type=0
-decomposition/advanced=false
-decomposition/precision=5
-decomposition/max_concavity=1.0
-decomposition/symmetry_planes_clipping_bias=0.05
-decomposition/revolution_axes_clipping_bias=0.05
-decomposition/min_volume_per_convex_hull=0.0001
-decomposition/resolution=10000
-decomposition/max_num_vertices_per_convex_hull=32
-decomposition/plane_downsampling=4
-decomposition/convexhull_downsampling=4
-decomposition/normalize_mesh=false
-decomposition/mode=0
-decomposition/convexhull_approximation=true
-decomposition/max_convex_hulls=1
-decomposition/project_hull_vertices=true
-primitive/size=Vector3(2, 2, 2)
-primitive/height=1.0
-primitive/radius=1.0
-primitive/position=Vector3(0, 0, 0)
-primitive/rotation=Vector3(0, 0, 0)
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -50,4 +26,12 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:root/Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"","bone_map/Hips":&"root.x","bone_map/Spine":&"spine_01.x","bone_map/Chest":&"spine_02.x","bone_map/UpperChest":&"spine_03.x","bone_map/Neck":&"neck.x","bone_map/Head":&"head.x","bone_map/LeftEye":&"eye.l","bone_map/RightEye":&"eye.r","bone_map/Jaw":&"","bone_map/LeftShoulder":&"shoulder.l","bone_map/LeftUpperArm":&"arm_stretch.l","bone_map/LeftLowerArm":&"forearm_stretch.l","bone_map/LeftHand":&"hand.l","bone_map/LeftThumbMetacarpal":&"c_thumb1.l","bone_map/LeftThumbProximal":&"c_thumb2.l","bone_map/LeftThumbDistal":&"c_thumb3.l","bone_map/LeftIndexProximal":&"c_index1.l","bone_map/LeftIndexIntermediate":&"c_index2.l","bone_map/LeftIndexDistal":&"c_index3.l","bone_map/LeftMiddleProximal":&"c_middle1.l","bone_map/LeftMiddleIntermediate":&"c_middle2.l","bone_map/LeftMiddleDistal":&"c_middle3.l","bone_map/LeftRingProximal":&"c_ring1.l","bone_map/LeftRingIntermediate":&"c_ring2.l","bone_map/LeftRingDistal":&"c_ring3.l","bone_map/LeftLittleProximal":&"c_pinky1.l","bone_map/LeftLittleIntermediate":&"c_pinky2.l","bone_map/LeftLittleDistal":&"c_pinky3.l","bone_map/RightShoulder":&"shoulder.r","bone_map/RightUpperArm":&"arm_stretch.r","bone_map/RightLowerArm":&"forearm_stretch.r","bone_map/RightHand":&"hand.r","bone_map/RightThumbMetacarpal":&"c_thumb1.r","bone_map/RightThumbProximal":&"c_thumb2.r","bone_map/RightThumbDistal":&"c_thumb3.r","bone_map/RightIndexProximal":&"c_index1.r","bone_map/RightIndexIntermediate":&"c_index2.r","bone_map/RightIndexDistal":&"c_index3.r","bone_map/RightMiddleProximal":&"c_middle1.r","bone_map/RightMiddleIntermediate":&"c_middle2.r","bone_map/RightMiddleDistal":&"c_middle3.r","bone_map/RightRingProximal":&"c_ring1.r","bone_map/RightRingIntermediate":&"c_ring2.r","bone_map/RightRingDistal":&"c_ring3.r","bone_map/RightLittleProximal":&"c_pinky1.r","bone_map/RightLittleIntermediate":&"c_pinky2.r","bone_map/RightLittleDistal":&"c_pinky3.r","bone_map/LeftUpperLeg":&"thigh_stretch.l","bone_map/LeftLowerLeg":&"leg_stretch.l","bone_map/LeftFoot":&"foot.l","bone_map/LeftToes":&"toes_01.l","bone_map/RightUpperLeg":&"thigh_stretch.r","bone_map/RightLowerLeg":&"leg_stretch.r","bone_map/RightFoot":&"foot.r","bone_map/RightToes":&"toes_01.r","script":null)
+
+}
+}
+}
