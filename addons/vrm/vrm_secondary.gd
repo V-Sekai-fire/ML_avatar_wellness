@@ -34,7 +34,7 @@ func _ready() -> void:
 		var new_spring_bone = spring_bone.duplicate(true)
 		var tmp_colliders: Array = []
 		for i in range(collider_groups.size()):
-			if new_spring_bone.collider_groups.has(collider_groups[i]):
+			if i < collider_groups.size() && i < collider_groups_internal.size() && new_spring_bone.collider_groups.has(collider_groups[i]):
 				tmp_colliders.append_array(collider_groups_internal[i].colliders)
 		var skel: Skeleton3D = get_node_or_null(new_spring_bone.skeleton)
 		if skel != null:
