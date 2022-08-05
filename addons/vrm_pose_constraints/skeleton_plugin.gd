@@ -52,24 +52,23 @@ func _generate_ewbik(vrm_top_level : Node3D, skeleton : Skeleton3D, ewbik : EWBI
 	ewbik.max_ik_iterations = 30
 	ewbik.default_damp = deg2rad(1)
 	ewbik.budget_millisecond = 2
-	ewbik.live_preview = false
+	ewbik.live_preview = true
 	var minimum_twist = deg2rad(-0.5)
 	var minimum_twist_diff = deg2rad(0.5)
 	var maximum_twist = deg2rad(360)
 	ewbik.pin_count = profile.bone_size
 	for pin_i in profile.bone_size:
 		var bone_name = profile.get_bone_name(pin_i)
+		var node_3d : Node3D = Node3D.new()
+		node_3d.name = bone_name
 		ewbik.set_pin_bone_name(pin_i, bone_name)
+		skeleton.get_parent().add_child(node_3d, true)
 		var bone_id = skeleton.find_bone(bone_name)
 		if bone_id == -1:
 			continue
 		var bone_global_pose = skeleton.get_bone_global_pose(bone_id)
 		bone_global_pose = skeleton.global_pose_to_world_transform(bone_global_pose)
-		var node_3d : Node3D = Node3D.new()
-		node_3d.name = bone_name
-		node_3d.transform = skeleton.get_bone_global_pose(bone_id)
 		node_3d.global_transform = bone_global_pose
-		skeleton.get_parent().add_child(node_3d, true)
 		ewbik.set_pin_use_node_rotation(pin_i, true)
 		ewbik.set_pin_nodepath(pin_i, NodePath(str("../") + str(node_3d.get_name()) + "Target"))
 	ewbik.constraint_count = skeleton.get_bone_count()
