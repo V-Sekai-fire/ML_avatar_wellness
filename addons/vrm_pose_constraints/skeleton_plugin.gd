@@ -4,7 +4,7 @@ extends EditorScript
 func _lock_rotation(ewbik, constraint_i):
 	ewbik.set_kusudama_limit_cone_count(constraint_i, 1)
 	ewbik.set_kusudama_limit_cone_center(constraint_i, 0, Vector3(0, 1, 0))
-	ewbik.set_kusudama_limit_cone_radius(constraint_i, 0, 0)
+	ewbik.set_kusudama_limit_cone_radius(constraint_i, 0, deg_to_rad(90))
 
 func _full_rotation(ewbik, constraint_i):
 	ewbik.set_kusudama_limit_cone_count(constraint_i, 1)
@@ -50,12 +50,12 @@ func _generate_ewbik(vrm_top_level : Node3D, skeleton : Skeleton3D, ewbik : EWBI
 	var vrm_meta = vrm_top_level.get("vrm_meta")
 	var bone_vrm_mapping : Dictionary
 	ewbik.max_ik_iterations = 30
-	ewbik.default_damp = deg2rad(1)
+	ewbik.default_damp = deg_to_rad(1)
 	ewbik.budget_millisecond = 2
 	ewbik.live_preview = true
-	var minimum_twist = deg2rad(-0.5)
-	var minimum_twist_diff = deg2rad(0.5)
-	var maximum_twist = deg2rad(360)
+	var minimum_twist = deg_to_rad(-0.5)
+	var minimum_twist_diff = deg_to_rad(0.5)
+	var maximum_twist = deg_to_rad(360)
 	ewbik.pin_count = profile.bone_size
 	for pin_i in profile.bone_size:
 		var bone_name = profile.get_bone_name(pin_i)
@@ -70,52 +70,56 @@ func _generate_ewbik(vrm_top_level : Node3D, skeleton : Skeleton3D, ewbik : EWBI
 		bone_global_pose = skeleton.global_pose_to_world_transform(bone_global_pose)
 		node_3d.global_transform = bone_global_pose
 		ewbik.set_pin_use_node_rotation(pin_i, true)
-		ewbik.set_pin_nodepath(pin_i, NodePath(str("../") + str(node_3d.get_name()) + "Target"))
+		var path_string : String = "../" + str(bone_name)
+		print(path_string)
+		ewbik.set_pin_nodepath(pin_i, NodePath(path_string))
 	ewbik.constraint_count = skeleton.get_bone_count()
+	for constraint_i in profile.bone_size:
+		var bone_name = profile.get_bone_name(constraint_i)
+		ewbik.set_constraint_name(constraint_i, bone_name)
+		_lock_rotation(ewbik, constraint_i)
 	for count_i in skeleton.get_bone_count():
 		var bone_name = skeleton.get_bone_name(count_i)
 		if profile.find_bone(bone_name) == -1:
 			continue
-		ewbik.set_constraint_name(count_i, bone_name)
-		ewbik.set_kusudama_limit_cone_count(count_i, 0)
 		skeleton.notify_property_list_changed()
 		# Female age 9 - 19 https://pubmed.ncbi.nlm.nih.gov/32644411/
 		if bone_name in ["Hips"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-0.5))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(0.5))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-0.5))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(0.5))
 		elif bone_name in ["Spine"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-60))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(60))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-60))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(60))
 		elif bone_name in ["Chest", "UpperChest"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-30))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(30))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-30))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(30))
 		elif bone_name in ["Neck"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-47))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(47))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-47))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(47))
 		elif bone_name in ["Head"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-0.5))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(0.5))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-0.5))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(0.5))
 		elif bone_name in ["LeftShoulder", "RightShoulder"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-18))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(30))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-18))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(30))
 		elif bone_name in ["LeftUpperArm", "RightUpperArm"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-18))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(30))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-18))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(30))
 		elif bone_name in ["LeftLowerArm", "RightLowerArm"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-30))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(70))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-30))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(70))
 		elif bone_name in ["LeftHand","RightHand"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-40))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(45))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-40))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(45))
 		elif bone_name in ["LeftUpperLeg", "RightUpperLeg"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-0.5))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(0.5))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-0.5))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(0.5))
 		elif bone_name in ["LeftLowerLeg", "RightLowerLeg"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-0.5))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(0.5))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-0.5))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(0.5))
 		elif bone_name in ["LeftFoot", "RightFoot"]:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-40))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(40))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-40))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(40))
 		else:
-			ewbik.set_kusudama_twist_from(count_i, deg2rad(-0.5))
-			ewbik.set_kusudama_twist_to(count_i, deg2rad(0.5))
+			ewbik.set_kusudama_twist_from(count_i, deg_to_rad(-0.5))
+			ewbik.set_kusudama_twist_to(count_i, deg_to_rad(0.5))
