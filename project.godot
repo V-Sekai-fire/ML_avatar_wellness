@@ -21,19 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Avatar Wellness"
-run/main_scene="res://scenes/avatar_sample_c.tscn"
+run/main_scene="res://scenes/avatar_sampler.tscn"
 config/features=PackedStringArray("4.0")
-
-[autoload]
-
-VSKExporter="*res://addons/vsk_importer_exporter/vsk_exporter.gd"
-VSKImporter="*res://addons/vsk_importer_exporter/vsk_importer.gd"
-ConnectionUtil="*res://addons/gd_util/connection_util.gd"
-EntityManager="*res://addons/entity_manager/entity_manager.gd"
-GodotMathExtension="*res://addons/math_util/math_funcs.gd"
-NetworkManager="*res://addons/network_manager/network_manager.gd"
-NetworkLogger="*res://addons/network_manager/network_logger.gd"
-LogManager="*res://addons/sar1_log_manager/log_manager.gd"
 
 [editor]
 

@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea88iv8md7l8"]
+
+[ext_resource type="Script" path="res://Node3D.gd" id="1_eyejt"]
+[ext_resource type="PackedScene" uid="uid://d15o60e5xoj8a" path="res://avatar_wellness/art/characters/SK_Adult_Female/v_sekai_adult-female.vrm" id="1_teabr"]
+[ext_resource type="PackedScene" uid="uid://dhxigmvwk1f5c" path="res://avatar_wellness/art/characters/SK_Adult_Male/v_sekai_adult-male.vrm" id="2_ad7pd"]
+
+[node name="Node3d" type="Node3D"]
+script = ExtResource("1_eyejt")
+
+[node name="v_sekai_adult-female" parent="." instance=ExtResource("1_teabr")]
+
+[node name="v_sekai_adult-male" parent="." instance=ExtResource("2_ad7pd")]
