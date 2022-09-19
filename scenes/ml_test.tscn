@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbfoqm17up44j"]
-
-[ext_resource type="Script" path="res://Node3D.gd" id="1_20oaa"]
-[ext_resource type="PackedScene" uid="uid://sx8o536t5l41" path="res://Miraikomachi.vrm" id="2_efwqm"]
-
-[node name="Node3d" type="Node3D"]
-script = ExtResource("1_20oaa")
-
-[node name="Miraikomachi" parent="." instance=ExtResource("2_efwqm")]
