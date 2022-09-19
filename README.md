@@ -1,5 +1,7 @@
 # Godot Avatar Wellness
 
+Godot Engine 4.0 has a VRM to Godot Humanoid Profile feature. This is not essential for V-Sekai.
+
 ## Install on Windows
 
 ```powershell
