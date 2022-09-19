@@ -1,0 +1,233 @@
+Note: NumExpr detected 36 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+NumExpr defaulting to 8 threads.
+ray.init() failed: Could not find any running Ray instance. Please specify the one to connect to by setting `--address` flag or `RAY_ADDRESS` environment variable.
+███████████████████████
+█ █ █ █  ▜█ █ █ █ █   █
+█ █ █ █ █ █ █ █ █ █ ███
+█ █   █ █ █ █ █ █ █ ▌ █
+█ █████ █ █ █ █ █ █ █ █
+█     █  ▟█     █ █   █
+███████████████████████
+ludwig v0.5.5 - Evaluate
+
+Dataset path: test.tsv
+Model path: results/experiment_run/model
+
+Loading metadata from: results/experiment_run/model/training_set_metadata.json
+Evaluation:   0%|          | 0/1 [00:00<?, ?it/s]Evaluation: 100%|██████████| 1/1 [00:00<00:00,  1.17it/s]Evaluation: 100%|██████████| 1/1 [00:00<00:00,  1.17it/s]
+
+===== profile_Root =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_Spine =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_Chest =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_UpperChest =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_Neck =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_Head =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftEye =====
+loss: nan
+token_accuracy: 0.2222222238779068
+
+===== profile_RightEye =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_Jaw =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftShoulder =====
+loss: nan
+token_accuracy: 0.2857142984867096
+
+===== profile_LeftUpperArm =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftLowerArm =====
+loss: nan
+token_accuracy: 0.0714285746216774
+
+===== profile_LeftHand =====
+loss: nan
+token_accuracy: 0.10000000149011612
+
+===== profile_LeftThumbMetacarpal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftThumbProximal =====
+loss: nan
+token_accuracy: 0.05263157933950424
+
+===== profile_LeftThumbDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftIndexProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftIndexIntermediate =====
+loss: nan
+token_accuracy: 0.1304347813129425
+
+===== profile_LeftIndexDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftMiddleProximal =====
+loss: nan
+token_accuracy: 0.05000000074505806
+
+===== profile_LeftMiddleIntermediate =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftMiddleDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftRingProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftRingIntermediate =====
+loss: nan
+token_accuracy: 0.04545454680919647
+
+===== profile_LeftLittleProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftLittleIntermediate =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftLittleDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightShoulder =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightUpperArm =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightLowerArm =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightHand =====
+loss: nan
+token_accuracy: 0.09090909361839294
+
+===== profile_RightThumbMetacarpal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightThumbProximal =====
+loss: nan
+token_accuracy: 0.05000000074505806
+
+===== profile_RightThumbDistal =====
+loss: nan
+token_accuracy: 0.0555555559694767
+
+===== profile_RightIndexProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightIndexIntermediate =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightIndexDistal =====
+loss: nan
+token_accuracy: 0.0555555559694767
+
+===== profile_RightMiddleProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightMiddleDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightRingProximal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightRingIntermediate =====
+loss: nan
+token_accuracy: 0.043478261679410934
+
+===== profile_RightRingDistal =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_RightLittleProximal =====
+loss: nan
+token_accuracy: 0.0476190485060215
+
+===== profile_RightLittleIntermediate =====
+loss: nan
+token_accuracy: 0.03999999910593033
+
+===== profile_RightLittleDistal =====
+loss: nan
+token_accuracy: 0.15789473056793213
+
+===== profile_LeftUpperLeg =====
+loss: nan
+token_accuracy: 0.0
+
+===== profile_LeftLowerLeg =====
+loss: nan
+token_accuracy: 0.0714285746216774
+
+===== profile_LeftFoot =====
+loss: nan
+token_accuracy: 0.10000000149011612
+
+===== profile_LeftToes =====
+loss: nan
+token_accuracy: 0.10000000149011612
+
+===== profile_RightUpperLeg =====
+loss: nan
+token_accuracy: 0.06666667014360428
+
+===== profile_RightLowerLeg =====
+loss: nan
+token_accuracy: 0.13333334028720856
+
+===== profile_RightFoot =====
+loss: nan
+token_accuracy: 0.1818181872367859
+
+===== profile_RightToes =====
+loss: nan
+token_accuracy: 0.0
+
+===== combined =====
+loss: nan
+Saved to: output

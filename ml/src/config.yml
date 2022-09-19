@@ -1,15 +1,114 @@
 input_features:
-  - name: vector
-    type: vector
-  - name: sink_bone_hierarchy
-    type: sequence
-  - name: source_bone_hierarchy
-    type: sequence
+  - name: skeleton
+    type: text
 output_features:
-  - name: label
-    type: binary
-preprocessing:
-  stratify: label
-training:
-  batch_size: 256
-  threshold: 0.01
+  - name: profile_Root
+    type: text
+  - name: profile_Spine
+    type: text
+  - name: profile_Chest
+    type: text
+  - name: profile_UpperChest
+    type: text
+  - name: profile_UpperChest
+    type: text
+  - name: profile_Neck
+    type: text
+  - name: profile_Head
+    type: text
+  - name: profile_LeftEye
+    type: text
+  - name: profile_RightEye
+    type: text
+  - name: profile_Jaw
+    type: text
+  - name: profile_LeftShoulder
+    type: text
+  - name: profile_LeftUpperArm
+    type: text
+  - name: profile_LeftLowerArm
+    type: text
+  - name: profile_LeftHand
+    type: text
+  - name: profile_LeftThumbMetacarpal
+    type: text
+  - name: profile_LeftThumbProximal
+    type: text
+  - name: profile_LeftThumbDistal
+    type: text
+  - name: profile_LeftIndexProximal
+    type: text
+  - name: profile_LeftIndexIntermediate
+    type: text
+  - name: profile_LeftIndexDistal
+    type: text
+  - name: profile_LeftMiddleProximal
+    type: text
+  - name: profile_LeftMiddleIntermediate
+    type: text
+  - name: profile_LeftMiddleDistal
+    type: text
+  - name: profile_LeftRingProximal
+    type: text
+  - name: profile_LeftRingIntermediate
+    type: text
+  - name: profile_LeftLittleProximal
+    type: text
+  - name: profile_LeftLittleIntermediate
+    type: text
+  - name: profile_LeftLittleDistal
+    type: text
+  - name: profile_RightShoulder
+    type: text
+  - name: profile_RightUpperArm
+    type: text
+  - name: profile_RightLowerArm
+    type: text
+  - name: profile_RightHand
+    type: text
+  - name: profile_RightThumbMetacarpal
+    type: text
+  - name: profile_RightThumbProximal
+    type: text
+  - name: profile_RightThumbDistal
+    type: text
+  - name: profile_RightIndexProximal
+    type: text
+  - name: profile_RightIndexIntermediate
+    type: text
+  - name: profile_RightIndexDistal
+    type: text
+  - name: profile_RightMiddleProximal
+    type: text
+  - name: profile_RightMiddleDistal
+    type: text
+  - name: profile_RightRingProximal
+    type: text
+  - name: profile_RightRingIntermediate
+    type: text
+  - name: profile_RightRingDistal
+    type: text
+  - name: profile_RightLittleProximal
+    type: text
+  - name: profile_RightLittleIntermediate
+    type: text
+  - name: profile_RightLittleDistal
+    type: text
+  - name: profile_LeftUpperLeg
+    type: text
+  - name: profile_LeftLowerLeg
+    type: text
+  - name: profile_LeftLowerLeg
+    type: text
+  - name: profile_LeftFoot
+    type: text
+  - name: profile_LeftToes
+    type: text
+  - name: profile_RightUpperLeg
+    type: text
+  - name: profile_RightLowerLeg
+    type: text
+  - name: profile_RightFoot
+    type: text
+  - name: profile_RightToes
+    type: text
